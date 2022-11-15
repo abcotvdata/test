@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Our America: Lowballed V3!!!</title>
+
+	<!-- viewport for responsive -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- CSS stylesheets -->	
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.typekit.net/dkn4gfd.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="css/scrollytelling.css">
+
+  </head>
+  <body>
+
+    <!-- DELETE THIS FOR FINAL VERSION -->
+    <div class="password">
+        <input type="text" id="password">
+        <div class="submit">SUBMIT</div>
+    </div>
+    <!-- DELETE THIS FOR FINAL VERSION -->
+
+
+    <div class="abovethefold">
+
+    	<div class="backgroundvid">
+    		<video muted autoplay loop src="media/title-bg-vid1.mp4"></video>
+    	</div>
+
+    	<div class="titlevid">
+			<img src="img/lowballed-gif.gif">
+		</div>
+
+        <div class="arrow bounce">    
+            <div class="innerarrow fade-in-image">
+                <img src="img/arrow-down.png">
+            </div>
+        </div>
+
+    	
+    </div>
+
+    <div class="container">
+    		
+		<div class="textbox textbox1">
+
+			<div class="innertext">
+
+				<div class="subhead">
+					<h3>FIRST TITLE TEXT HERE</h3>
+    			</div>
+
+    			<div class="paragraphs">
+    				<p>Black and Latino families for decades have seen their homes appraised for tens of thousands - or hundreds of thousands - of dollars less than expected. Many suspect racial bias is a factor.</p>
+
+    				<p>An ABC Owned Television Stations analysis of data for more than 50 million home loans shows refinance applications in predominantly Black neighborhoods across the country are nearly five times more likely to be under-appraised than homes in white communities.</p>
+
+                    <p>The exclusive ABC analysis also found a similar pattern when people are buying and selling homes: loans in Black neighborhoods are more than twice as likely to be appraised under value.</p>
+
+    				<p>The investigation found the profound impacts. More home loans fall through. The gap in home ownership between white families and people of color persists. And lost generational wealth.</p>
+
+    			</div>
+
+			</div>
+			
+		</div> <!-- end text box -->
+
+
+		<div class="contentbox contentbox1">
+
+			<div class="innercontent">
+
+				<div class="subhead">
+					<h3>SEE THE FULL DOCUMETARY HERE</h3>
+    			</div>
+
+    			<div class="videobox">
+                    <div class="iframecontainer">
+    				    <iframe src="https://abc7news.com/video/embed/?pid=12328941" scrolling="no"></iframe>
+                    </div>
+    			</div>
+
+			</div>	
+			
+		</div> <!-- end content box -->
+
+
+		<div class="textbox textbox2">
+
+			<div class="innertext">
+
+    			<div class="paragraphs">
+
+                    <p>A 2018 report from the Brookings Institution estimates an astounding price tag. The researchers say that homes in predominantly Black neighborhoods are devalued by $156 billion, an average of almost $50,000 per home.</p>
+
+                    <p>That's enough money to pay for 8 million four-year degrees and cover nearly all of the damage from Hurricane Katrina.</p>
+
+    	
+    			</div>
+
+			</div>
+			
+		</div> <!-- end text box -->
+
+
+		<div class="contentbox contentbox1">
+
+			<div class="innercontent">
+
+    			<div class="graphembed">
+    				<iframe title="Appraisal Disparities"  aria-label="Column Chart" id="datawrapper-chart-rvhBm" src="https://datawrapper.dwcdn.net/TgwR9/6/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+    			</div>
+
+			</div>	
+			
+		</div> <!-- end content box -->
+
+
+    </div> <!-- ends container -->
+
+    <div class="startscrolly">
+            
+            <div class="outermap">
+                <div id="map"></div>
+                <div class="mapoverlay"></div>
+            </div>
+
+
+            <div class="scrollboxes">
+
+                <div class="textbox scrollbox scrollbox0">
+                    
+                </div> <!-- end scroll box -->
+
+                <div class="textbox scrollbox scrollbox1">
+
+                    <div class="innertext">
+
+                        <div class="paragraphs">
+
+                            <p>This is vital equity Black families lack access to in order to pay for college, start businesses, remodel homes or create a nest egg for future generations-creating intergenerational wealth.</p>
+
+                            <p>The ABC analysis found that while everyone's homes are subject to a possible under-appraisal during the home-lending process, it's happening more often to Black and Latino people nationwide - in neighborhoods in almost every community.</p>
+        
+
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end scroll box -->
+
+
+
+                <div class="textbox scrollbox scrollboxleft scrollbox2">
+
+                    <div class="innertext">
+
+                        <div class="paragraphs">
+                            <p><span class="scrolltitle">IN NEW YORK CITY:</span> About <span class="boldtext">29 per 1,000 homes</span> sold in mostly Black neighborhoods and <span class="boldtext">23 per 1,000 homes</span> sold in mostly Latino or Hispanic neighborhoods were under-appraised.</p> 
+
+                            <p>That's compared to just <span class="boldtext">6 per 1,000 homes</span> sold in mostly white neighborhoods.</p>
+
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end scroll box -->
+
+
+                <div class="textbox scrollbox scrollboxleft scrollbox3">
+
+                    <div class="innertext">
+
+                        <div class="paragraphs">
+                            <p><span class="scrolltitle">IN WAKE COUNTY, N.C.: </span> roughly <span class="boldtext">90 per 1,000 homes</span> sold in mostly Black neighborhoods were under-appraised. But the rate was just <span class="boldtext">57 for white neighborhoods.</span></p>
+
+                            <p> Rates were similar in <span class="scrolltitle">DURHAM COUNTY, N.C.: </span>about <span class="boldtext">109 per 1,000 homes sold</span> in Black neighborhoods, compared to <span class="boldtext">60 per 1,000 homes</span> sold in white neighborhoods.</p>
+
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end scroll box -->
+
+
+                <div class="textbox scrollbox scrollboxright scrollbox4">
+
+                    <div class="innertext">
+
+                        <div class="paragraphs">
+                            <p><span class="scrolltitle">IN HARRIS COUNTY, TEXAS: </span> Under-appraisal rates were about <span class="boldtext">112 per 1,000 sales</span> in mostly Black neighborhoods, <span class="boldtext">100 per 1,000 sales</span> in mostly Latino or Hispanic neighborhoods and just <span class="boldtext">59 per 1,000 sales</span> in mostly white neighborhoods.</p>
+
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end scroll box -->
+
+
+
+                <div class="textbox scrollbox scrollboxright scrollbox5 lastscroll">
+
+                    <div class="innertext">
+
+                        <div class="paragraphs">
+                            <p><span class="scrolltitle">IN ALAMEDA COUNTY, </span> in California's Bay Area, under-appraisal rates were <span class="boldtext">41 and 51 per 1,000 homes </span>sold in Black and Latino neighorhoods, respectively. But just <span class="boldtext">11 out of over 1,000 homes</span> sold in white neighborhoods were under-appraised.</p>
+
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end scroll box -->
+
+
+                
+            </div> <!-- end all scroll boxes -->
+            
+
+
+        </div> <!-- end scrolly -->
+
+
+        <div class="container">
+            
+        <div class="textbox textbox1">
+
+            <div class="innertext">
+
+                <div class="subhead">
+                    <h3>MORE TITLE TEXT HERE</h3>
+                </div>
+
+                <div class="paragraphs">
+                    <p>As a neighborhood's share of Black or Latino residents rises, the share of lowballed appraisals rises. The gap is also higher in the poorest neighborhoods. The data analysis shows that appraisers were as much as 30 times more likely to undervalue homes in America's poorest Black neighborhoods than in the wealthiest white neighborhoods.</p>
+
+                </div>
+
+            </div>
+            
+        </div> <!-- end text box -->
+
+
+        <div class="contentbox contentbox1">
+
+            <div class="innercontent">
+
+                <div class="subhead">
+                    <h3>VIDEO TITLE HERE?</h3>
+                </div>
+
+                <div class="videobox">
+                    <div class="iframecontainer">
+                        <iframe src="https://abc7news.com/video/embed/?pid=12328941" scrolling="no"></iframe>
+                    </div>
+                </div>
+
+            </div>  
+            
+        </div> <!-- end content box -->
+
+
+        <div class="textbox textbox2">
+
+            <div class="innertext">
+
+                <div class="paragraphs">
+                    <p>The result is a growing number of Black and Latino families are taking steps to prevent, or prove, the suspected bias. They're "white-washing" their homes by removing personal belongings - from family photos to hair products to anything that could be a potential signal that the home they're refinancing or selling belongs to a family of color. They say they're doing it to increase their chance of landing a fair appraisal.</p>
+
+                    <p>Experts in the home-lending and appraisal industry who've studied the issue for years say it's a systemic nationwide problem that's backed up by the data the government gathers about almost every home loan application.</p>
+
+                </div>
+
+            </div>
+            
+        </div> <!-- end text box -->
+
+
+        <div class="contentbox contentbox1">
+
+            <div class="innercontent">
+
+                <div class="graphembed">
+                    <iframe title="Metro search" aria-label="Table" id="datawrapper-chart-rvhBm" src="https://datawrapper.dwcdn.net/wytmm/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+                </div>
+
+            </div>  
+            
+        </div> <!-- end content box -->
+        <br>
+        <br>
+        <br>
+
+        <!-- <div class="scrollytelling image-stepper">
+
+            <div id="img-scroll" class="chart">
+            <img src="img/title-card.jpg" id="grid-step-0">
+            <img src="img/trailer-poster.jpg" id="grid-step-1">
+            <img src="images/insert-img.png" id="grid-step-2">
+            <img src="images/insert-img.png" id="grid-step-3">
+            <img src="images/insert-img.png" id="grid-step-4">
+            <img src="images/insert-img.png" id="grid-step-5">
+            </div>
+
+            <div class="steps color-thing">
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-0'>
+                    <h2>INSERT TITLE HERE</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-1'>
+                    <p><b>Insert title here</b></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-2'>
+                    <p><b>Insert title here</b></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-3'>
+                    <p><b>Insert title here</b></p><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-4'>
+                    <p><b>Insert title here</b></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="container textbox textbox2 innertext paragraphs step" data-show-selector='#grid-step-5'>
+                    <p><b>Insert title here</b></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                
+            </div>
+
+         </div> -->
+
+        <div class="rollovertitle">
+            <h3>ABOUT THIS INVESTIGATION</h3>
+
+            <p>This project is part of a data journalism and race and culture collaboration across ABC Owned Television Stations. Explore what our investigators uncovered in their local communities by clicking the stations' logos below.</p>
+
+            <div class="nerdboxclick">
+                <button>READ MORE ABOUT THE DATA BEHIND THIS PROJECT</button>
+            </div>
+            
+        </div> <!-- end rollover title -->
+
+        <div class="masterrollovercontainer">
+
+            <div class='photocontainer'>
+                <div class="photoblocks">
+                    
+                </div>
+            </div>
+
+            <div class="alert">
+                <div class="exitbutton">
+                        <img src="img/exit.svg">
+                </div>
+                <div class="alertbox">
+                    <p>This story is coming soon!</p>
+                    
+                </div>
+            </div>          
+
+        </div> <!-- end rollover/links container -->
+
+
+         <div class="credits">
+            <div class="subhead">
+                <h3>CREDITS</h3>
+            </div>
+                <p><span class="scrolltitle">Documentary credits: </span>Jake Fritz, Ty Sellers, Easton Cochran, Alicia Frost, Kaila Sheppard, Hudson Velez and Gwendolyn Reid. <span class="scrolltitle">Page design and development: </span> Matthew Duncan, Jaidyn Wood, Tori Guzman, Dalia Navarro and Deacon Floyd</p>
+
+                <p class="copywrite">&#9400; 2022 ABC Owned Television Stations </p>
+            
+         </div>
+
+
+
+    </div> <!-- ends container -->
+
+
+
+    <!-- NERD BOX -->  
+
+        <div class="nerdbox">
+            <div class="nerdtextbox">
+                <h3 class="nerdboxtitle">ABOUT THIS DATA</h3>
+
+                <p>For our analysis, we used nationwide <a href="https://www.fhfa.gov/DataTools/Downloads/Pages/Public-Use-Databases.aspx" target="_Blank">home loan originations data</a> collected by the Federal Housing Finance Agency (FHFA) to measure disparities in "appraised values" vs. "contract" (or sales prices) for single-family homes sold and refinanced between 2018-2020, based on the racial makeup and income of census tract neighborhoods and homebuyers.</p>
+
+                <p>We used elements within the datasets to calculate an estimated sales price of each home, and compared that to the “property value” of each home - <a href="https://www.consumerfinance.gov/rules-policy/regulations/1003/4/#a-28" target="_Blank">a proxy for the appraised value, according to FHFA.</a></p>
+
+                <p>Based on the calculations, we tallied the number of homes sold or refinanced in census tracts where the appraisal was HIGHER or LOWER, overall, than our calculated contract price in a sales origination.</p>
+
+                <p>We used 2019 census demographic data to develop population, racial makeup, income and other characteristics of each tract to look at disparities.</p>
+
+                <p>The FHFA released <a href="https://www.fhfa.gov/Media/Blog/Pages/Exploring-Appraisal-Bias-Using-UAD-Aggregate-Statistics.aspx" target="_Blank">its own nationwide analysis of appraisal bias in late October</a> using actual appraisal data and found similar disparities across America.</p>
+
+            </div>
+
+            <div class="exitbutton">
+                <img src="img/exit.svg">
+            </div>
+            
+        </div> <!-- ends nerd box -->
+
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jqueryui.js"></script>
+	<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+     crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="js/lib/waypoint.js"></script>
+    <script src="js/lib/waypoints.min.js"></script>
+
+    <!-- geojsons -->
+    <script src="nyc.geojson"></script>
+    <script src="wake-durham.geojson"></script>
+    <script src="houston.geojson"></script>
+    <script src="bay-area.geojson"></script>
+
+	<script src="js/script.js"></script>
+
+  </body>
+</html>
+
+
+
