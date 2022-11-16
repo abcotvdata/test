@@ -92,14 +92,18 @@ $(document).ready(function(){ // begin document.ready block
 
 
 	$(".scrollbox2").waypoint(function(dir){
-
-		$.getJSON("nyc.geojson",function(data){
 		
 			if (dir == "down") {
 
-				map.flyTo([40.6166386,-74.799314], 9, {animate:true, duration:2});
+				if ($(window).width() > 820){
+					map.flyTo([37.7955868,-121.0670702], 9, {animate:true, duration:2});
+				} else {
+					map.flyTo([37.3667933,-121.8487194], 9, {animate:true, duration:2});
+				}
 
 				
+
+				$.getJSON("bay-area.geojson",function(data){
 
 					// style of the polygons
 					var myStyle = {
@@ -111,19 +115,17 @@ $(document).ready(function(){ // begin document.ready block
 
 					var nylayerGroup = L.geoJson(data,  {
 						style: myStyle,
-						className: "NY"
+						className: "bay-area"
 					}).addTo(map);
 
-				
+				}); //end geojson function
 
 			} else if (dir == "up") {
 				
-				map.flyTo([50.8513826,-118.2170459], 3, {animate:true , duration:2});
-				$(".NY").animate({"opacity":"0"})
+				map.flyTo([50.8513826,-118.2170459], 3, {animate:true , duration:2.5});
+				$(".bay-area").animate({"opacity":"0"})
 
 			}
-
-		}); //end geojson function
 		
 	}, { offset: '100%' }
 	);
@@ -132,10 +134,15 @@ $(document).ready(function(){ // begin document.ready block
 	$(".scrollbox3").waypoint(function(dir){
 		
 		if (dir == "down") {
+			if ($(window).width() > 820) {
+				map.flyTo([41.7885541,-90.3801044], 8, {animate:true, duration:2.5, easeLinearity:1});
+			} else {
+				map.flyTo([41.3479351,-87.873636], 8, {animate:true, duration:2.5, easeLinearity:1});
+				
+			}
+			
 
-			map.flyTo([35.9209034,-79.4994774], 8, {animate:true, duration:2});
-
-			$.getJSON("wake-durham.geojson",function(data){
+			$.getJSON("chicago.geojson",function(data){
 
 				// style of the polygons
 				var myStyle = {
@@ -147,15 +154,61 @@ $(document).ready(function(){ // begin document.ready block
 
 				var nylayerGroup = L.geoJson(data,  {
 					style: myStyle,
-					className: "wake-durham"
+					className: "chicago"
 				}).addTo(map);
 
 			}); //end geojson function
 
 		} else if (dir == "up") {
 			
-			map.flyTo([40.6166386,-74.799314], 8, {animate:true , duration:2});
-			$(".wake-durham").animate({"opacity":"0"})
+			if ($(window).width() > 820) {
+				map.flyTo([37.7955868,-121.0670702], 8, {animate:true , duration:2.5});
+			} else {
+				map.flyTo([37.3667933,-121.8487194], 9, {animate:true, duration:2});
+			}
+			$(".chicago").animate({"opacity":"0"})
+
+		}
+		
+	}, { offset: '100%' }
+	);
+
+	$(".scrollbox4").waypoint(function(dir){
+		
+		if (dir == "down") {
+
+			if ($(window).width() > 820) {
+				map.flyTo([40.8578235,-74.4703079], 9, {animate:true, duration:2.5});
+			} else {
+				map.flyTo([40.3280653,-74.0299392], 9, {animate:true, duration:2.5});
+			}
+			
+
+			$.getJSON("nyc.geojson",function(data){
+
+				// style of the polygons
+				var myStyle = {
+				    "color": "#be0000",
+				    "weight": 1,
+				    "fillOpacity": 0.55,
+				    "fillColor": "#be0000"
+				};
+
+				var nylayerGroup = L.geoJson(data,  {
+					style: myStyle,
+					className: "nyc"
+				}).addTo(map);
+
+			}); //end geojson function
+
+		} else if (dir == "up") {
+			
+			if ($(window).width() > 820) {
+				map.flyTo([41.7885541,-90.3801044], 8, {animate:true , duration:2.5});
+			} else {
+				map.flyTo([41.3479351,-87.873636], 8, {animate:true , duration:2.5});
+			}
+			$(".nyc").animate({"opacity":"0"})
 
 		}
 		
@@ -163,11 +216,65 @@ $(document).ready(function(){ // begin document.ready block
 	);
 
 
-	$(".scrollbox4").waypoint(function(dir){
+	$(".scrollbox5").waypoint(function(dir){
 		
 		if (dir == "down") {
 
-			map.flyTo([29.7050148,-94.8108052], 8, {animate:true, duration:2});
+			$(".nyc").animate({"opacity":"0"})
+
+			if ($(window).width() > 820) {
+				map.flyTo([40.0237883,-74.1819167], 9, {animate:true, duration:1.5});
+			} else {
+				map.flyTo([39.6299895,-75.106123], 9, {animate:true, duration:1.5});
+			}
+
+			
+
+			$.getJSON("philly.geojson",function(data){
+
+				// style of the polygons
+				var myStyle = {
+				    "color": "#be0000",
+				    "weight": 1,
+				    "fillOpacity": 0.55,
+				    "fillColor": "#be0000"
+				};
+
+				var nylayerGroup = L.geoJson(data,  {
+					style: myStyle,
+					className: "philly"
+				}).addTo(map);
+
+			}); //end geojson function
+
+		} else if (dir == "up") {
+			
+			if ($(window).width() > 820) {
+				map.flyTo([40.8578235,-74.4703079], 9, {animate:true , duration:1.5});
+			} else {
+				map.flyTo([40.3280653,-74.0299392], 9, {animate:true , duration:2.5});
+			}
+			
+			$(".philly").animate({"opacity":"0"})
+			$(".nyc").animate({"opacity":"1"})
+
+		}
+		
+	}, { offset: '100%' }
+	);
+
+
+	$(".scrollbox6").waypoint(function(dir){
+		
+		if (dir == "down") {
+
+			if ($(window).width() > 820) {
+				map.flyTo([29.7050148,-94.8108052], 8, {animate:true, duration:2.5});
+			} else {
+				map.flyTo([29.2571178,-95.1745759], 8, {animate:true, duration:2.5});
+			}
+
+			
 
 			$.getJSON("houston.geojson",function(data){
 
@@ -188,42 +295,13 @@ $(document).ready(function(){ // begin document.ready block
 
 		} else if (dir == "up") {
 			
-			map.flyTo([35.9209034,-79.4994774], 8, {animate:true , duration:2});
-			$(".houston").animate({"opacity":"0"})
-
-		}
-		
-	}, { offset: '100%' }
-	);
-
-
-	$(".scrollbox5").waypoint(function(dir){
-		
-		if (dir == "down") {
-
-			map.flyTo([37.7996882,-121.9410201], 8, {animate:true, duration:2});
-
-			$.getJSON("bay-area.geojson",function(data){
-
-				// style of the polygons
-				var myStyle = {
-				    "color": "#be0000",
-				    "weight": 1,
-				    "fillOpacity": 0.55,
-				    "fillColor": "#be0000"
-				};
-
-				var nylayerGroup = L.geoJson(data,  {
-					style: myStyle,
-					className: "bay-area"
-				}).addTo(map);
-
-			}); //end geojson function
-
-		} else if (dir == "up") {
+			if ($(window).width() > 820) {
+				map.flyTo([40.0237883,-74.1819167], 9, {animate:true , duration:2.5});
+			} else {
+				map.flyTo([39.6299895,-75.106123], 9, {animate:true , duration:2.5});
+			}
 			
-			map.flyTo([29.7050148,-94.8108052], 8, {animate:true , duration:2});
-			$(".bay-area").animate({"opacity":"0"})
+			$(".houston").animate({"opacity":"0"})
 
 		}
 		
