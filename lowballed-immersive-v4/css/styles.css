@@ -361,7 +361,7 @@ body {
 
 .startscrolly {
    position: relative;
-   border: 2px solid purple;
+   /*border: 2px solid purple;*/
    height: 650vh;
 
 }
@@ -373,7 +373,7 @@ body {
    position: absolute;
    top: 0px;
    z-index: 2000;
-   border: 2px solid limegreen;
+   /*border: 2px solid limegreen;*/
 }
 
 .scrollbox {
