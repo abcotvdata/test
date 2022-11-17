@@ -250,8 +250,7 @@ body {
 } 
 
 .textbox {
-   padding-top: 100px;
-   padding-bottom: 100px;
+   padding: 100px 10px;
 } 
 
 .innertext {
@@ -362,7 +361,7 @@ body {
 .startscrolly {
    position: relative;
    /*border: 2px solid purple;*/
-   height: 1150vh;
+   height: 1000vh;
 
 }
 
@@ -376,17 +375,31 @@ body {
    /*border: 2px solid limegreen;*/
 }
 
-.scrollbox {
+.scrollnew {
+   height: 80vh;
+}
+
+.scrollsame {
    height: 100vh;
+}
+
+.scrollbox {
    /*border: 2px solid hotpink;*/
    position: relative;
+   padding: 10px;
 }
 
 .scrollbox1 {
    top: 0px;
+   height: 100vh;
 }
 
-.scrollbox .innertext {
+.scrollnew .innertext {
+   position: relative;
+   top: 50vh;
+}
+
+.scrollsame .innertext {
    position: relative;
    top: 40vh;
 }
@@ -626,6 +639,10 @@ body {
       text-align: center;
    }
 
+.footer {
+   padding: 0px 10px;
+}   
+
 
 
 /*______________________________MEDIA QUERIES______________________________*/
@@ -677,7 +694,7 @@ body {
  @media only screen and (max-width: 700px) {
 
    .innercontent {
-      padding: 0px 20px;
+      padding: 0px 10px;
    }
 
  }
