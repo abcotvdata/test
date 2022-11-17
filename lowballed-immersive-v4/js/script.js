@@ -33,15 +33,15 @@ $(document).ready(function(){ // begin document.ready block
 
 	// DELETE THIS FOR FINAL VERSION
 
-	// $(".submit").click(function(){
-	// 	console.log('submit')
-	// 	var password = $("#password").val()
-	// 	console.log(password)
+	$(".submit").click(function(){
+		console.log('submit')
+		var password = $("#password").val()
+		console.log(password)
 
-	// 	if (password == "abcotvdata") {
-	// 	 	$(".password").hide()
-	// 	}
-	// });
+		if (password == "abcotvdata") {
+		 	$(".password").hide()
+		}
+	});
 
 	// DELETE THIS FOR FINAL VERSION
 
