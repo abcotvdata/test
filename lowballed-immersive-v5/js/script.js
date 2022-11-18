@@ -33,15 +33,15 @@ $(document).ready(function(){ // begin document.ready block
 
 	// DELETE THIS FOR FINAL VERSION
 
-	$(".submit").click(function(){
-		console.log('submit')
-		var password = $("#password").val()
-		console.log(password)
+	// $(".submit").click(function(){
+	// 	console.log('submit')
+	// 	var password = $("#password").val()
+	// 	console.log(password)
 
-		if (password == "abcotvdata") {
-		 	$(".password").hide()
-		}
-	});
+	// 	if (password == "abcotvdata") {
+	// 	 	$(".password").hide()
+	// 	}
+	// });
 
 	// DELETE THIS FOR FINAL VERSION
 
@@ -98,7 +98,7 @@ $(document).ready(function(){ // begin document.ready block
 				if ($(window).width() > 820){
 					map.flyTo([37.7955868,-121.0670702], 8, {animate:true, duration:2});
 				} else {
-					map.flyTo([37.3667933,-121.8487194], 8, {animate:true, duration:2});
+					map.flyTo([37.3798895,-122.2881725], 8, {animate:true, duration:2});
 				}
 
 				
@@ -140,7 +140,7 @@ $(document).ready(function(){ // begin document.ready block
 				if ($(window).width() > 820){
 					map.flyTo([37.5695253,-121.0670702], 9, {animate:true, duration:1});
 				} else {
-					map.flyTo([37.3667933,-121.8487194], 9, {animate:true, duration:1});
+					map.flyTo([37.4300704,-121.9228771], 9, {animate:true, duration:1});
 				}
 
 
@@ -167,13 +167,17 @@ $(document).ready(function(){ // begin document.ready block
 
 			} else if (dir == "up") {
 				
-				map.flyTo([37.7955868,-121.0670702], 8, {animate:true , duration:1});
+				if ($(window).width() > 820){
+					map.flyTo([37.7955868,-121.0670702], 8, {animate:true , duration:1});
+				} else {
+					map.flyTo([37.3798895,-122.2881725], 8, {animate:true, duration:1});
+				}
 				$(".bay-area").animate({"opacity":"0"})
 				$(".bay-area-metro").animate({"opacity":"1"})
 
 			}
 		
-	}//, { offset: '100%' }
+	}, { offset: '20%' }
 	);
 
 
@@ -210,9 +214,11 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([37.5695253,-121.0670702], 9, {animate:true , duration:2.5});
 			} else {
-				map.flyTo([37.3667933,-121.8487194], 8, {animate:true, duration:2});
+				map.flyTo([37.4300704,-121.9228771], 9, {animate:true, duration:2});
 			}
 			$(".chicago-metro").animate({"opacity":"0"})
+			$(".bay-area-metro").animate({"opacity":"0"})
+			$(".bay-area").animate({"opacity":"1"})
 
 		}
 		
@@ -263,7 +269,7 @@ $(document).ready(function(){ // begin document.ready block
 
 		}
 		
-	}//, { offset: '100%' }
+	}, { offset: '20%' }
 	);
 
 
@@ -274,7 +280,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.7122504,-74.4977738], 9, {animate:true, duration:2.5});
 			} else {
-				map.flyTo([40.3280653,-74.0299392], 9, {animate:true, duration:2.5});
+				map.flyTo([40.5406542,-74.0253937], 9, {animate:true, duration:2.5});
 			}
 			
 
@@ -303,6 +309,8 @@ $(document).ready(function(){ // begin document.ready block
 				map.flyTo([41.3479351,-87.873636], 8, {animate:true , duration:2.5});
 			}
 			$(".nyc").animate({"opacity":"0"})
+			$(".chicago").animate({"opacity":"1"})
+			$(".chicago-metro").animate({"opacity":"0"})
 
 		}
 		
@@ -316,7 +324,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.7164141,-75.8326127], 7, {animate:true, duration:1});
 			} else {
-				map.flyTo([40.3280653,-74.0299392], 7, {animate:true, duration:1});
+				map.flyTo([40.3280653,-74.0299392], 6.5, {animate:true, duration:1});
 			}
 
 			$(".nyc").animate({"opacity":"0"})
@@ -344,14 +352,14 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.7122504,-74.4977738], 9, {animate:true , duration:1});
 			} else {
-				map.flyTo([40.3280653,-74.0299392], 9, {animate:true , duration:1});
+				map.flyTo([40.5406542,-74.0253937], 9, {animate:true , duration:1});
 			}
 			$(".ny-metro").animate({"opacity":"0"})
 			$(".nyc").animate({"opacity":"1"})
 
 		}
 		
-	}//, { offset: '100%' }
+	}, { offset: '20%' }
 	);
 
 
@@ -365,7 +373,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.0237883,-74.1819167], 8, {animate:true, duration:1.5});
 			} else {
-				map.flyTo([39.6299895,-75.106123], 8, {animate:true, duration:1.5});
+				map.flyTo([39.6299895,-75.106123], 7, {animate:true, duration:1.5});
 			}
 
 			
@@ -392,7 +400,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.7164141,-75.8326127], 7, {animate:true , duration:1.5});
 			} else {
-				map.flyTo([40.7164141,-75.8326127], 7, {animate:true , duration:1.5});
+				map.flyTo([40.3280653,-74.0299392], 6.5, {animate:true, duration:1});
 			}
 			
 			$(".philly-metro").animate({"opacity":"0"})
@@ -410,7 +418,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.0237883,-74.4263625], 9, {animate:true, duration:1});
 			} else {
-				map.flyTo([39.6299895,-75.106123], 9, {animate:true, duration:1});
+				map.flyTo([39.8643959,-75.106123], 9, {animate:true, duration:1});
 			}
 
 			$(".philly-metro").animate({"opacity":"0"})
@@ -437,7 +445,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.0237883,-74.1819167], 8, {animate:true , duration:1});
 			} else {
-				map.flyTo([39.6299895,-75.106123], 8, {animate:true , duration:1});
+				map.flyTo([39.6299895,-75.106123], 7, {animate:true, duration:1.5});
 			}
 			
 			$(".philly").animate({"opacity":"0"})
@@ -445,7 +453,7 @@ $(document).ready(function(){ // begin document.ready block
 
 		}
 		
-	}//, { offset: '100%' }
+	}, { offset: '20%' }
 	);
 
 
@@ -456,7 +464,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([29.7145569,-94.2505025], 8, {animate:true, duration:2.5});
 			} else {
-				map.flyTo([29.2571178,-95.1745759], 8, {animate:true, duration:2.5});
+				map.flyTo([29.2571178,-95.1745759], 7, {animate:true, duration:2.5});
 			}
 
 			
@@ -483,7 +491,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([40.0237883,-74.4263625], 9, {animate:true , duration:2.5});
 			} else {
-				map.flyTo([39.6299895,-75.106123], 9, {animate:true , duration:2.5});
+				map.flyTo([39.8643959,-75.106123], 9, {animate:true , duration:2.5});
 			}
 			
 			$(".houston-metro").animate({"opacity":"0"})
@@ -500,7 +508,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([29.7097859,-94.6652364], 9, {animate:true, duration:1});
 			} else {
-				map.flyTo([29.2571178,-95.1745759], 9, {animate:true, duration:1});
+				map.flyTo([29.5633725,-95.4217682], 8, {animate:true, duration:1});
 			}
 
 			$(".houston-metro").animate({"opacity":"0"})
@@ -527,7 +535,7 @@ $(document).ready(function(){ // begin document.ready block
 			if ($(window).width() > 820) {
 				map.flyTo([29.7097859,-94.6652364], 8, {animate:true , duration:1});
 			} else {
-				map.flyTo([29.2571178,-95.1745759], 8, {animate:true , duration:1});
+				map.flyTo([29.2571178,-95.1745759], 7, {animate:true , duration:1});
 			}
 			
 			$(".houston").animate({"opacity":"0"})
@@ -535,7 +543,7 @@ $(document).ready(function(){ // begin document.ready block
 
 		}
 		
-	}//, { offset: '100%' }
+	}, { offset: '20%' }
 	);
 
 
