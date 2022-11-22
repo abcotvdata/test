@@ -282,6 +282,17 @@ body {
 
 }  
 
+.paragraphs a {
+   color: #e84141;
+}
+
+.paragraphs a:visited {
+   color: #e84141;
+}
+
+
+
+
 .subhead {
    font-family: "urw-din";
    font-weight: bold;
@@ -291,13 +302,50 @@ body {
    font-size: 20px;
 } 
 
+.subhead h3 {
+   text-transform: uppercase;
+}
+
 .firstsubhead h3{
    font-size: 30px;
 } 
 
 .firstsubhead h5{
    font-size: 18px;
-}  
+} 
+
+.contentbox {
+   padding-bottom: 50px;
+}
+
+.guide-box {
+   font-family: "urw-din";
+   font-weight: bold;
+   letter-spacing: 2px;
+   color: white;
+   max-width: 900px;
+   text-align: center;
+   margin: auto;
+   text-transform: uppercase;
+   font-size: 18px;
+   position: relative;
+   padding-bottom: 100px;
+   padding-top: 50px;
+} 
+
+.guide-box p {
+   z-index: 1;
+}
+
+
+
+.guide-box a {
+   color: #e84141;
+}
+
+.guide-box a:visited {
+   color: #e84141;
+}
 
 .innercontent {
    max-width: 700px;
@@ -464,6 +512,7 @@ body {
    font-family: "urw-din";
    font-weight: bold;
    letter-spacing: 2px;
+   text-transform: uppercase;
 }
 
 
@@ -520,10 +569,24 @@ body {
       cursor: pointer;
    }
 
+   .atags {
+      color: white;
+   }
+
+   .atags a {
+      color: white;
+   }
+
+   .atags a:visited {
+      color: white;
+   }
+
+
+
       .logo {
          padding: 6px;
          width: 100%;
-         height: 70%;
+         height: 100%;
       }
 
       .logo img {
@@ -572,6 +635,25 @@ body {
             .exitbutton img {
                width: 100%;
             }
+
+
+.footer {
+   padding: 0px 10px;
+   font-family: "urw-din";
+   color: white;
+} 
+
+
+.otv_logo {
+   width: 200px;
+   margin: auto;
+
+}  
+
+.otv_logo img {
+   width: 100%;
+}
+
 
 
 
@@ -645,9 +727,6 @@ body {
       text-align: center;
    }
 
-.footer {
-   padding: 0px 10px;
-}   
 
 
 
@@ -695,6 +774,11 @@ body {
 
    .scrollsame {
       height: 80vh;
+   }
+
+   .guide-box {
+      padding-left: 10px;
+      padding-right: 10px;
    }
 
 

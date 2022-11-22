@@ -21,8 +21,8 @@ var links = [{"station":"wabc","storylink":"NONE","p":"New York"},
 {"station":"kabc","storylink":"NONE","p":"Los Angeles"},
 {"station":"wls","storylink":"NONE","p":"Chicago"},
 {"station":"wpvi","storylink":"NONE","p":"Philadelphia"},
-{"station":"ktrk","storylink":"NONE","p":"Houston"},
 {"station":"kgo","storylink":"NONE","p":"San Francisco"},
+{"station":"ktrk","storylink":"NONE","p":"Houston"},
 {"station":"wtvd","storylink":"NONE","p":"Raleigh Durham"},
 {"station":"kfsn","storylink":"NONE","p":"Fresno"}]
 
