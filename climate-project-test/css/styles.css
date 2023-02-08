@@ -1,0 +1,453 @@
+/* styles.css 
+   Project: 
+   Author: 
+   Date: 
+	
+   Helpful links: 
+   	Web colors: 
+   		https://en.wikipedia.org/wiki/Web_colors#X11_color_names
+	Color picker tool:
+		https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
+		http://colorpicker.com
+
+*/
+
+/*URW DIN Regular
+font-family: "urw-din", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+URW DIN Regular Italic
+font-family: "urw-din", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+URW DIN Bold
+font-family: "urw-din", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+URW DIN Bold Italic
+font-family: "urw-din", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+URW DIN Cond Regular
+font-family: "urw-din-condensed", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+URW DIN Cond Regular Italic
+font-family: "urw-din-condensed", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+URW DIN Cond Bold
+font-family: "urw-din-condensed", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+URW DIN Cond Bold Italic
+font-family: "urw-din-condensed", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+URW DIN SemiCond Regular
+font-family: "urw-din-semi-condensed", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+URW DIN SemiCond Regular Italic
+font-family: "urw-din-semi-condensed", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+URW DIN SemiCond Bold
+font-family: "urw-din-semi-condensed", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+URW DIN SemiCond Bold Italic
+font-family: "urw-din-semi-condensed", sans-serif;
+font-weight: 700;
+font-style: italic;*/
+
+* {
+   box-sizing: border-box;
+}
+
+img {
+   width: 100%;
+   display: block;
+}
+
+body {
+  background-color: black;
+  overflow: hidden;
+}
+
+
+.header {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+}
+
+.background {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   position: absolute;
+   top: 0px;
+   left: 0px;
+}
+
+   .background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+   .background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+
+.header-bg-overlay {
+   width: 100%;
+   height: 100vh;
+   background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%);
+   position: absolute;
+   top: 0px;
+   left: 0px;
+}   
+
+
+.header-content {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   color: white;
+   width: 100%;
+   padding: 20px;
+   
+}
+
+.header-title {
+   font-family: "urw-din", sans-serif;
+   font-weight: 700;
+   font-style: normal;
+   text-align: center;
+   padding-top: 20vh;
+   max-width: 800px;
+   margin: auto;
+}
+
+.header-title .logo {
+   width: 100px;
+   margin:auto;
+}
+
+.header-title h1 {
+   margin: 0px;
+   font-size: 3em;
+   border-bottom: 2px solid #ffba00;
+
+}
+
+.directions {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  font-family: "urw-din", sans-serif;
+}
+
+
+/*DROPDOWN STYLING*/
+
+/*.community-input {
+  position: relative;
+}
+*/
+      .input {
+         width: 100%;
+         font-size: 16px;
+         padding: 14px 20px 12px 20px;
+         border: none;
+         border-bottom: 1px solid #ddd;
+         font-family: "urw-din", sans-serif;
+      }
+
+      .input:focus {outline: 3px solid #ddd;}
+
+
+      .dropdown {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        max-width: 700px;
+        margin: auto;
+        z-index: 2;
+
+              
+      }
+
+      .dropdown-content {
+        /*float: left;*/
+        background-color: #f6f6f6;
+        /*min-width: 230px;*/
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+        width: 30%;
+        margin: auto;
+        margin-top: 10px;
+
+      }
+
+      .dropdown-content p {
+        color: black;
+        padding: 10px 14px;
+        text-decoration: none;
+        display: block;
+        margin: 5px 0px;
+        /*height: 50vh;*/
+      }
+
+      .drop {
+        display: none;
+        height: 30vh;
+        overflow: scroll;
+        font-family: "urw-din", sans-serif;
+        width: 100%;
+
+      }
+
+      .drop p {
+        cursor: pointer;
+      }
+
+      .dropdown p:hover {background-color: #ddd;}
+
+      .show {display: block;}
+
+      #cityDropdown, #zipDropdown {
+        display: none;
+      }
+
+.outer-gobutton {
+  position: fixed;
+  bottom: 30vh;
+  left: 0px;
+  width: 100%;
+  padding: 0px 10px;
+  z-index: 1;
+}      
+
+.gobutton {
+  max-width: 350px;
+  background-color: #00318b;
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  font-family: "urw-din", sans-serif;
+  margin-top: 20px;
+  display: none;
+  cursor: pointer;
+
+}
+
+  .gobutton:hover {
+    /*background-color: #0058f6;*/
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px #ffba00;
+  }
+
+/*END DROPDOWN STYLING*/
+
+
+
+
+/*_________________CONTENT STYLING________________*/
+
+
+.content {
+  background-color: white;
+  z-index: 50;
+}
+
+/*MENU*/
+.content-menu {
+  border-bottom: 2px solid black;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+}
+
+.menu-header {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+
+.menu-title {
+  font-size: 12px;
+  font-family: "urw-din", sans-serif;
+  font-weight: 500;
+}
+
+.menu-back-to-top {
+  width: 70px;
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  font-family: "urw-din", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.menu-arrow {
+  width: 30px;
+  margin: auto;
+}
+
+.menu-back-to-top-words {
+  padding-top: 5px;
+}
+/*END MENU*/
+
+
+.content-header {
+  padding: 10px;
+  font-family: "urw-din", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  
+}
+
+.content-header h3 {
+  border-bottom: 2px solid #ffba00;
+}
+
+
+/*top three concerns*/
+.top-three {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0px;
+  height: 50vh;
+}
+
+.concern {
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+
+}
+
+.concern:hover {
+    transform: scale(1.05);
+    z-index: 3;
+  }
+
+ 
+
+  .concern video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    opacity: 0.7;
+
+  }
+
+  
+
+
+.concern-title {
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  line-height: 45vh;
+  color: white;
+  font-family: "urw-din", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  text-align: center;
+  z-index: 5;
+  text-transform: uppercase;
+  -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+
+}
+
+  .concern-title:hover {
+    transform: scale(1.3);
+  }
+
+  .concern-title span {
+    border-bottom: 2px solid #ffba00;
+    border-top: 2px solid #ffba00;
+  }
+
+
+@media only screen and (max-width: 640px) {
+
+  .header-title {
+    padding-top: 7vh;
+  }
+
+  .header-title h1 {
+    font-size: 2.5em;
+  }
+
+
+  .dropdown-content {
+    width: 230px;
+  }
+
+  .outer-gobutton {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    z-index: 1;
+  } 
+
+  .top-three {
+    display: block;
+    height: 60vh;
+  }
+
+  .concern {
+    height: 33.33333333%;
+  }  
+
+  .concern-title {
+    line-height: 20vh;
+    height: 20vh;
+  }  
+} 
+
+
+
+
+

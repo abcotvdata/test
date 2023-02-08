@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Climate Project Test</title>
+
+	<!-- viewport for responsive -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- CSS stylesheets -->	
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.typekit.net/ukm0btc.css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    
+    <div class="header">
+
+    	<div class="background">
+    		<!-- <img src="media/test-header_1.gif"> -->
+    		<video src="media/test-header.mp4" autoplay muted loop></video>
+    	</div>
+
+    	<div class="header-bg-overlay"></div>
+
+    	<div class="header-content">
+
+    		<div class="header-title">
+	    		<div class="logo">
+	    			<img src="img/otv_logo_w.png">
+	    		</div>
+	    		<h1>Community Climate Watch</h1>
+	    	</div>
+
+	    	<div class="community-input">
+
+	    		<div class="directions">
+	    			<p>Input your state, city, county, and/or zip code below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
+	    		</div>
+
+				<div class="dropdown">
+
+					<div id="stateDropdown" class="dropdown-content">
+
+					    <input type="text" placeholder="Search for a state..." id="stateInput" class="input" onkeyup="statefilterFunction()">
+
+					    <div id="statedrop" class="drop"></div>
+
+					</div>
+
+
+					<div id="cityDropdown" class="dropdown-content">
+
+					    <input type="text" placeholder="Search for a city..." id="cityInput" class="input" onkeyup="cityfilterFunction()">
+
+					    <div id="citydrop" class="drop"></div>
+
+					</div>
+
+					<div id="zipDropdown" class="dropdown-content">
+
+					    <input type="text" placeholder="Search for a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
+
+					    <div id="zipdrop" class="drop"></div>
+
+					</div>
+
+				</div>
+
+				<div class="outer-gobutton">
+					
+					<div class="gobutton">See results for <span class="location">LOCATION</span></div>
+
+				</div>
+				
+
+	    		
+	    	</div> <!-- end community input -->
+
+    	</div> <!-- end header content -->
+
+    </div> <!-- end header -->
+
+    <div class="content">
+    	<div class="content-menu">
+
+	    	<div class="menu-header">
+	    		<div class="menu-logo">
+	    			<img src="img/otv_logo_b.png">
+	    		</div>
+
+	    		<div class="menu-title">
+	    			<h1>Community Climate Watch</h1>
+	    		</div>
+	    	</div>
+
+	    	<div class="menu-back-to-top">
+
+	    		<div class="menu-arrow">
+		    		<img src="img/arrow-up.png">
+		    	</div>
+
+		    	<div class="menu-back-to-top-words">
+		    		Choose another area
+		    	</div>
+
+	    	</div>
+
+    	</div> <!-- END MENU -->
+
+    	<div class="content-header">
+    		<h3>In <span class="content-location">LOCATION</span>, <br> these three factors are some of the biggest concerns:</h3>
+    	</div>
+
+    	<div class="top-three">
+
+    		<div class="one concern">
+    			<div class="concern-title"><span>Wildfire</span></div>
+
+    			<video src="media/wildfire-smaller.mp4" muted loop poster="img/wildfire-still.jpg"></video>
+    		</div>
+
+    		<div class="two concern">
+    			<div class="concern-title"><span>Heat</span></div>
+
+    			<video src="media/heat-smaller.mp4" muted loop poster="img/heat-still.jpg"></video>
+    		</div>
+
+    		<div class="three concern">
+    			<div class="concern-title"><span>Agriculture</span></div>
+
+    			<video src="media/agriculture-smaller.mp4" muted loop poster="img/agriculture-still.jpg"></video>
+    		</div>
+
+
+    	</div>
+
+
+    	<div class="content-header">
+    		<h3>See our other measures below:</h3>
+    		<br>
+    		<br>
+    		<br>
+    		<br>
+    		<br>
+    		<br>
+    	</div>
+
+
+    </div> <!-- END CONTENT -->
+
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jqueryui.js"></script>
+	<script src="data/states.json"></script>
+	<script src="js/script.js"></script>
+  </body>
+</html>
+
+
+<!-- photos courtesy of Sarah Soutoul (copyright) -->
+<!-- soar.mp4 courtesy of Keith Plocek (copyright) -->
