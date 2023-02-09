@@ -5,6 +5,15 @@
 
 // DROPDOWN/LOCATION CODE __________________________________________
 
+$.fn.extend({
+   qcss: function(css) {
+      return $(this).queue(function(next) {
+         $(this).css(css);
+         next();
+      });
+   }
+});
+
 	function statefilterFunction() {
 	  var input, filter, ul, li, a, i;
 	  input = document.getElementById("stateInput");
@@ -100,6 +109,7 @@ $(document).ready(function(){
 
 		$("#stateInput").val(picked_state_name)
 		$(".location").html(picked_state_name)
+		$(".content-location").html(picked_state_name)
 		$(".gobutton").show()
 
 		//go get the data from the API for that state
@@ -156,6 +166,8 @@ $(document).ready(function(){
 					$("#cityInput").val(picked_city)
 
 					$(".location").html(picked_city + ', ' + picked_state_name)
+					$(".content-location").html(picked_city + ', ' + picked_state_name)
+
 
 					var zip_filter = results.filter( element => element.city == picked_city)
 					console.log(zip_filter)
@@ -219,17 +231,50 @@ $(document).ready(function(){
 
 		$('body').css({"overflow":"scroll"});
 
+		$(".content").show()
+
 		$('html, body').animate({
 	        scrollTop: $(".content").offset().top
 	    }, 1000);
+
+	    $(".header").fadeOut(1500)
+
+		$(".content-menu").delay(1000).qcss({
+	    	"position":"fixed",
+	    	"top":"0px",
+	    	"left":"0px"
+	    	}, 1000);
+
+		$(".content-header").delay(1000).qcss({
+	    	"margin-top":"90px"
+	    	}, 1000);
+
 	});
+
 
 	$(".menu-back-to-top").click(function(){
 
+		$(".header").fadeIn(500)
+
 		$('html, body').animate({
 	        scrollTop: $(".header").offset().top
-	    }, 1000);
+	    }, 1000).delay(1000);
+
+	    $("body").css({"overflow":"hidden"})
+
+
+		$(".content-menu").css({
+	    	"position":"relative",
+	    	"top":"0px",
+	    	"left":"0px"
+	    	});
+
+		$(".content-header").css({
+	    	"margin-top":"0px"
+	    	});
+
 	});
+
 
 
 	$(".concern").mouseenter(function(){
@@ -239,6 +284,8 @@ $(document).ready(function(){
 	$(".concern").mouseleave(function(){
 		$(this).find("video").get(0).pause()
 	});
+
+
 
 	
 
