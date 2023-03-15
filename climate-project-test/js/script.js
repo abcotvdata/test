@@ -287,6 +287,57 @@ $(document).ready(function(){
 
 
 
+	//title stuff
+
+	$("#card").flip({
+	  axis: 'x',
+	  trigger: 'manual'
+	});
+
+	var flipcount = 0
+	console.log(flipcount)
+
+	$("#card").each(function (i) {
+        var el = $(this);
+        setInterval(function () {
+            el.flip('toggle');
+
+            var flip = $("#card").data("flip-model");
+
+            if (flipcount == 3) {
+            	flipcount = 0
+            } else {
+            	flipcount = Number(flipcount)+1
+            }
+
+            if (flipcount == 0) {
+            	$(".front").html("live")
+            	$(".back").html("learn")
+            } else if (flipcount == 1) {
+            	$(".front").html("live")
+            	$(".back").html("work")
+            } else if (flipcount == 2) {
+            	$(".front").html("play")
+            	$(".back").html("work")
+            } else if (flipcount == 3) {
+            	$(".front").html("play")
+            	$(".back").html("learn")
+            }
+
+            
+
+			// e.g. to see currect flip state
+			console.log(flipcount)
+        }, 1000);
+
+            
+    });
+
+
+									
+
+
+
 	
 
 }); 
