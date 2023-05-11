@@ -3,7 +3,21 @@
    Date:
 */
 
+//padding
+function leftPad(value, length) { 
+    return ('0'.repeat(length) + value).slice(-length); 
+}
+
 // DROPDOWN/LOCATION CODE __________________________________________
+
+var picked_state;
+var picked_state_fips;
+var picked_state_name;
+var picked_county;
+var picked_county_fips;
+var picked_zip;
+var which_gobutton;
+
 
 $.fn.extend({
    qcss: function(css) {
@@ -30,11 +44,11 @@ $.fn.extend({
 	  }
 	}
 
-	function cityfilterFunction() {
+	function countyfilterFunction() {
 	  var input, filter, ul, li, a, i;
-	  input = document.getElementById("cityInput");
+	  input = document.getElementById("countyInput");
 	  filter = input.value.toUpperCase();
-	  div = document.getElementById("cityDropdown");
+	  div = document.getElementById("countyDropdown");
 	  p = div.getElementsByTagName("p");
 	  for (i = 0; i < p.length; i++) {
 	    txtValue = p[i].textContent || p[i].innerText;
@@ -79,23 +93,23 @@ $(document).ready(function(){
 	});
 });
 
-//set empty cities array 
+//set empty counties array 
 	
 $(document).ready(function(){
 
 	// Click on the state
 	$('#statedrop p').click(function(){
 
-		const cities = []
+		const counties = []
 
-		$("#citydrop").empty()
-		$("#cityInput").val("")
+		$("#countydrop").empty()
+		$("#countyInput").val("")
 
 		$("#zipdrop").empty()
 		$("#zipInput").val("")
 
 		$("#statedrop").hide()
-		$("#cityDropdown").show()
+		$("#countyDropdown").show()
 
 		if ($(window).width() >= 640) {
 			$(".dropdown-content").css({"float":"left", "margin":"10px"})
@@ -103,106 +117,126 @@ $(document).ready(function(){
 		
 
 		//what state did you pick?
-		var picked_state = $(this).attr("abbr")
-		var picked_state_name = $(this).attr("name")
+		picked_state = $(this).attr("abbr")
+		picked_state_fips = Number($(this).attr("fips"))
+		picked_state_name = $(this).attr("name")
 
 
 		$("#stateInput").val(picked_state_name)
-		$(".location").html(picked_state_name)
+		$(".state_location").html(picked_state_name)
 		$(".content-location").html(picked_state_name)
-		$(".gobutton").show()
+		$("#state_gobutton").show().attr("state_fips", picked_state_fips)
+		$("#OR1").show()
+		// $("#choose_state").css({"display":"flex"})
 
 		//go get the data from the API for that state
-		var api_url = 'https://www.huduser.gov/hudapi/public/usps?type=2&year=2021&query=' + picked_state
-		console.log(api_url)
+		
+		$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/uscounties_simple.csv', function(csvString) {
 
-		fetch(api_url, {
-			method: 'GET',
-			headers: new Headers({
-				'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjBiZGI0NWIyZDAwNGRmZDgyNDliY2QwMjJhMTY0YTg3ZTY0MWZhMjMyYWZmMjBiYmE5OTUwNzgwZjUwMTJmYTk4Yjg5OWFlODU5ZWQzZDkxIn0.eyJhdWQiOiI2IiwianRpIjoiMGJkYjQ1YjJkMDA0ZGZkODI0OWJjZDAyMmExNjRhODdlNjQxZmEyMzJhZmYyMGJiYTk5NTA3ODBmNTAxMmZhOThiODk5YWU4NTllZDNkOTEiLCJpYXQiOjE2NzU3OTg2MTQsIm5iZiI6MTY3NTc5ODYxNCwiZXhwIjoxOTkxNDE3ODE0LCJzdWIiOiI0Njc3NiIsInNjb3BlcyI6W119.Ltw2S8OhuxamZL20Bc0py0peLPqnQsHHRdxA84CadezKJU1j1H8gptnxmh1aBDZhtL7tvzPApQfEsViSFa5IYQ'
-			})
-		}).then((response) => response.json())
-		   .then((data) => {
+			// Use PapaParse to convert string to array of objects
+	    	var county_data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
-			   	var results = data.data.results
-			   	// console.log(results)
+	    	// console.log(county_data)
 
-			   	var results_leng = results.length;
+	    	filter_counties = county_data.filter(function(obj) {
+            	// return the filtered value
+            	return obj.state === picked_state;
+          	});
 
-			   	//putting just cities into an array
-			   	for (var i=0; i<results_leng; i++) {
 
-			   		var city = results[i].city
-			   		cities.push(city)
+
+			   	var filter_counties_leng = filter_counties.length;
+
+			   	//putting just counties into an array
+			   	for (var i=0; i<filter_counties_leng; i++) {
+
+			   		var county = filter_counties[i].county_name
+			   		counties.push(county)
+			   		$('#countydrop').append('<p fips="'+filter_counties[i].geoid+'" county="'+filter_counties[i].county_name+'">'+ filter_counties[i].county_name +'</p>')
+
 			   	}
 
+			   	// console.log(counties)
 
-			   	//getting rid of duplicates
-			   	let uniqueCities = [...new Set(cities)].sort();
 
-			   	var cities_leng = uniqueCities.length; 
-
-			   	//dumping into the city dropdown menu
-			   	for (var i=0; i<cities_leng; i++) {
-					// console.log(city_filter[i])
-					$('#citydrop').append('<p city="'+uniqueCities[i]+'">'+ uniqueCities[i] +'</p>')
-
-				}
-
-				$("#cityInput").click(function(){
-					$("#citydrop").show()
+				$("#countyInput").click(function(){
+					$("#countydrop").show()
 				});	
 
 
-				//which city did you pick?
-				$('#citydrop').on('click', 'p', function(){
+				//which county did you pick?
+				$('#countydrop').on('click', 'p', function(){
 
-					$("#citydrop").hide()
+					$("#countydrop").hide()
 					$("#zipDropdown").show()
+					$("#OR2").show()
 
-					var picked_city = $(this).attr("city")
-					console.log(picked_city)
+					picked_county = $(this).attr("county")
+					picked_county_fips = $(this).attr("fips")
+					//picked_county_fips = leftPad(picked_county_fips, 5)
+					picked_county_fips = Number(picked_county_fips)
+					// console.log(picked_county)
+					// console.log(picked_county_fips)
 
-					$("#cityInput").val(picked_city)
+					$("#county_gobutton").show().attr("county_fips", picked_county_fips).attr("state_fips", picked_state_fips)
 
-					$(".location").html(picked_city + ', ' + picked_state_name)
-					$(".content-location").html(picked_city + ', ' + picked_state_name)
+					$("#countyInput").val(picked_county)
 
-
-					var zip_filter = results.filter( element => element.city == picked_city)
-					console.log(zip_filter)
-
-					var zip_leng = zip_filter.length;
-
-					for (var i=0; i<zip_leng; i++) {
-						console.log(zip_filter[i])
-						$('#zipdrop').append('<p zip="'+zip_filter[i].zip+'">'+ zip_filter[i].zip +'</p>')
-
-					}
-
-					$("#zipInput").click(function(){
-						$("#zipdrop").show()
-					});	
-
-					$("#zipdrop").on('click', 'p', function(){
-						$("#zipdrop").hide()
-
-						var picked_zip = $(this).attr('zip')
-						console.log(picked_zip)
-
-						$("#zipInput").val(picked_zip)
-
-						$(".location").html(picked_zip +' - '+ picked_city + ', ' + picked_state_name)
-
-						$(".content-location").html(picked_zip +' - '+ picked_city + ', ' + picked_state_name)
+					$(".county_location").html(picked_county + ', ' + picked_state_name)
+					$(".content-location").html(picked_county + ', ' + picked_state_name)
 
 
+					//zip county crosswalk!!
+					$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta20_county20_natl_crosswalk.csv', function(csvString) {
+						
+						// Use PapaParse to convert string to array of objects
+				    	var zip_data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    	// console.log(zip_data)
+
+				    	filter_zips = zip_data.filter(function(obj) {
+			            	// return the filtered value
+			            	return obj.GEOID_COUNTY_20 === picked_county_fips;
+			          	});
+
+			          	// console.log(filter_zips)
+
+						var zip_leng = filter_zips.length;
+
+						for (var i=0; i<zip_leng; i++) {
+							// console.log(zip_filter[i])
+							var zip_clean = leftPad(filter_zips[i].GEOID_ZCTA5_20, 5)
+							$('#zipdrop').append('<p zip="'+zip_clean+'">'+ zip_clean +'</p>')
+
+						}
+
+						$("#zipInput").click(function(){
+							$("#zipdrop").show()
+						});	
+
+						$("#zipdrop").on('click', 'p', function(){
+							$("#zipdrop").hide()
+
+							picked_zip = Number($(this).attr('zip'))
+							// console.log(picked_zip)
+
+							$("#zip_gobutton").show().attr("zip_fips", picked_zip).attr("county_fips", picked_county_fips).attr("state_fips", picked_state_fips)
+
+							$("#zipInput").val(picked_zip)
+
+							$(".zip_location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
+
+							$(".content-location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
+
+
+
+						});
 
 					});
 
 
 				}); 
-				// end click on city
+				// end click on county
 
 
 
@@ -216,15 +250,25 @@ $(document).ready(function(){
 	$(".gobutton").click(function(){
 		$(this).hide()
 
+		$("#begin").show()
+
+		which_gobutton = $(this).attr("gobutton-title");
+		console.log(which_gobutton)
+
 		$(".dropdown-content").css({"float":"none", "margin":"auto"})
 
-		$("#cityDropdown").hide()
+		$("#countyDropdown").hide()
 		$("#zipDropdown").hide()
+		$("#state_gobutton").hide()
+		$("#county_gobutton").hide()
+		$("#zip_gobutton").hide()
+		$("#OR1").hide()
+		$("#OR2").hide()
 
 		$("#stateInput").val("")
 
-		$("#citydrop").empty()
-		$("#cityInput").val("")
+		$("#countydrop").empty()
+		$("#countyInput").val("")
 
 		$("#zipdrop").empty()
 		$("#zipInput").val("")
@@ -237,7 +281,7 @@ $(document).ready(function(){
 	        scrollTop: $(".content").offset().top
 	    }, 1000);
 
-	    $(".header").fadeOut(1500)
+	    // $(".header").fadeOut(1500)
 
 		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",
@@ -249,8 +293,275 @@ $(document).ready(function(){
 	    	"margin-top":"90px"
 	    	}, 1000);
 
-	});
 
+		//which go button did you pick??? that will determine which data it comes from
+
+
+
+			if (which_gobutton == "state") {
+
+				console.log(picked_state_fips)
+
+				//fire state
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_state_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_state_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".fire-map-link").attr("href", "risk-maps.html?state|fire|"+picked_state_fips)
+
+
+				});
+
+				//heat state
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/heat_state_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_state_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".heat-map-link").attr("href", "risk-maps.html?state|heat|"+picked_state_fips)
+
+
+				});
+
+
+				//flood state
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/flood_state_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_state_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".flood-map-link").attr("href", "risk-maps.html?state|flood|"+picked_state_fips)
+
+
+				});
+
+				//wind state
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/wind_state_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_state_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".wind-map-link").attr("href", "risk-maps.html?state|wind|"+picked_state_fips)
+
+
+				});
+
+				
+			} else if (which_gobutton == "county") {
+
+				console.log(picked_county_fips)
+
+				//fire county
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_county_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_county_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".fire-map-link").attr("href", "risk-maps.html?county|fire|"+picked_state_fips+"|"+picked_county_fips)
+
+
+				});
+
+				//heat county
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/heat_county_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_county_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".heat-map-link").attr("href", "risk-maps.html?county|heat|"+picked_state_fips+"|"+picked_county_fips)
+
+
+				});
+
+
+				//flood county
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/flood_county_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_county_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".flood-map-link").attr("href", "risk-maps.html?county|flood|"+picked_state_fips+"|"+picked_county_fips)
+
+
+				});
+
+				//wind county
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/wind_county_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_county_fips;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".wind-map-link").attr("href", "risk-maps.html?county|wind|"+picked_state_fips+"|"+picked_county_fips)
+
+
+				});
+
+				
+			} else if (which_gobutton == "zip") {
+
+				console.log(picked_zip)
+
+				//fire zip
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_zip_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_zip;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".fire-map-link").attr("href", "risk-maps.html?zip|fire|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+
+				});
+
+				//heat zip
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/heat_zip_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_zip;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".heat-map-link").attr("href", "risk-maps.html?zip|heat|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+
+				});
+
+
+				//flood zip
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/flood_zip_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_zip;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".flood-map-link").attr("href", "risk-maps.html?zip|flood|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+
+				});
+
+				//wind zip
+				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/wind_zip_chart.csv', function(csvString) {
+
+				    // Use PapaParse to convert string to array of objects
+				    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+				    filtered_data = data.filter(function(obj) {
+		            	// return the filtered value
+		            	return obj.fips === picked_zip;
+		          	});
+
+		          	console.log(filtered_data)
+
+		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+		          	$(".wind-map-link").attr("href", "risk-maps.html?zip|wind|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+
+				});
+			}
+
+
+
+	}); //end button click!!!!
+
+
+	//___________________________menu stuff___________________________
 
 	$(".menu-back-to-top").click(function(){
 
@@ -260,7 +571,7 @@ $(document).ready(function(){
 	        scrollTop: $(".header").offset().top
 	    }, 1000).delay(1000);
 
-	    $("body").css({"overflow":"hidden"})
+	    // $("body").css({"overflow":"hidden"})
 
 
 		$(".content-menu").css({
@@ -287,7 +598,7 @@ $(document).ready(function(){
 
 
 
-	//title stuff
+	//_____________________________title stuff____________________________
 
 	$("#card").flip({
 	  axis: 'x',
@@ -295,7 +606,7 @@ $(document).ready(function(){
 	});
 
 	var flipcount = 0
-	console.log(flipcount)
+	// console.log(flipcount)
 
 	$("#card").each(function (i) {
         var el = $(this);
@@ -327,14 +638,13 @@ $(document).ready(function(){
             
 
 			// e.g. to see currect flip state
-			console.log(flipcount)
+			// console.log(flipcount)
         }, 1000);
 
             
     });
 
 
-									
 
 
 

@@ -48,43 +48,58 @@
 	    	<div class="community-input">
 
 	    		<div class="directions">
-	    			<p>Input your state, city, county, and/or zip code below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
+	    			<p>Input your state, county, and/or zip code below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
 	    		</div>
 
 				<div class="dropdown">
 
-					<div id="stateDropdown" class="dropdown-content">
+					<div id="choose_state" class="choose_location">
+						<div id="stateDropdown" class="dropdown-content">
 
-					    <input type="text" placeholder="Search for a state..." id="stateInput" class="input" onkeyup="statefilterFunction()">
+						    <input type="text" placeholder="Search for a state..." id="stateInput" class="input" onkeyup="statefilterFunction()">
 
-					    <div id="statedrop" class="drop"></div>
+						    <div id="statedrop" class="drop"></div>
 
+						</div>
+
+						<button id="state_gobutton" gobutton-title="state" class="gobutton">See results for <span class="state_location">STATE</span></button>
 					</div>
 
 
-					<div id="cityDropdown" class="dropdown-content">
+					<div id="OR1" class="or">OR</div>
 
-					    <input type="text" placeholder="Search for a city..." id="cityInput" class="input" onkeyup="cityfilterFunction()">
 
-					    <div id="citydrop" class="drop"></div>
+					<div id="choose_state" class="choose_location">
+						<div id="countyDropdown" class="dropdown-content">
 
+						    <input type="text" placeholder="Search for a county..." id="countyInput" class="input" onkeyup="countyfilterFunction()">
+
+						    <div id="countydrop" class="drop"></div>
+
+						</div>
+
+						<button id="county_gobutton" gobutton-title="county" class="gobutton">See results for <span class="county_location">county, STATE</span></button>
 					</div>
 
-					<div id="zipDropdown" class="dropdown-content">
 
-					    <input type="text" placeholder="Search for a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
+					<div id="OR2" class="or">OR</div>
 
-					    <div id="zipdrop" class="drop"></div>
 
+					<div id="choose_zip" class="choose_location">
+						<div id="zipDropdown" class="dropdown-content">
+
+						    <input type="text" placeholder="Search for a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
+
+						    <div id="zipdrop" class="drop"></div>
+
+						</div>
+
+						<button id="zip_gobutton" gobutton-title="zip" class="gobutton">See results for <span class="zip_location">county, STATE</span></button>
 					</div>
 
 				</div>
 
-				<div class="outer-gobutton">
-					
-					<div class="gobutton">See results for <span class="location">LOCATION</span></div>
-
-				</div>
+				
 				
 
 	    		
@@ -94,7 +109,7 @@
 
     </div> <!-- end header -->
 
-    <div class="content">
+    <div class="content" id=begin>
     	<div class="content-menu">
 
 	    	<div class="menu-header">
@@ -122,28 +137,75 @@
     	</div> <!-- END MENU -->
 
     	<div class="content-header">
-    		<h3>In <span class="content-location">LOCATION</span>, <br> these three factors are some of the biggest concerns:</h3>
+    		<h3>In <span class="content-location"> </span>, <br> these are the climate risks:</h3>
     	</div>
 
-    	<div class="top-three">
+    	<div class="top-concern concern-container">
 
-    		<div class="one concern">
-    			<div class="concern-title"><span>Wildfire</span></div>
+    		<a class="fire-map-link" href="risk-maps.html"><div class="one concern">
+    			<div class="concern-title">
+    				<span class="lines">Wildfire</span>
+    				<br>
+    				<span class="bold wildfire-risk-major">0%</span> of properties at <span class="bold">major</span> risk
+    				<br>
+    				<br>
+    				<span class="bold wildfire-risk-severe">0%</span> of properties at <span class="bold">severe</span> risk
+    				<br>
+    				<br>
+    				<span class="click-for-more">Click for more</span>
+    			</div>
 
     			<video src="media/wildfire-smaller.mp4" muted loop poster="img/wildfire-still.jpg"></video>
-    		</div>
+    		</div></a>
 
-    		<div class="two concern">
-    			<div class="concern-title"><span>Heat</span></div>
+    		<a class="heat-map-link" href="risk-maps.html"><div class="two concern">
+    			<div class="concern-title">
+    				<span class="lines">Heat</span>
+    				<br>
+    				<span class="bold heat-risk-major">0%</span> of properties at <span class="bold">major</span> risk
+    				<br>
+    				<br>
+    				<span class="bold heat-risk-severe">0%</span> of properties at <span class="bold">severe</span> risk
+    				<br>
+    				<br>
+    				<span class="click-for-more">Click for more</span>
+    			</div>
 
     			<video src="media/heat-smaller.mp4" muted loop poster="img/heat-still.jpg"></video>
-    		</div>
 
-    		<div class="three concern">
-    			<div class="concern-title"><span>Agriculture</span></div>
+    		</div></a>
 
-    			<video src="media/agriculture-smaller.mp4" muted loop poster="img/agriculture-still.jpg"></video>
-    		</div>
+    		<a class="flood-map-link" href="risk-maps.html"><div class="three concern">
+    			<div class="concern-title">
+    				<span class="lines">Flooding</span>
+    				<br>
+    				<span class="bold flood-risk-major">0%</span> of properties at <span class="bold">major</span> risk
+    				<br>
+    				<br>
+    				<span class="bold flood-risk-severe">0%</span> of properties at <span class="bold">severe</span> risk
+    				<br>
+    				<br>
+    				<span class="click-for-more">Click for more</span>
+    			</div>
+
+    			<video src="media/flooding-smaller.mp4" muted loop poster="img/flooding-still.jpg"></video>
+    		</div></a>
+
+    		<a class="wind-map-link" href="risk-maps.html"><div class="four concern">
+    			<div class="concern-title">
+    				<span class="lines">Wind</span>
+    				<br>
+    				<span class="bold wind-risk-major">0%</span> of properties at <span class="bold">major</span> risk
+    				<br>
+    				<br>
+    				<span class="bold wind-risk-severe">0%</span> of properties at <span class="bold">severe</span> risk
+    				<br>
+    				<br>
+    				<span class="click-for-more">Click for more</span>
+    			</div>
+
+    			<video src="media/wind-smaller.mp4" muted loop poster="img/wind-still.jpg"></video>
+    		</div></a>
 
 
     	</div>
@@ -151,13 +213,35 @@
 
     	<div class="content-header">
     		<h3>See our other measures below:</h3>
-    		<br>
-    		<br>
-    		<br>
-    		<br>
-    		<br>
-    		<br>
+    	</div>	
+
+    	<div class="other-concerns concern-container">
+
+    		<div class="five concern">
+    			<div class="concern-title"><span class="lines">Agriculture</span></div>
+
+    			<video src="media/agriculture-smaller.mp4" muted loop poster="img/agriculture-still.jpg"></video>
+    		</div>
+
+
+    		<div class="six concern">
+    			<div class="concern-title"><span class="lines">Climate opinions</span></div>
+
+    			<video src="media/opinion-smaller.mp4" muted loop poster="img/opinion-still.jpg"></video>
+    		</div>
+
+
     	</div>
+
+    	<br>
+    	<br>
+    	<br>
+    	<br>
+    	<br>
+
+
+
+
 
 
     </div> <!-- END CONTENT -->
@@ -178,6 +262,9 @@
 	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 	<script src="js/lib/waypoint.js"></script>
 	<script src="js/lib/waypoints.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+	<!-- <script type="text/javascript" src="dist/leaflet.ajax.js"></script> -->
 	<script src="js/script.js"></script>
   </body>
 </html>

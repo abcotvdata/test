@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Climate Project Test</title>
+
+	<!-- viewport for responsive -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- CSS stylesheets -->	
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.typekit.net/ukm0btc.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+
+    <div class="content">
+    	<div class="content-menu">
+
+	    	<div class="menu-header">
+	    		<div class="menu-logo">
+	    			<img src="img/otv_logo_b.png">
+	    		</div>
+
+	    		<div class="menu-title">
+	    			<h1>Community Climate Watch</h1>
+	    		</div>
+	    	</div>
+
+	    	<a href="javascript:history.go(-1)"><div class="menu-back-to-top">
+
+	    		<div class="menu-arrow">
+		    		<img src="img/arrow-up.png">
+		    	</div>
+
+		    	<div class="menu-back-to-top-words">
+		    		Back
+		    	</div></a>
+
+	    	</div>
+
+    	</div> <!-- END MENU -->
+
+    	<div class="content-header">
+            <h2>Climate risk map:</h2>
+    		<h3><span class="content-location"> </span></h3>
+    		<p class="map-subheader">This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>. Click on the buttons in the bottom right corner of the map to switch between "major" and "severe" risk. [Insert definiton/difference between "major" and "severe" here.]</p>
+    	</div>
+
+    	<div class="map-legend">
+    		<div class="legend-box">
+
+    			<div class="legend-tic">
+    				<div class="legend-color pct-0-10"></div>
+    				<div class="legend-label">10%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-10-20"></div>
+    				<div class="legend-label">20%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-20-30"></div>
+    				<div class="legend-label">30%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-30-40"></div>
+    				<div class="legend-label">40%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-40-50"></div>
+    				<div class="legend-label">50%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-50-60"></div>
+    				<div class="legend-label">60%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-60-70"></div>
+    				<div class="legend-label">70%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-70-80"></div>
+    				<div class="legend-label">80%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-80-90"></div>
+    				<div class="legend-label">90%</div>
+    			</div>
+    			<div class="legend-tic">
+    				<div class="legend-color pct-90-100"></div>
+    				<div class="legend-label"></div>
+    			</div>
+
+    		</div>
+    	</div>
+
+    	<div class="map-tabs">
+    		<div class="map-tab fire-tab" risk_type="fire" risk_type_long="wildfire">Wildfire</div>
+    		<div class="map-tab heat-tab" risk_type="heat" risk_type_long="heat">Heat</div>
+    		<div class="map-tab flood-tab" risk_type="flood" risk_type_long="flooding">Flooding</div>
+    		<div class="map-tab wind-tab" risk_type="wind" risk_type_long="wind">Wind</div>
+    	</div>
+
+        <div id="map"></div>
+
+
+    </div> <!-- END CONTENT -->
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jqueryui.js"></script>
+	<script src="data/states.json"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+	<script src="js/lib/waypoint.js"></script>
+	<script src="js/lib/waypoints.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <!-- <script type="text/javascript" src="dist/leaflet.ajax.js"></script> -->
+    <script src="js/script.js"></script>
+	<script src="js/map_script.js"></script>
+  </body>
+</html>
+
+
+<!-- photos courtesy of Sarah Soutoul (copyright) -->
+<!-- soar.mp4 courtesy of Keith Plocek (copyright) -->
