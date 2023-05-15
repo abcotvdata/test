@@ -306,8 +306,9 @@ $(document).ready(function(){
 		picked_state_fips = string_split[2];
 		console.log(picked_state_fips)
 
-		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 		console.log(url)
+
 
 		$.getJSON(url,function(data){
 
@@ -315,10 +316,10 @@ $(document).ready(function(){
 
         	// console.log(items.features)
 
-			items = data.features.filter(function(obj) {
-			// return the filtered value
-			return obj.properties.state === leftPad(String(picked_state_fips), 2);
-			});
+			// items = data.features.filter(function(obj) {
+			// // return the filtered value
+			// return obj.properties.state === leftPad(String(picked_state_fips), 2);
+			// });
 
          	// console.log(items)
 
@@ -342,6 +343,7 @@ $(document).ready(function(){
 			    };
 			}
 
+			// var geojsonLayer = L.geoJson.ajax(url);
 
 	        var major = L.geoJson(items, {
 	            style: majorStyle,
@@ -403,10 +405,10 @@ $(document).ready(function(){
 		console.log(picked_county_fips)
 
 
-		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 		console.log(url)
 
-		var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/county_" + risk_type + "_risk.geojson"
+		var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/counties.geojson"
 		console.log(url)
 
 		$.getJSON(url,function(data){ //actual tract data
@@ -531,10 +533,10 @@ $(document).ready(function(){
 		console.log(picked_zip)
 
 
-		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+		var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 		console.log(url)
 
-		var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/zips_" + risk_type + "_risk.geojson"
+		var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
 		console.log(url)
 
 		$.getJSON(url,function(data){ //actual tract data
@@ -675,7 +677,7 @@ $(document).ready(function(){
 			picked_state_fips = string_split[2];
 			console.log(picked_state_fips)
 
-			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 			console.log(url)
 
 			$.getJSON(url,function(data){
@@ -684,10 +686,10 @@ $(document).ready(function(){
 
 	        	// console.log(items.features)
 
-				items = data.features.filter(function(obj) {
-				// return the filtered value
-				return obj.properties.state === leftPad(String(picked_state_fips), 2);
-				});
+				// items = data.features.filter(function(obj) {
+				// // return the filtered value
+				// return obj.properties.state === leftPad(String(picked_state_fips), 2);
+				// });
 
 	         	// console.log(items)
 
@@ -772,10 +774,10 @@ $(document).ready(function(){
 			console.log(picked_county_fips)
 
 
-			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 			console.log(url)
 
-			var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/county_" + risk_type + "_risk.geojson"
+			var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/counties.geojson"
 			console.log(url)
 
 			$.getJSON(url,function(data){ //actual tract data
@@ -784,10 +786,10 @@ $(document).ready(function(){
 
 	        	// console.log(items.features)
 
-				items = data.features.filter(function(obj) {
+				/*items = data.features.filter(function(obj) {
 				// return the filtered value
 				return obj.properties.state === leftPad(String(picked_state_fips), 2);
-				});
+				});*/
 
 	         	// console.log(items)
 
@@ -900,10 +902,10 @@ $(document).ready(function(){
 			console.log(picked_zip)
 
 
-			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/tract_" + risk_type + "_risk.geojson"
+			var url = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/" + risk_type + "tracts_"+leftPad(String(picked_state_fips), 2)+".geojson"
 			console.log(url)
 
-			var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/zips_" + risk_type + "_risk.geojson"
+			var url_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
 			console.log(url)
 
 			$.getJSON(url,function(data){ //actual tract data
