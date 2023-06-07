@@ -1056,7 +1056,7 @@ $(document).ready(function(){
 
 //CAROUSEL OF STORIES
 
-	$.get('../data/stories.csv', function(csvString) {
+	$.get('data/stories.csv', function(csvString) {
 
 			// Use PapaParse to convert string to array of objects
 	    	var stories = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
