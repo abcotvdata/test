@@ -124,7 +124,6 @@ $(document).ready(function(){
 
 		$("#stateInput").val(picked_state_name)
 		$(".state_location").html(picked_state_name)
-		$(".content-location").html(picked_state_name)
 		$("#state_gobutton").show().attr("state_fips", picked_state_fips)
 		$("#OR1").show()
 		// $("#choose_state").css({"display":"flex"})
@@ -183,7 +182,7 @@ $(document).ready(function(){
 					$("#countyInput").val(picked_county)
 
 					$(".county_location").html(picked_county + ', ' + picked_state_name)
-					$(".content-location").html(picked_county + ', ' + picked_state_name)
+					
 
 
 					//zip county crosswalk!!
@@ -226,7 +225,6 @@ $(document).ready(function(){
 
 							$(".zip_location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
 
-							$(".content-location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
 
 
 
@@ -281,7 +279,7 @@ $(document).ready(function(){
 	        scrollTop: $(".content").offset().top
 	    }, 1000);
 
-	    // $(".header").fadeOut(1500)
+	    $(".header").fadeOut(1500)
 
 		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",
@@ -290,7 +288,7 @@ $(document).ready(function(){
 	    	}, 1000);
 
 		$(".content-header").delay(1000).qcss({
-	    	"margin-top":"90px"
+	    	"margin-top":"60px"
 	    	}, 1000);
 
 
@@ -301,6 +299,8 @@ $(document).ready(function(){
 			if (which_gobutton == "state") {
 
 				console.log(picked_state_fips)
+
+				$(".content-location").html(picked_state_name)
 
 				//fire state
 				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_state_chart.csv', function(csvString) {
@@ -388,6 +388,8 @@ $(document).ready(function(){
 
 				console.log(picked_county_fips)
 
+				$(".content-location").html(picked_county + ', ' + picked_state_name)
+
 				//fire county
 				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_county_chart.csv', function(csvString) {
 
@@ -473,6 +475,8 @@ $(document).ready(function(){
 			} else if (which_gobutton == "zip") {
 
 				console.log(picked_zip)
+
+				$(".content-location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
 
 				//fire zip
 				$.get('https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_tables/fire_zip_chart.csv', function(csvString) {
@@ -571,7 +575,7 @@ $(document).ready(function(){
 	        scrollTop: $(".header").offset().top
 	    }, 1000).delay(1000);
 
-	    // $("body").css({"overflow":"hidden"})
+	    $("body").css({"overflow":"hidden"})
 
 
 		$(".content-menu").css({
