@@ -300,10 +300,15 @@ $(document).ready(function(){
 	//___________BUILD MAP!___________
 
 	var map = L.map('map', {
-		minZoom: 3
+		minZoom: 3,
+		zoomControl: false
 	}).setView([40.3596928,-99.0598404], 5);
 
 	var pane = map.createPane('boundary', document.getElementById('map'));
+
+	L.control.zoom({
+		position: 'topright'
+	}).addTo(map)
 
 
 
@@ -366,7 +371,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style', direction: 'auto', sticky: 'true', interactive: 'true'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style', direction: 'auto', sticky: 'true', interactive: 'true'})
 	            }
 
 	        }).addTo(map);
@@ -380,7 +385,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -391,7 +396,7 @@ $(document).ready(function(){
 			    "Severe risk": severe
 			};
 
-			var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+			var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 	        var bounds = major.getBounds();
             var zoom = map.getBoundsZoom(bounds);
@@ -466,7 +471,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }).addTo(map);
@@ -480,7 +485,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -491,7 +496,7 @@ $(document).ready(function(){
 			    "Severe risk": severe
 			};
 
-			var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+			var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 
 		});
@@ -600,7 +605,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }).addTo(map);
@@ -614,7 +619,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -625,7 +630,7 @@ $(document).ready(function(){
 			    "Severe risk": severe
 			};
 
-			var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+			var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 
 		});
@@ -745,7 +750,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -759,7 +764,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -770,7 +775,7 @@ $(document).ready(function(){
 				    "Severe risk": severe
 				};
 
-				var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+				var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 		        var bounds = major.getBounds();
 	            var zoom = map.getBoundsZoom(bounds);
@@ -845,7 +850,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -859,7 +864,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -870,7 +875,7 @@ $(document).ready(function(){
 				    "Severe risk": severe
 				};
 
-				var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+				var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 
 			});
@@ -977,7 +982,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -991,7 +996,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source">Source: <a href="https://firststreet.org/" target="_blank">First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -1002,7 +1007,7 @@ $(document).ready(function(){
 				    "Severe risk": severe
 				};
 
-				var layerControl = L.control.layers(risk_severity, null, {position: 'topright', collapsed: false}).addTo(map);
+				var layerControl = L.control.layers(risk_severity, null, {position: 'bottomright', collapsed: false}).addTo(map);
 
 
 			});
@@ -1053,6 +1058,20 @@ $(document).ready(function(){
 		} // end click to change MAP if else
 	});
 
+//mobile map description 
+
+	$(".map-subheader-mobile").click(function(){
+		$(".map-subheader").slideDown()
+		$(this).hide()
+		$(".map-subheader-mobile-hide").show()
+	});
+
+	$(".map-subheader-mobile-hide").click(function(){
+		$(".map-subheader").slideUp()
+		$(this).hide()
+		$(".map-subheader-mobile").show()
+	});
+
 
 //CAROUSEL OF STORIES
 
@@ -1064,7 +1083,7 @@ $(document).ready(function(){
 	    	console.log(stories)
 
 	    	for (i = 0; i < stories.length; i++) {
-	    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+stories[i].story_link+'" target="_blank"><img src="'+stories[i].story_img+'"></a><div class="story-title">'+stories[i].story_title+'</div></div>')
+	    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+stories[i].story_link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title">'+stories[i].story_title+'</div></a></div>')
 	    	}
 
 	    });

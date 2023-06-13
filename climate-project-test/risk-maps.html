@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Climate Project Test V3</title>
+    <title>Climate Project Test V4</title>
 
 	<!-- viewport for responsive -->	
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +21,18 @@
     	<div class="content-menu not-home-page-menu">
 
 	    	<div class="menu-header">
-	    		<div class="menu-logo">
-	    			<img src="img/otv_logo_b.png">
-	    		</div>
+                <div class="menu-logo">
+                    <img src="img/otv_logo_b.png">
+                </div>
 
-	    		<div class="menu-title">
-	    			<h1>Community Climate Watch</h1>
-	    		</div>
-	    	</div>
+                <div class="menu-title">
+                    <h1>Weathering Tomorrow</h1>
+                </div>
+
+                <!-- <div class="menu-options">
+                    <p><a href="about.html">About this site</a></p>
+                </div> -->
+            </div>
 
 	    	<a href="index.html"><div class="menu-back-to-top">
                 <!-- href="javascript:history.go(-1)" -->
@@ -37,66 +41,14 @@
 		    	</div>
 
 		    	<div class="menu-back-to-top-words">
-		    		Back
+		    		Back to home
 		    	</div></a>
 
 	    	</div>
 
     	</div> <!-- END MENU -->
 
-    	<div class="content-header not-home-content-header">
-            <h2><span class="content-location"> </span> climate risk</h2>
-    		<!-- <h3></h3> -->
-    		<p class="map-subheader">This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>, according to the <a href="https://firststreet.org/">First Street Foundation</a>. Click on the buttons in the top right corner of the map to switch between "major" and "severe" risk. [Insert definiton/difference between "major" and "severe" here.]</p>
-    	</div>
-
-    	<div class="map-legend">
-    		<div class="legend-box">
-
-    			<div class="legend-tic">
-    				<div class="legend-color pct-0-10"></div>
-    				<div class="legend-label">10%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-10-20"></div>
-    				<div class="legend-label">20%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-20-30"></div>
-    				<div class="legend-label">30%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-30-40"></div>
-    				<div class="legend-label">40%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-40-50"></div>
-    				<div class="legend-label">50%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-50-60"></div>
-    				<div class="legend-label">60%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-60-70"></div>
-    				<div class="legend-label">70%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-70-80"></div>
-    				<div class="legend-label">80%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-80-90"></div>
-    				<div class="legend-label">90%</div>
-    			</div>
-    			<div class="legend-tic">
-    				<div class="legend-color pct-90-100"></div>
-    				<div class="legend-label"></div>
-    			</div>
-
-    		</div>
-    	</div>
-
+    	
     	<div class="map-tabs">
     		<div class="map-tab fire-tab" risk_type="fire" risk_type_long="wildfire">Wildfire</div>
     		<div class="map-tab heat-tab" risk_type="heat" risk_type_long="heat">Heat</div>
@@ -104,15 +56,89 @@
     		<div class="map-tab wind-tab" risk_type="wind" risk_type_long="wind">Wind</div>
     	</div>
 
-        <div id="map"></div>
+        <div class="map-container">
+            <div class="map-header">
+                <div class="map-header-content">
+                    <h2><span class="content-location"> </span> climate risk</h2>
+                    <!-- <h3></h3> -->
+                    <div class="map-subheader">
+                        <p>This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>, according to the <a href="https://firststreet.org/">First Street Foundation</a>.</p>
 
-        <div class="click-more-info-map">Click here for more information on this risk data.</div>
+                        <p>Click on the buttons in the bottom right corner of the map to switch between "major" and "severe" risk.</p>
+
+                        <p>[Insert definiton/difference between "major" and "severe" here.]</p>
+
+                        <div class="click-more-info-map">Click here for more information on this risk data.</div>
+
+                    </div>
+
+                    <p class="map-subheader-mobile">This map shows...&#8681;</p>
+                    <p class="map-subheader-mobile-hide">Hide description...&#8679;</p>
+
+
+                    <div class="map-legend">
+                        <div class="legend-box">
+
+                            <div class="legend-tic">
+                                <div class="legend-color pct-0-10"></div>
+                                <div class="legend-label">10%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-10-20"></div>
+                                <div class="legend-label">20%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-20-30"></div>
+                                <div class="legend-label">30%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-30-40"></div>
+                                <div class="legend-label">40%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-40-50"></div>
+                                <div class="legend-label">50%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-50-60"></div>
+                                <div class="legend-label">60%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-60-70"></div>
+                                <div class="legend-label">70%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-70-80"></div>
+                                <div class="legend-label">80%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-80-90"></div>
+                                <div class="legend-label">90%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-90-100"></div>
+                                <div class="legend-label"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div> <!-- end map header content -->
+
+
+            </div> <!-- end map header (this has the background gradient on it) -->
+
+            <div id="map"></div> <!-- end map div -->
+            
+        </div>
+
 
 
         <div class="carousel-section">
 
             <div class="content-header">
-                <h3>More stories on this topic</h3>
+                <h3>More stories</h3>
             </div>
             
             <div class="carousel">
