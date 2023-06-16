@@ -31,16 +31,19 @@ function getColor(d) {
     d > 30 ? '#f38a47' :
     d > 20 ? '#fbbf2b' :
     d > 10 ? '#f5dd27' :
-    '#f0f723';
+    d > 0.001 ? '#f0f723' :
+    '#DADADA'
 }
 
 	
 
 
 $(document).ready(function(){
+
+	$(".content").show()
 	//___________________________menu stuff___________________________
 
-	$(".menu-back-to-top").click(function(){
+	$(".back-to-results").click(function(){
 
 		$(".header").fadeIn(500)
 
@@ -149,6 +152,7 @@ $(document).ready(function(){
 	risk_type = string_split[1];
 
 	console.log(risk_type)
+
 	
 
 	// tab styling!!!
@@ -211,6 +215,7 @@ $(document).ready(function(){
       	console.log(picked_state_name)
 
       	$(".content-location").html(picked_state_name)
+      	$(".link-to-results").attr('href', 'index.html?state|'+picked_state_fips+"|"+picked_state_name)
 
 	} else if (geo_type == "county") {
 
@@ -238,6 +243,7 @@ $(document).ready(function(){
           	picked_county = filter_counties[0].county_name
 
           	$(".content-location").html(picked_county + ', ' + picked_state_name)
+          	$(".link-to-results").attr('href', 'index.html?county|'+picked_state_fips+"|"+picked_state_name+"|"+picked_county_fips+"|"+picked_county)
 
 	    });
 
@@ -268,7 +274,7 @@ $(document).ready(function(){
           	picked_county = filter_counties[0].county_name
 
 
-          	$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta20_county20_natl_crosswalk.csv', function(csvString) {
+          	$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta_counties_crosswalk_merge.csv', function(csvString) {
 						
 				// Use PapaParse to convert string to array of objects
 		    	var zip_data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -288,6 +294,7 @@ $(document).ready(function(){
 	          	console.log(filter_zips)
 
 	          	$(".content-location").html(picked_zip +' - '+ picked_county + ', ' + picked_state_name)
+	          	$(".link-to-results").attr('href', 'index.html?zip|'+picked_state_fips+"|"+picked_state_name+"|"+picked_county_fips+"|"+picked_county+"|"+picked_zip)
 
 			});
 
@@ -346,7 +353,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -356,7 +363,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -371,7 +378,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style', direction: 'auto', sticky: 'true', interactive: 'true'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style', direction: 'auto', sticky: 'true', interactive: 'true'})
 	            }
 
 	        }).addTo(map);
@@ -385,7 +392,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -447,7 +454,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -457,7 +464,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -471,7 +478,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }).addTo(map);
@@ -485,7 +492,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -568,10 +575,10 @@ $(document).ready(function(){
 
         	// console.log(items.features)
 
-			items = data.features.filter(function(obj) {
-			// return the filtered value
-			return obj.properties.county === leftPad(String(picked_county_fips), 5);
-			});
+			// items = data.features.filter(function(obj) {
+			// // return the filtered value
+			// return obj.properties.county === leftPad(String(picked_county_fips), 5);
+			// });
 
          	// console.log(items)
 
@@ -581,7 +588,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -591,7 +598,7 @@ $(document).ready(function(){
 			        weight: 0.5,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.7
+			        fillOpacity: 0.5
 			    };
 			}
 
@@ -605,7 +612,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }).addTo(map);
@@ -619,7 +626,7 @@ $(document).ready(function(){
 	            // add tooltips_________________________________________
 
 	            onEachFeature: function (feature, layer) {
-	            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+	            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 	            }
 
 	        }); //.addTo(map)
@@ -726,7 +733,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -736,7 +743,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -750,7 +757,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -764,7 +771,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -784,7 +791,9 @@ $(document).ready(function(){
 	            var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
 	            map.flyTo(center, (zoom));  
 
-
+	            L.control.zoom({
+					position: 'topright'
+				}).addTo(map)
 	    
 
 		         
@@ -826,7 +835,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -836,7 +845,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -850,7 +859,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -864,7 +873,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -918,6 +927,10 @@ $(document).ready(function(){
 					boundaries.bringToFront();
 				});	
 
+	            L.control.zoom({
+					position: 'topright'
+				}).addTo(map)				
+
 
 			});
 
@@ -945,10 +958,10 @@ $(document).ready(function(){
 
 	        	// console.log(items.features)
 
-				items = data.features.filter(function(obj) {
-				// return the filtered value
-				return obj.properties.county === leftPad(String(picked_county_fips), 5);
-				});
+				// items = data.features.filter(function(obj) {
+				// // return the filtered value
+				// return obj.properties.county === leftPad(String(picked_county_fips), 5);
+				// });
 
 	         	// console.log(items)
 
@@ -958,7 +971,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -968,7 +981,7 @@ $(document).ready(function(){
 				        weight: 0.5,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.7
+				        fillOpacity: 0.5
 				    };
 				}
 
@@ -982,7 +995,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_major+'%</span> are at major risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }).addTo(map);
@@ -996,7 +1009,7 @@ $(document).ready(function(){
 		            // add tooltips_________________________________________
 
 		            onEachFeature: function (feature, layer) {
-		            	layer.bindTooltip('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://firststreet.org/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
+		            	layer.bindPopup('<div class="tooltip-headline">'+feature.properties.name+'</div><div class="tooltip-content">Out of <span class="tooltip-bold">'+feature.properties.count_property.toLocaleString("en-US")+'</span> properties in this area, <span class="tooltip-bold">'+feature.properties.pct_severe+'%</span> are at severe risk for '+risk_type+'.</div><div class="tooltip-source"><a href="https://riskfactor.com/" target="_blank">Look up your address at First Street Foundation</a></div>', {className: 'tooltip-style'})
 		            }
 
 		        }); //.addTo(map)
@@ -1051,6 +1064,9 @@ $(document).ready(function(){
 					boundaries.bringToFront();
 				});	 
 
+	            L.control.zoom({
+					position: 'topright'
+				}).addTo(map)	            
 
 			});
 			

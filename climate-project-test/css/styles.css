@@ -83,13 +83,12 @@ img {
 
 body {
   background-color: black;
-  /*overflow: hidden;*/
 }
 
 
-#begin {
+/*#begin {
   display: none;
-}
+}*/
 
 
 .header {
@@ -184,6 +183,8 @@ body {
     margin: auto;
     display: flex;
     justify-content: center;
+    position: relative;
+
     /*align-items: center;*/
   }   
 
@@ -203,10 +204,10 @@ body {
       .dropdown {
         position: relative;
         display: block;
-        overflow: hidden;
+        /*overflow: hidden;*/
         max-width: 700px;
         margin: auto;
-        z-index: 2;
+        /*z-index: 2;*/
 
               
       }
@@ -214,10 +215,10 @@ body {
       .dropdown-content {
         background-color: #f6f6f6;
         overflow: auto;
-        border: 1px solid #ddd;
-        z-index: 1;
-        width: 30%;
+        /*border: 1px solid #ddd;*/
+        width: 40%;
         margin: auto;
+        /*position: relative;*/
         /*margin-top: 10px;*/
 
       }
@@ -233,11 +234,14 @@ body {
 
       .drop {
         display: none;
-        height: 30vh;
+        height: 300px;
         overflow: scroll;
         font-family: "urw-din", sans-serif;
-        width: 100%;
+        width: 40%;
         z-index: 50;
+        position: absolute;
+        background-color: white;
+        z-index: 5;
 
       }
 
@@ -250,11 +254,11 @@ body {
       .show {display: block;}
 
       #countyDropdown, #zipDropdown {
-        display: none;
+        /*display: none;*/
       }
 
       #OR1, #OR2 {
-        display: none;
+        /*display: none;*/
       }
 
 .or {
@@ -302,7 +306,10 @@ body {
 .content {
   background-color: white;
   z-index: 50;
-  /*display: none;*/
+}
+
+#begin {
+  display: none;
 }
 
 /*MENU*/
@@ -357,7 +364,11 @@ body {
   text-align: center;
   cursor: pointer;
   padding-top: 10px;
+  color: black;
+  text-decoration: underline;
 }
+
+
 
 .menu-logo {
   width: 70px;
@@ -584,7 +595,7 @@ body {
 
 .legend-box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 400px;
   font-family: "urw-din", sans-serif;
   font-size: 12px;
@@ -604,6 +615,10 @@ body {
   max-width: 40px;
   height: 30px;
 }
+  
+  .pct-0 {
+    background-color: #DADADA;
+  }
 
   .pct-0-10 {
     background-color: #f0f723;
