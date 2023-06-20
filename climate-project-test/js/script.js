@@ -262,7 +262,7 @@ $(document).ready(function(){
 	}); // end zip data response	   
 
 	$(".gobutton").click(function(){
-		// $(this).hide()
+		$(this).hide()
 
 		$("#begin").show()
 
@@ -291,21 +291,21 @@ $(document).ready(function(){
 
 		$(".content").show()
 
-		$('html, body').animate({
-	        scrollTop: $("#begin").offset().top
-	    }, 1000);
+		// $('html, body').animate({
+	 //        scrollTop: $("#begin").offset().top
+	 //    }, 500);
 
-	    $(".header").fadeOut(1500)
+	    $(".header").fadeOut(1000)
 
-		$(".content-menu").delay(1000).qcss({
+		$(".content-menu").delay(500).qcss({
 	    	"position":"fixed",
 	    	"top":"0px",
 	    	"left":"0px"
-	    	}, 1000);
+	    	}, 500);
 
-		$(".content-header").delay(1000).qcss({
+		$(".content-header").delay(500).qcss({
 	    	"margin-top":"60px"
-	    	}, 1000);
+	    	}, 500);
 
 
 		//which go button did you pick??? that will determine which data it comes from
@@ -826,12 +826,13 @@ $(document).ready(function(){
 		console.log("geo type is", geo_type)
 
 		$(".content").show()
+		$(".header").fadeOut()
 
-		$('html, body').animate({
-	        scrollTop: $("#begin").offset().top
-	    }, 1000);
+		// $('html, body').animate({
+	 //        scrollTop: $("#begin").offset().top
+	 //    }, 1000);
 
-	    $(".header").fadeOut(1500)
+	    // $(".header").fadeOut(1500)
 
 		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",

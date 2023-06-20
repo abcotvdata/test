@@ -72,6 +72,10 @@ font-family: "urw-din-semi-condensed", sans-serif;
 font-weight: 700;
 font-style: italic;*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
    box-sizing: border-box;
 }
@@ -86,9 +90,9 @@ body {
 }
 
 
-/*#begin {
+#begin {
   display: none;
-}*/
+}
 
 
 .header {
@@ -284,6 +288,8 @@ body {
   display: none;
   cursor: pointer;
   color: white;
+  border: none;
+
 
 }
 
@@ -292,6 +298,16 @@ body {
     transform: scale(1.1);
     box-shadow: 0px 0px 5px #ffba00;
   }
+
+.gobutton a {
+  color: white;
+  text-decoration: none;
+}  
+
+.gobutton a:visited {
+  color: white;
+  text-decoration: none;
+}  
 
 
 
@@ -309,7 +325,7 @@ body {
 }
 
 #begin {
-  display: none;
+  /*display: none;*/
 }
 
 /*MENU*/
@@ -747,6 +763,7 @@ body {
   background-color: #ffba00;
   margin: 5px;
   cursor: pointer;
+  font-size: 15px;
 
 }
 
@@ -1051,7 +1068,11 @@ body {
 
 
   .dropdown-content {
-    width: 230px;
+    width: 60%;
+  }
+
+  .drop {
+    width: 60%;
   }
 
   .outer-gobutton {
@@ -1101,14 +1122,24 @@ body {
     margin-top: 20%;
   }
 
+  .map-tab {
+    font-size: 13px;
+  }
+
 
 } 
-/*
-@media only screen and (max-width: 400px) {
-  .legend-box {
-    width: 100%;
+
+@media only screen and (max-width: 430px) {
+
+  .dropdown-content {
+    width: 80%;
   }
-}*/
+
+  .drop {
+    width: 80%;
+  }
+  
+}
 
 
 
