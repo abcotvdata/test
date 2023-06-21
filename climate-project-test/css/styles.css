@@ -72,9 +72,9 @@ font-family: "urw-din-semi-condensed", sans-serif;
 font-weight: 700;
 font-style: italic;*/
 
-html {
+/*html {
     scroll-behavior: smooth;
-}
+}*/
 
 * {
    box-sizing: border-box;
@@ -89,9 +89,9 @@ body {
   background-color: black;
 }
 
-/*.hidden {
+.hidden {
   display: none;
-}*/
+}
 
 
 #begin {
@@ -130,6 +130,10 @@ body {
       height: 100%;
       object-fit: cover;
    }
+
+.mobile-background {
+  display: none;
+}   
 
 
 .header-bg-overlay {
@@ -1044,6 +1048,18 @@ body {
   }
 
 
+}
+
+@media only screen and (max-width: 800px) {
+
+  .mobile-background {
+    display: block;
+  } 
+
+  .desktop-background {
+    display: none;
+  } 
+  
 }
 
 
