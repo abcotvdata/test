@@ -297,6 +297,10 @@ $(document).ready(function(){
 
 	    $(".header").delay(2000).fadeOut();
 
+	    $('html, body').delay(2000).animate({
+	        scrollTop: $("#begin").offset().top - $(".header").height()
+	    }, 500);
+
 		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",
 	    	"top":"0px",
