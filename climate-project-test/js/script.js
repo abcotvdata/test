@@ -297,7 +297,7 @@ $(document).ready(function(){
 
 	    $(".header").delay(2000).fadeOut();
 
-	    $('html, body').delay(2000).animate({
+	    $('html, body').delay(1000).css({
 	        scrollTop: $("#begin").offset().top - $(".header").height()
 	    }, 500);
 
