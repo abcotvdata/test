@@ -264,7 +264,7 @@ $(document).ready(function(){
 	$(".gobutton").click(function(){
 		$(this).hide()
 
-		$("#begin").show()
+		$("#first-content").show()
 
 		which_gobutton = $(this).attr("gobutton-title");
 		console.log(which_gobutton)
@@ -291,19 +291,19 @@ $(document).ready(function(){
 
 		$(".content").show()
 
-		// $('html, body').animate({
-	 //        scrollTop: $("#begin").offset().top
-	 //    }, 500);
+		$('html, body').animate({
+	        scrollTop: $("#begin").offset().top //- $(".header").height()
+	    }, 500);
 
-	    $(".header").fadeOut(1000)
+	    $(".header").delay(2000).fadeOut();
 
-		$(".content-menu").delay(500).qcss({
+		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",
 	    	"top":"0px",
 	    	"left":"0px"
 	    	}, 500);
 
-		$(".content-header").delay(500).qcss({
+		$(".content-header").qcss({
 	    	"margin-top":"60px"
 	    	}, 500);
 
@@ -779,7 +779,7 @@ $(document).ready(function(){
 
 	$(".back-to-choose").click(function(){
 
-		$(".header").fadeIn(500)
+		$(".header").fadeIn();
 
 		$('html, body').animate({
 	        scrollTop: $(".header").offset().top
@@ -826,23 +826,22 @@ $(document).ready(function(){
 		console.log("geo type is", geo_type)
 
 		$(".content").show()
-		$(".header").fadeOut()
 
-		// $('html, body').animate({
-	 //        scrollTop: $("#begin").offset().top
-	 //    }, 1000);
+		$('html, body').animate({
+	        scrollTop: $("#begin").offset().top //- $(".header").height()
+	    }, 500);
 
-	    // $(".header").fadeOut(1500)
+	    $(".header").delay(2000).fadeOut();
 
 		$(".content-menu").delay(1000).qcss({
 	    	"position":"fixed",
 	    	"top":"0px",
 	    	"left":"0px"
-	    	}, 1000);
+	    	}, 500);
 
-		$(".content-header").delay(1000).qcss({
+		$(".content-header").qcss({
 	    	"margin-top":"60px"
-	    	}, 1000);
+	    	}, 500);
 
 
 		if (geo_type == "state") {

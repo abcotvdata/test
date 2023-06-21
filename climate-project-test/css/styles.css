@@ -89,11 +89,20 @@ body {
   background-color: black;
 }
 
+/*.hidden {
+  display: none;
+}*/
+
 
 #begin {
-  display: none;
+  width: 100%;
+  height: 1px;
+  background-color: white;
 }
 
+#first-content {
+  display: none;
+}
 
 .header {
    width: 100%;
