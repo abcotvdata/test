@@ -832,20 +832,21 @@ $(document).ready(function(){
 		$(".content").show()
 
 		$('html, body').animate({
-	        scrollTop: $("#begin").offset().top //- $(".header").height()
-	    }, 500);
+	        scrollTop: $("#first-content").offset().top //- $(".header").height()
+	    }, 500, function() {
+	    	$(".header").addClass("hidden");
+	    	$(document).scrollTop(0)
 
-	    $(".header").delay(2000).fadeOut();
+	    	$(".content-menu").qcss({
+		    	"position":"fixed",
+		    	"top":"0px",
+		    	"left":"0px"
+		    });
 
-		$(".content-menu").delay(1000).qcss({
-	    	"position":"fixed",
-	    	"top":"0px",
-	    	"left":"0px"
-	    	}, 500);
-
-		$(".content-header").qcss({
-	    	"margin-top":"60px"
-	    	}, 500);
+			$(".content-header").qcss({
+		    	"margin-top":"60px"
+		    });
+	    });
 
 
 		if (geo_type == "state") {
