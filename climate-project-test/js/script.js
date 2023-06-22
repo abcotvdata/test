@@ -335,25 +335,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wildfire-risk-major").html('NO')
-		          		$(".of-properties-fire-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wildfire-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
 		          	} else {
-		          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?state|fire|"+picked_state_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wildfire-risk-severe").html('NO')
-		          		$(".of-properties-fire-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wildfire-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".fire-map-link").attr("href", "risk-maps.html?state|fire|"+picked_state_fips)
+		          
 
 
 				});
@@ -371,25 +380,35 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".heat-risk-major").html('NO')
-		          		$(".of-properties-heat-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".heat-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
 		          	} else {
-		          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?state|heat|"+picked_state_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".heat-risk-severe").html('NO')
-		          		$(".of-properties-heat-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".heat-risk-severe").html('>1%')
-		          	} else {
-		          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".heat-map-link").attr("href", "risk-maps.html?state|heat|"+picked_state_fips)
+		          	
 
 
 				});
@@ -408,26 +427,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".flood-risk-major").html('NO')
-		          		$(".of-properties-flood-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".flood-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
 		          	} else {
-		          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
+			          	$(".flood-map-link").attr("href", "risk-maps.html?state|flood|"+picked_state_fips)
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".flood-risk-severe").html('NO')
-		          		$(".of-properties-flood-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".flood-risk-severe").html('>1%')
-		          	} else {
-		          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-
-		          	$(".flood-map-link").attr("href", "risk-maps.html?state|flood|"+picked_state_fips)
+		          	
 
 
 				});
@@ -445,25 +472,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wind-risk-major").html('NO')
-		          		$(".of-properties-wind-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wind-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
 		          	} else {
-		          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?state|wind|"+picked_state_fips)
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wind-risk-severe").html('NO')
-		          		$(".of-properties-wind-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wind-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".wind-map-link").attr("href", "risk-maps.html?state|wind|"+picked_state_fips)
+		          	
 
 
 				});
@@ -488,26 +523,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wildfire-risk-major").html('NO')
-		          		$(".of-properties-fire-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wildfire-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
 		          	} else {
-		          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?county|fire|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
 		          	}
-
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wildfire-risk-severe").html('NO')
-		          		$(".of-properties-fire-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wildfire-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-
-		          	$(".wildfire-map-link").attr("href", "risk-maps.html?county|fire|"+picked_state_fips+"|"+picked_county_fips)
 
 
 				});
@@ -525,25 +566,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".heat-risk-major").html('NO')
-		          		$(".of-properties-heat-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".heat-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
 		          	} else {
-		          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?county|heat|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".heat-risk-severe").html('NO')
-		          		$(".of-properties-heat-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".heat-risk-severe").html('>1%')
-		          	} else {
-		          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".heat-map-link").attr("href", "risk-maps.html?county|heat|"+picked_state_fips+"|"+picked_county_fips)
 
 
 				});
@@ -562,25 +612,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".flood-risk-major").html('NO')
-		          		$(".of-properties-flood-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".flood-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
 		          	} else {
-		          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".flood-map-link").attr("href", "risk-maps.html?county|flood|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+			          	
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".flood-risk-severe").html('NO')
-		          		$(".of-properties-flood-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".flood-risk-severe").html('>1%')
-		          	} else {
-		          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".flood-map-link").attr("href", "risk-maps.html?county|flood|"+picked_state_fips+"|"+picked_county_fips)
+		          	
 
 
 				});
@@ -598,25 +657,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wind-risk-major").html('NO')
-		          		$(".of-properties-wind-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wind-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
 		          	} else {
-		          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?county|wind|"+picked_state_fips+"|"+picked_county_fips)
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wind-risk-severe").html('NO')
-		          		$(".of-properties-wind-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wind-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".wind-map-link").attr("href", "risk-maps.html?county|wind|"+picked_state_fips+"|"+picked_county_fips)
+		          	
 
 
 				});
@@ -641,25 +708,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wildfire-risk-major").html('NO')
-		          		$(".of-properties-fire-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wildfire-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
 		          	} else {
-		          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?zip|fire|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wildfire-risk-severe").html('NO')
-		          		$(".of-properties-fire-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wildfire-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".fire-map-link").attr("href", "risk-maps.html?zip|fire|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
 
 
 				});
@@ -677,25 +752,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".heat-risk-major").html('NO')
-		          		$(".of-properties-heat-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".heat-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
 		          	} else {
-		          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?zip|heat|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".heat-risk-severe").html('NO')
-		          		$(".of-properties-heat-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".heat-risk-severe").html('>1%')
-		          	} else {
-		          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".heat-map-link").attr("href", "risk-maps.html?zip|heat|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
 
 
 				});
@@ -714,25 +798,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".flood-risk-major").html('NO')
-		          		$(".of-properties-flood-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".flood-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
 		          	} else {
-		          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
-		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".flood-risk-severe").html('NO')
-		          		$(".of-properties-flood-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".flood-risk-severe").html('>1%')
-		          	} else {
-		          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
+		          		$(".flood-map-link").attr("href", "risk-maps.html?zip|flood|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
 
-		          	$(".flood-map-link").attr("href", "risk-maps.html?zip|flood|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+			          	
+
+		          	}
+		          	
 
 
 				});
@@ -750,25 +842,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	if (filtered_data[0].pct_major == 0) {
-		          		$(".wind-risk-major").html('NO')
-		          		$(".of-properties-wind-major").html('properties at')
-		          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
-		          		$(".wind-risk-major").html('>1%')
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
 		          	} else {
-		          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?zip|wind|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
 		          	}
 
-		          	if (filtered_data[0].pct_severe == 0) {
-		          		$(".wind-risk-severe").html('NO')
-		          		$(".of-properties-wind-severe").html('properties at')
-		          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
-		          		$(".wind-risk-severe").html('>1%')
-		          	} else {
-		          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	}
-
-		          	$(".wind-map-link").attr("href", "risk-maps.html?zip|wind|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          	
 
 
 				});
@@ -873,9 +973,34 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".fire-map-link").attr("href", "risk-maps.html?state|fire|"+picked_state_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
+		          	} else {
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?state|fire|"+picked_state_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
+		          	}
+
+		          	
 
 
 				});
@@ -893,9 +1018,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".heat-map-link").attr("href", "risk-maps.html?state|heat|"+picked_state_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
+		          	} else {
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?state|heat|"+picked_state_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
+		          	}
 
 
 				});
@@ -914,9 +1063,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".flood-map-link").attr("href", "risk-maps.html?state|flood|"+picked_state_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
+		          	} else {
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
+			          	$(".flood-map-link").attr("href", "risk-maps.html?state|flood|"+picked_state_fips)
+
+		          	}
 
 
 				});
@@ -934,9 +1106,31 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".wind-map-link").attr("href", "risk-maps.html?state|wind|"+picked_state_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
+		          	} else {
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?state|wind|"+picked_state_fips)
+
+		          	}
 
 
 				});
@@ -970,9 +1164,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".fire-map-link").attr("href", "risk-maps.html?county|fire|"+picked_state_fips+"|"+picked_county_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
+		          	} else {
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?county|fire|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
+		          	}
 
 
 				});
@@ -990,9 +1207,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".heat-map-link").attr("href", "risk-maps.html?county|heat|"+picked_state_fips+"|"+picked_county_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
+		          	} else {
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?county|heat|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
+		          	}
 
 
 				});
@@ -1011,9 +1252,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".flood-map-link").attr("href", "risk-maps.html?county|flood|"+picked_state_fips+"|"+picked_county_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
+		          	} else {
+
+		          		$(".flood-map-link").attr("href", "risk-maps.html?county|flood|"+picked_state_fips+"|"+picked_county_fips)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+			          	
+
+		          	}
 
 
 				});
@@ -1031,9 +1295,31 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".wind-map-link").attr("href", "risk-maps.html?county|wind|"+picked_state_fips+"|"+picked_county_fips)
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
+		          	} else {
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?county|wind|"+picked_state_fips+"|"+picked_county_fips)
+
+		          	}
 
 
 				});
@@ -1070,9 +1356,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".fire-map-link").attr("href", "risk-maps.html?zip|fire|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          	if (filtered_data.length == 0) {
+		          		$(".fire-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Wildfire</span><br><span class="big-numb bold wildfire-risk-major">NO DATA</span><br><span class="of-properties-fire-major">available for this area</span>')
+		          	} else {
+
+		          		$(".fire-map-link").attr("href", "risk-maps.html?zip|fire|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wildfire-risk-major").html('NO')
+			          		$(".of-properties-fire-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wildfire-risk-major").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wildfire-risk-severe").html('NO')
+			          		$(".of-properties-fire-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wildfire-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wildfire-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+
+		          	}
 
 
 				});
@@ -1090,9 +1399,33 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".heat-map-link").attr("href", "risk-maps.html?zip|heat|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          	if (filtered_data.length == 0) {
+		          		$(".heat-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Extreme Heat</span><br><span class="big-numb bold heat-risk-major">NO DATA</span><br><span class="of-properties-heat-major">available for this area</span>')
+		          	} else {
+
+		          		$(".heat-map-link").attr("href", "risk-maps.html?zip|heat|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".heat-risk-major").html('NO')
+			          		$(".of-properties-heat-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".heat-risk-major").html('>1%')
+			          	} else {
+			          		$(".heat-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".heat-risk-severe").html('NO')
+			          		$(".of-properties-heat-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".heat-risk-severe").html('>1%')
+			          	} else {
+			          		$(".heat-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	
+
+		          	}
 
 
 				});
@@ -1111,9 +1444,32 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".flood-map-link").attr("href", "risk-maps.html?zip|flood|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          	if (filtered_data.length == 0) {
+		          		$(".flood-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Flooding</span><br><span class="big-numb bold flood-risk-major">NO DATA</span><br><span class="of-properties-flood-major">available for this area</span>')
+		          	} else {
+
+		          		$(".flood-map-link").attr("href", "risk-maps.html?zip|flood|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".flood-risk-major").html('NO')
+			          		$(".of-properties-flood-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".flood-risk-major").html('>1%')
+			          	} else {
+			          		$(".flood-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".flood-risk-severe").html('NO')
+			          		$(".of-properties-flood-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".flood-risk-severe").html('>1%')
+			          	} else {
+			          		$(".flood-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+			          	
+
+		          	}
 
 
 				});
@@ -1131,9 +1487,31 @@ $(document).ready(function(){
 
 		          	console.log(filtered_data)
 
-		          	$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
-		          	$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
-		          	$(".wind-map-link").attr("href", "risk-maps.html?zip|wind|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+		          	if (filtered_data.length == 0) {
+		          		$(".wind-map-link").attr("href", "index.html#begin").find(".concern-title").html('<span class="lines">Severe Wind</span><br><span class="big-numb bold wind-risk-major">NO DATA</span><br><span class="of-properties-wind-major">available for this area</span>')
+		          	} else {
+
+		          		if (filtered_data[0].pct_major == 0) {
+			          		$(".wind-risk-major").html('NO')
+			          		$(".of-properties-wind-major").html('properties at')
+			          	} else if ((filtered_data[0].pct_major > 0) & (filtered_data[0].pct_major < 1)) {
+			          		$(".wind-risk-major").html('>1%')
+			          	} else {
+			          		$(".wind-risk-major").html(filtered_data[0].pct_major + '%')
+			          	}
+
+			          	if (filtered_data[0].pct_severe == 0) {
+			          		$(".wind-risk-severe").html('NO')
+			          		$(".of-properties-wind-severe").html('properties at')
+			          	} else if ((filtered_data[0].pct_severe > 0) & (filtered_data[0].pct_severe < 1)) {
+			          		$(".wind-risk-severe").html('>1%')
+			          	} else {
+			          		$(".wind-risk-severe").html(filtered_data[0].pct_severe + '%')
+			          	}
+
+			          	$(".wind-map-link").attr("href", "risk-maps.html?zip|wind|"+picked_state_fips+"|"+picked_county_fips+"|"+picked_zip)
+
+		          	}
 
 
 				});
