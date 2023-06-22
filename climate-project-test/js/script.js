@@ -83,6 +83,16 @@ $.fn.extend({
 	  }
 	}	
 
+
+//LOADING THING
+$(document).ready(function(){
+
+	var polygons = $(".leaflet-overlay-pane svg").find("g")
+	length_polygons = polygons.length
+	console.log(length_polygons)
+
+});	
+
 	
 
 //JQUERY PUTTING THE STATES IN THE FIRST DROPDOWN
