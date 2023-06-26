@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Climate Project Test V6 - Risk Maps</title>
+    <title>Climate Project Test V7 - Risk Maps</title>
 
 	<!-- viewport for responsive -->	
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,9 +62,9 @@
     	
     	<div class="map-tabs">
     		<div class="map-tab fire-tab" risk_type="fire" risk_type_long="wildfire">Wildfire</div>
-    		<div class="map-tab heat-tab" risk_type="heat" risk_type_long="heat">Extreme Heat</div>
+    		<div class="map-tab heat-tab" risk_type="heat" risk_type_long="heat">Heat</div>
     		<div class="map-tab flood-tab" risk_type="flood" risk_type_long="flooding">Flooding</div>
-    		<div class="map-tab wind-tab" risk_type="wind" risk_type_long="wind">Severe Wind</div>
+    		<div class="map-tab wind-tab" risk_type="wind" risk_type_long="wind">Wind</div>
     	</div>
 
         <div class="map-container">
@@ -77,13 +77,14 @@
 
                         <p>Click on the buttons in the bottom right corner of the map to switch between "major" and "severe" risk.</p>
 
-                        <p>[Insert definiton/difference between "major" and "severe" here.]</p>
+                        <p class="risk_definition"></p>
 
-                        <div class="click-more-info-map">Click here for more information on this risk data.</div>
+                        <div class="click-more-info-map">Click here to learn more.</div>
 
                     </div>
 
-                    <p class="map-subheader-mobile">This map shows...&#8681;</p>
+                    <p class="map-subheader-mobile">This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>.</p> 
+                    <p class="map-subheader-mobile-click">Click for more...&#8681;</p>
                     <p class="map-subheader-mobile-hide">Hide description...&#8679;</p>
 
 
@@ -179,21 +180,46 @@
 
                 <h3>Climate risk data methodology</h3>
 
-                <p>The data for these risk maps comes from the <a href="https://firststreet.org/">First Street Foundation</a>. They calculate the risk level for each property.</p>
+                <p>The maps and data analysis for this site are based on peer-reviewed data provided by the First Street Foundation, a nonprofit science, technology, and research group focused on making it easier for the public to understand and act on the challenges posed to people's safety, property and life from climate change.</p> 
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <p>Among the tools the scientists developed are property-level risk assessments for wind, wildfire, flood and heat over the next 30 years - or the length of a standard home mortgage loan.</p>
 
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>The organization's methodology is public online and we've linked it below for each of the four risk areas, allowing you to explore the details of the scientific approach the organization takes to each of these problems. While this presentation focuses on broad categories of risk across local geographic areas, <a href="https://riskfactor.com/" target="_blank">First Street Foundation's Risk Factor tool</a> lets anyone look at each of these risks specific to their <a href="https://riskfactor.com/" target="_blank">individual property here</a>.</p>
 
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <h4>WILDFIRE</h4>
+
+                <p>For wildfire, the First Street Foundation model says a property is at "major" risk if it is forecast to have a 6% to 14% percent chance of being directly damaged by wildfire at least once over 30 years. The model says "severe" risk means a property faces at least a 15% chance over that time period.</p>
+
+                <p>The foundation's fire risk model includes all forms of fuel: trees, other vegetation and even homes themselves. It incorporates spread patterns from more than 500 historic wildfires, but taking into account hotter and drier conditions expected from changing climate. The model simulates more than 100 million wildfires.</p>
+
+                <p>The details of First Street's wildfire danger model are publicly available for <a href="https://firststreet.org/risk-factor/fire-factor/" target="_blank">anyone to review here</a>. While the maps we've published here focus on the share of properties in geographic areas that fall within broad categories like "major" and "severe" risk, the foundation makes it possible for anyone to look up their <a href="https://riskfactor.com/" target="_blank">individual property here</a>.</p>
+
+                <h4>HEAT</h4>
+
+                <p>For heat, the First Street Foundation says a property at "major" risk would be forecast to experience an average heat index in July of 89 to 95 degrees over the next 30 years. A property at "severe" risk is forecast to endure an average July heat index above 95 degrees.</p>
+
+                <p>The foundation's Heat Factor model considers a wide range of factors, including high-resolution measures of land surface temperatures from satellites, proximity to water, ground and tree cover and humidity, among other measures. Adjustments are made based on forecast pollution scenarios. The heat model determines how many days a person at a property could expect to experience dangerous heat.</p>
+
+                <p>The details of First Street's heat model are publicly available for <a href="https://firststreet.org/risk-factor/heat-factor/" target="_blank">anyone to review here</a>. While the maps we've published here focus on the share of properties in geographic areas that fall within broad categories like "major" and "severe" risk, the foundation makes it possible for anyone to look up their <a href="https://riskfactor.com/" target="_blank">individual property here.</a></p>
+
+                <h4>FLOODING</h4>
+
+                <p>For flooding, a property faces a major risk when there is an 80% percent chance of it flooding at least once over 30 years, according to First Street Foundation's Flood Factor model. Severe risk means there is at least a 95% chance of the property flooding at least once over 30 years. But that's a rough approximation of a complex model. An individual property's Flood Factor risk score increases with higher probabilities of flooding or if flood water is forecast to be deeper.</p>
+
+                <p>The First Street Foundation's computer modeling considers far more factors than most government flood risk assessments, which focus primarily on historic flooding. First Street's models incorporate historic flooding, intense rainfall, rising seas, tropical storm surge, characteristics of buildings and the forecast influence of the warming planet.</p>
+
+                <p>The details of the organization's model are publicly available for <a href="https://firststreet.org/risk-factor/flood-factor/" target="_blank">anyone to review here</a>. While the maps we've published here focus on the share of properties in geographic areas that fall within broad categories like "major" and "severe" risk, the foundation makes it possible for anyone to look up their <a href="https://riskfactor.com/" target="_blank">individual property here.</a></p>
+
+
+                <h4>WIND</h4>
+
+                <p>For wind from tropical storms and hurricanes, the First Street Foundation's model says a property at "major" risk has an 26% percent chance of experiencing tropical storm winds at least once over 30 years. For "severe" risk, a property has at least an 80% chance.</p>
+
+                <p>The computerized analysis uses tens of thousands of model storm tracks, considering local conditions such as roughness of land surrounding a property, to calculate the likelihood now and 30 years from now of wind storm damage.</p>
+
+                <p>Complete details of First Street's peer-reviewed wind model are available for <a href="https://firststreet.org/risk-factor/wind-factor/" target="_blank">anyone to review here</a>. While the maps we've published here focus on the share of properties in geographic areas that fall within broad categories like "major" and "severe" risk, the foundation makes it possible for anyone to look up their <a href="https://riskfactor.com/" target="_blank">individual property here.</a></p>
+
+                
 
             </div>
 

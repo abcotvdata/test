@@ -190,6 +190,7 @@ $(document).ready(function(){
 		$(".wind-tab").css({"background-color":"#ffba00"})
 
 		$(".risk_type_title").html("fire");
+		$(".risk_definition").html("Major risk means a property is forecast to have a 6-14% percent chance of being directly damaged by wildfire over 30 years. Severe risk means at least a 15% chance.");
 
 	}
 
@@ -200,6 +201,7 @@ $(document).ready(function(){
 		$(".wind-tab").css({"background-color":"#ffba00"})
 
 		$(".risk_type_title").html("heat");
+		$(".risk_definition").html("Major risk means a property is forecast to experience an average July heat index of 89-95 degrees over 30 years. Severe risk means an average of 95-110 degrees.");
 
 	}
 
@@ -210,6 +212,7 @@ $(document).ready(function(){
 		$(".wind-tab").css({"background-color":"#ffba00"})
 
 		$(".risk_type_title").html("flooding");
+		$(".risk_definition").html("Major risk means a property is forecast to have an 80% percent chance of flooding once over 30 years. Severe risk means at least a 95% chance.");
 
 	}
 
@@ -220,6 +223,7 @@ $(document).ready(function(){
 		$(".wind-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
 
 		$(".risk_type_title").html("wind");
+		$(".risk_definition").html("Major risk means a property is forecast to have an 26% percent chance of experiencing tropical storm winds once over 30 years. Severe risk means at least a 80% chance.");
 
 	}
 
@@ -1102,9 +1106,10 @@ $(document).ready(function(){
 
 //mobile map description 
 
-	$(".map-subheader-mobile").click(function(){
+	$(".map-subheader-mobile-click").click(function(){
 		$(".map-subheader").slideDown()
 		$(this).hide()
+		$(".map-subheader-mobile").hide()
 		$(".map-subheader-mobile-hide").show()
 	});
 
@@ -1112,6 +1117,7 @@ $(document).ready(function(){
 		$(".map-subheader").slideUp()
 		$(this).hide()
 		$(".map-subheader-mobile").show()
+		$(".map-subheader-mobile-click").show()
 	});
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Climate Project Test V6 - Home UPDATE 7</title>
+    <title>Climate Project Test V7 - Home</title>
 
 	<!-- viewport for responsive -->	
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,25 +40,25 @@
 	    	<div class="community-input">
 
 	    		<div class="directions">
-	    			<p>Input your state, county, and/or zip code below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
+	    			<p>Choose your county below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
 	    		</div>
 
 				<div class="dropdown">
 
-					<div id="choose_state" class="choose_location">
+					<!-- <div id="choose_state" class="choose_location">
 						<div id="stateDropdown" class="dropdown-content">
 
 						    <input type="text" placeholder="Search for a state..." id="stateInput" class="input" onkeyup="statefilterFunction()">
 
 						    <div id="statedrop" class="drop"></div>
 
-						</div>
+						</div> -->
 
-						<button id="state_gobutton" gobutton-title="state" class="gobutton"><!-- <a href="#begin"> -->See results for <span class="state_location">STATE</span></a></button>
-					</div>
+						<!-- <button id="state_gobutton" gobutton-title="state" class="gobutton"> --><!-- <a href="#begin"> --><!-- See results for <span class="state_location">STATE</span></a></button> -->
+					<!-- </div> -->
 
 
-					<div id="OR1" class="or">OR</div>
+					<!-- <div id="OR1" class="or">OR</div> -->
 
 
 					<div id="choose_county" class="choose_location">
@@ -74,7 +74,7 @@
 					</div>
 
 
-					<div id="OR2" class="or">OR</div>
+					<!-- <div id="OR2" class="or">OR</div>
 
 
 					<div id="choose_zip" class="choose_location">
@@ -86,8 +86,8 @@
 
 						</div>
 
-						<button id="zip_gobutton" gobutton-title="zip" class="gobutton"><!-- <a href="#begin"> -->See results for <span class="zip_location">county, STATE</span></a></button>
-					</div>
+						<button id="zip_gobutton" gobutton-title="zip" class="gobutton"> --><!-- <a href="#begin"> --><!-- See results for <span class="zip_location">county, STATE</span></a></button>
+					</div> -->
 
 				</div>
 
@@ -138,8 +138,34 @@
     	</div> <!-- END MENU -->
 
     	<div class="content-header">
-    		<h3>In <span class="content-location"> </span>, <br> these are the climate risks:</h3>
+    		<h3>Climate risks in<br><span class="content-location"> </span></h3>
     	</div>
+
+        <div class="zoom-out-or-in">
+
+            <!-- zoom out to state -->
+            <button id="state_zoombutton" gobutton-title="state" class="zoombutton">Zoom out to <span class="state_location">STATE</span></button>
+
+            <!-- zoom back to the county you picked (if you click on the state button) -->
+            
+            <button id="county_zoombutton" gobutton-title="county" class="zoombutton">Zoom <span class="in-or-out">out</span> to <span class="county_location">county, STATE</span></button>
+
+
+            <!-- zoom to zip code -->
+            <div id="choose_zip" class="zoom_location">
+                <div id="zipDropdown" class="dropdown-content">
+
+                    <input type="text" placeholder="Zoom in to a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
+
+                    <div id="zipdrop" class="drop"></div>
+
+                </div>
+
+                <button id="zip_zoombutton" gobutton-title="zip" class="zoombutton">Zoom in to <span class="zip_location">ZIP county, STATE</span></button>
+            </div>
+
+
+        </div>
 
     	<div class="top-concern concern-container">
 
@@ -165,7 +191,7 @@
 
     		<a class="heat-map-link" href="risk-maps.html"><div class="two concern">
     			<div class="concern-title">
-    				<span class="lines">Extreme Heat</span>
+    				<span class="lines">Heat</span>
     				<br>
     				<span class="big-numb bold heat-risk-major"></span>
                     <br>
@@ -206,7 +232,7 @@
 
     		<a class="wind-map-link" href="risk-maps.html"><div class="four concern">
     			<div class="concern-title">
-    				<span class="lines">Severe Wind</span>
+    				<span class="lines">Wind</span>
     				<br>
     				<span class="big-numb bold wind-risk-major"></span>
                     <br>
