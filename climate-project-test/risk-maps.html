@@ -79,7 +79,7 @@
 
                         <p class="risk_definition"></p>
 
-                        <div class="click-more-info-map">Click here to learn more.</div>
+                        <div class="click-more-info-map">Click here to learn more</div>
 
                     </div>
 
@@ -144,6 +144,18 @@
 
 
             </div> <!-- end map header (this has the background gradient on it) -->
+
+            <div class="search_map_zip"> <!-- zoom to zip code -->
+                <div id="zipDropdownMap" class="dropdown-content">
+
+                    <input type="text" placeholder="Zoom in to a zip code..." id="zipInputMap" class="input" onkeyup="zipMapFilterFunction()">
+
+                    <div id="zipdropmap" class="drop"></div>
+
+                </div>
+
+                <button id="zip_mapbutton" gobutton-title="zip" class="zoombutton">Go</span></button>
+            </div>
 
             <div id="map"></div> <!-- end map div -->
             

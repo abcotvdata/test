@@ -3,6 +3,36 @@
    Date:
 */
 
+//zip search option on map
+
+$.fn.extend({
+   qcss: function(css) {
+      return $(this).queue(function(next) {
+         $(this).css(css);
+         next();
+      });
+   }
+});
+
+	function zipMapFilterFunction() {
+	  var input, filter, ul, li, a, i;
+	  input = document.getElementById("zipInputMap");
+	  filter = input.value.toUpperCase();
+	  div = document.getElementById("zipDropdownMap");
+	  p = div.getElementsByTagName("p");
+	  for (i = 0; i < p.length; i++) {
+	    txtValue = p[i].textContent || p[i].innerText;
+	    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	      p[i].style.display = "";
+	    } else {
+	      p[i].style.display = "none";
+	    }
+	  }
+	}
+
+
+
+
 //padding
 function leftPad(value, length) { 
     return ('0'.repeat(length) + value).slice(-length); 
@@ -178,6 +208,62 @@ $(document).ready(function(){
 	risk_type = string_split[1];
 
 	console.log(risk_type)
+
+
+	
+	//zip search function
+
+	// make it so the dropdowns go away if you click outside of them/the inputs
+
+	$('body').click(function (event) {
+		if ((!$(event.target).is('#zipInputMap')&&(!$(event.target).is('#zipdropmap')))) {
+			// console.log("outside stateInput/statedop")
+			$("#zipdropmap").hide()
+		} else {
+			// console.log("inside stateInput/statedop")
+		}
+    });
+
+	//zip county crosswalk -- fill zip dropdown data
+	$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta_counties_crosswalk_merge.csv', function(csvString) {
+		
+		// Use PapaParse to convert string to array of objects
+    	var zip_data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+    	// console.log(zip_data)
+
+    	filtered_zips = zip_data.filter(function(obj) {
+        	// return the filtered value
+        	return obj.state_name === picked_state_name;
+      	});
+
+		var zip_leng = filtered_zips.length;
+
+		for (var i=0; i<zip_leng; i++) {
+			// console.log(zip_filter[i])
+			var zip_clean = leftPad(filtered_zips[i].GEOID_ZCTA5_20, 5)
+			$('#zipdropmap').append('<p zip="'+zip_clean+'" county_name="'+filtered_zips[i].county_name+'" state_name="'+filtered_zips[i].state_name+'">'+ zip_clean +' - '+filtered_zips[i].county_name+', '+filtered_zips[i].state_name+'</p>')
+
+		}
+
+		$("#zipInputMap").click(function(){
+			$("#zipdropmap").show()
+		});	
+
+		$("#zipdropmap").on('click', 'p', function(){
+			$("#zipdropmap").hide()
+			$("#zip_mapbutton").show()
+
+			picked_zip = Number($(this).attr('zip'))
+
+
+
+		}); //end click on zip
+
+	}); // end zip data response
+
+	
+
 
 	
 
@@ -716,6 +802,61 @@ $(document).ready(function(){
 		
 
 	} // end initial MAP if else
+
+
+//zoom map on zip click
+
+$("#zip_mapbutton").click(function(){
+	// geo_type = "zip"
+	// console.log(geo_type)
+
+	var url_zip_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
+	console.log(url)
+
+	$.getJSON(url_zip_boundary,function(data){ //zip boundary data
+
+    	var items_zip_boundary = data;
+		
+		console.log(items_zip_boundary)
+
+		items_zip_boundary = data.features.filter(function(obj) {
+		// return the filtered value
+		return obj.properties.geoid === leftPad(String(picked_zip), 5);
+		});
+
+		
+
+     	var boundary_style = {
+          "fillColor": "none",
+          "color": "black",
+          "weight": 2,
+          "fillOpacity": 0.9
+      	};
+
+        var zip_boundaries = L.geoJson(items_zip_boundary, {
+            style: boundary_style,
+            // pane: "boundary",
+            opacity:1,
+            className: "boundary"
+        }).addTo(map)
+
+
+        var bounds = zip_boundaries.getBounds();
+        var zoom = map.getBoundsZoom(bounds);
+        var swPoint = map.project(bounds.getSouthWest(), zoom);
+        var nePoint = map.project(bounds.getNorthEast(), zoom);
+        var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
+        map.flyTo(center, (zoom-2));  
+
+        map.on("layeradd", function (event) {
+			zip_boundaries.bringToFront();
+		});	
+
+
+	});
+
+});
+
 
 
 //CHANGE MAP ON CLICK________________________________________________________

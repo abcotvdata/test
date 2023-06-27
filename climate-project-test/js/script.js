@@ -1725,6 +1725,7 @@ $(document).ready(function(){
 
 			$(".content-location").html(picked_county + ', ' + picked_state_name)
 			$(".state_location").html(picked_state_name)
+			$(".county_location").html(picked_county + ', ' + picked_state_name)
 
 			//zip county crosswalk -- fill zip dropdown data
 			$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta_counties_crosswalk_merge.csv', function(csvString) {
