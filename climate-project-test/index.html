@@ -10,6 +10,7 @@
 	<link href="css/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://use.typekit.net/ukm0btc.css">
+    <link href="css/carousel.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -121,49 +122,48 @@
                 </div> -->
 	    	</div>
 
-            
-
-	    	<a href="index.html"><div class="menu-back-to-top back-to-choose">
-
-	    		<div class="menu-arrow">
-		    		<img src="img/arrow-up.png">
-		    	</div>
-
-		    	<div class="menu-back-to-top-words">
-		    		Choose another area
-		    	</div>
-
-	    	</div></a>
-
     	</div> <!-- END MENU -->
 
     	<div class="content-header">
     		<h3>Climate risks in<br><span class="content-location"> </span></h3>
     	</div>
 
-        <div class="zoom-out-or-in">
+        <div class="change_geo">
+            Change to another area
+        </div>
 
-            <!-- zoom out to state -->
-            <button id="state_zoombutton" gobutton-title="state" class="zoombutton">Zoom out to <span class="state_location">STATE</span></button>
+        <div class="zoom-out-or-in-container">
 
-            <!-- zoom back to the county you picked (if you click on the state button) -->
-            
-            <button id="county_zoombutton" gobutton-title="county" class="zoombutton">Zoom <span class="in-or-out">out</span> to <span class="county_location">county, STATE</span></button>
+            <div class="zoom-out-or-in">
+
+                <div class="exit"><img src="img/exit.png"></div>
+
+                <!-- zoom out to state -->
+                <div id="state_zoombutton" gobutton-title="state" class="zoombutton">Zoom out to <span class="state_location">STATE</span></div>
+
+                <!-- zoom back to the county you picked (if you click on the state button) -->
+                
+                <div id="county_zoombutton" gobutton-title="county" class="zoombutton">Zoom <span class="in-or-out">out</span> to <span class="county_location">county, STATE</span></div>
 
 
-            <!-- zoom to zip code -->
-            <div id="choose_zip" class="zoom_location">
-                <div id="zipDropdown" class="dropdown-content">
+                <!-- zoom to zip code -->
+                <div id="choose_zip" class="zoom_location">
+                    <div id="zipDropdown" class="dropdown-content">
 
-                    <input type="text" placeholder="Zoom in to a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
+                        <input type="text" placeholder="Zoom in to a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
 
-                    <div id="zipdrop" class="drop"></div>
+                        <div id="zipdrop" class="drop"></div>
 
+                    </div>
+
+                    <div id="zip_zoombutton" gobutton-title="zip" class="zoombutton">Zoom in to <span class="zip_location">ZIP county, STATE</span></div>
                 </div>
 
-                <button id="zip_zoombutton" gobutton-title="zip" class="zoombutton">Zoom in to <span class="zip_location">ZIP county, STATE</span></button>
-            </div>
+                <!-- choose another area -->
+                <div class="zoom-back-to-top back-to-choose zoombutton"><a href="index.html">Choose another county</a></div>
 
+
+            </div>
 
         </div>
 
@@ -255,10 +255,14 @@
 
 
     	<div class="content-header">
-    		<h3>See other measures:</h3>
+    		<h3>More stories:</h3>
     	</div>	
 
-    	<div class="other-concerns concern-container">
+        <div class="carousel">
+            <div class="carousel-row"></div>
+        </div> 
+
+    	<!-- <div class="other-concerns concern-container"> -->
 
     		<!-- <div class="five concern">
     			<div class="concern-title"><span class="lines">Agriculture</span></div>
@@ -267,11 +271,11 @@
     		</div> -->
 
 
-    		<a class="opinions-link" href="opinions.html"><div class="six concern">
+    		<!-- <a class="opinions-link" href="opinions.html"><div class="six concern">
     			<div class="concern-title"><span class="lines">Climate opinions</span></div>
 
     			<video src="media/opinion-smaller.mp4" muted loop poster="img/opinion-still.jpg"></video>
-    		</div></a>
+    		</div></a> -->
 
 
     	</div>
