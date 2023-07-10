@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Climate Project Test V7 - Home</title>
+    <title>Climate Project Test V8 - Home</title>
 
 	<!-- viewport for responsive -->	
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,11 +9,13 @@
 	<!-- CSS stylesheets -->	
 	<link href="css/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://use.typekit.net/ukm0btc.css">
+	<link rel="stylesheet" href="https://use.typekit.net/jpw5sme.css">
     <link href="css/carousel.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+
+    <div class="header-bg-overlay"><img src="img/BACKGROUND.png"></div>
 
     
     <div class="header">
@@ -23,8 +25,6 @@
     		<video class="desktop-background" src="media/test-header.mp4" autoplay muted loop></video>
     	</div>
 
-    	<div class="header-bg-overlay"></div>
-
     	<div class="header-content">
 
     		<div class="header-title">
@@ -32,71 +32,35 @@
 	    			<img src="img/otv_logo_w.png">
 	    		</div>
 	    		<div class="title-text">
-	    			<h1>Weathering Tomorrow</h1>
-                    <h2>Forecasting the impact where you live</h2>
+	    			<img src="img/LOGO-WITH-SHADOW.png">
 	    		</div>
+
+                <div class="community-input">
+
+                    <div class="directions">
+                        <p>Choose your county below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
+                    </div>
+
+                    <div class="dropdown">
+
+                        <div id="choose_county" class="choose_location">
+                            <div id="countyDropdown" class="dropdown-content">
+
+                                <input type="text" placeholder="Search for a county..." id="countyInput" class="input" onkeyup="countyfilterFunction()">
+
+                                <div id="countydrop" class="drop"></div>
+
+                            </div>
+
+                            <button id="county_gobutton" gobutton-title="county" class="gobutton"><!-- <a href="#begin"> -->See results for <span class="county_location">county, STATE</span></a></button>
+                        </div>
+
+                    </div>
+                    
+                </div> <!-- end community input -->
 	    		
 	    	</div>
 
-	    	<div class="community-input">
-
-	    		<div class="directions">
-	    			<p>Choose your county below to find out about some of the most pressing impacts our changing climate has on your neighborhood.</p>
-	    		</div>
-
-				<div class="dropdown">
-
-					<!-- <div id="choose_state" class="choose_location">
-						<div id="stateDropdown" class="dropdown-content">
-
-						    <input type="text" placeholder="Search for a state..." id="stateInput" class="input" onkeyup="statefilterFunction()">
-
-						    <div id="statedrop" class="drop"></div>
-
-						</div> -->
-
-						<!-- <button id="state_gobutton" gobutton-title="state" class="gobutton"> --><!-- <a href="#begin"> --><!-- See results for <span class="state_location">STATE</span></a></button> -->
-					<!-- </div> -->
-
-
-					<!-- <div id="OR1" class="or">OR</div> -->
-
-
-					<div id="choose_county" class="choose_location">
-						<div id="countyDropdown" class="dropdown-content">
-
-						    <input type="text" placeholder="Search for a county..." id="countyInput" class="input" onkeyup="countyfilterFunction()">
-
-						    <div id="countydrop" class="drop"></div>
-
-						</div>
-
-						<button id="county_gobutton" gobutton-title="county" class="gobutton"><!-- <a href="#begin"> -->See results for <span class="county_location">county, STATE</span></a></button>
-					</div>
-
-
-					<!-- <div id="OR2" class="or">OR</div>
-
-
-					<div id="choose_zip" class="choose_location">
-						<div id="zipDropdown" class="dropdown-content">
-
-						    <input type="text" placeholder="Search for a zip code..." id="zipInput" class="input" onkeyup="zipfilterFunction()">
-
-						    <div id="zipdrop" class="drop"></div>
-
-						</div>
-
-						<button id="zip_gobutton" gobutton-title="zip" class="gobutton"> --><!-- <a href="#begin"> --><!-- See results for <span class="zip_location">county, STATE</span></a></button>
-					</div> -->
-
-				</div>
-
-				
-				
-
-	    		
-	    	</div> <!-- end community input -->
 
     	</div> <!-- end header content -->
 
@@ -110,12 +74,13 @@
 
 	    	<div class="menu-header">
 	    		<div class="menu-logo">
-	    			<img src="img/otv_logo_b.png">
+	    			<!-- <img src="img/otv_logo_b.png"> -->
+                    <img src="img/WEATHERING-TOMORROW-Shadow.png">
 	    		</div>
 
-	    		<div class="menu-title">
-	    			<h1>Weathering Tomorrow</h1>
-	    		</div>
+	    		<!-- <div class="menu-title">
+	    			<img src="img/WEATHERING-TOMORROW-Shadow.png">
+	    		</div> -->
 
                 <!-- <div class="menu-options">
                     <p><a href="about.html">About this site</a></p>

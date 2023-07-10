@@ -12,65 +12,25 @@
 
 */
 
-/*URW DIN Regular
-font-family: "urw-din", sans-serif;
+/*Neuzeit Grotesk Regular
+font-family: "neuzeit-grotesk", sans-serif;
 font-weight: 400;
 font-style: normal;
 
-URW DIN Regular Italic
-font-family: "urw-din", sans-serif;
-font-weight: 400;
-font-style: italic;
-
-URW DIN Bold
-font-family: "urw-din", sans-serif;
+Neuzeit Grotesk Bold
+font-family: "neuzeit-grotesk", sans-serif;
 font-weight: 700;
 font-style: normal;
 
-URW DIN Bold Italic
-font-family: "urw-din", sans-serif;
-font-weight: 700;
-font-style: italic;
-
-URW DIN Cond Regular
-font-family: "urw-din-condensed", sans-serif;
-font-weight: 400;
+Neuzeit Grotesk Cond Black
+font-family: "neuzeit-grotesk-condensed", sans-serif;
+font-weight: 900;
 font-style: normal;
 
-URW DIN Cond Regular Italic
-font-family: "urw-din-condensed", sans-serif;
-font-weight: 400;
-font-style: italic;
-
-URW DIN Cond Bold
-font-family: "urw-din-condensed", sans-serif;
-font-weight: 700;
-font-style: normal;
-
-URW DIN Cond Bold Italic
-font-family: "urw-din-condensed", sans-serif;
-font-weight: 700;
-font-style: italic;
-
-URW DIN SemiCond Regular
-font-family: "urw-din-semi-condensed", sans-serif;
-font-weight: 400;
-font-style: normal;
-
-URW DIN SemiCond Regular Italic
-font-family: "urw-din-semi-condensed", sans-serif;
-font-weight: 400;
-font-style: italic;
-
-URW DIN SemiCond Bold
-font-family: "urw-din-semi-condensed", sans-serif;
-font-weight: 700;
-font-style: normal;
-
-URW DIN SemiCond Bold Italic
-font-family: "urw-din-semi-condensed", sans-serif;
-font-weight: 700;
-font-style: italic;*/
+Neuzeit Grotesk ExtCond Black
+font-family: "neuzeit-grotesk-extra-conden", sans-serif;
+font-weight: 900;
+font-style: normal;*/
 
 /*html {
     scroll-behavior: smooth;
@@ -86,7 +46,7 @@ img {
 }
 
 body {
-  background-color: black;
+  /*background-color: black;*/
 }
 
 .hidden {
@@ -97,7 +57,7 @@ body {
 #begin {
   width: 100%;
   height: 1px;
-  background-color: white;
+  /*background-color: white;*/
 }
 
 #first-content {
@@ -112,22 +72,24 @@ body {
 
 .background {
    width: 100%;
-   height: 100%;
+   height: 100vh;
    object-fit: cover;
    position: absolute;
    top: 0px;
    left: 0px;
+   z-index: 1;
+   opacity: 0.25;
 }
 
    .background img {
       width: 100%;
-      height: 100%;
+      height: 125vh;
       object-fit: cover;
    }
 
    .background video {
       width: 100%;
-      height: 100%;
+      height: 125vh;
       object-fit: cover;
    }
 
@@ -139,11 +101,19 @@ body {
 .header-bg-overlay {
    width: 100%;
    height: 100vh;
-   background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%);
-   position: absolute;
+/*   background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%);*/
+   position: fixed;
    top: 0px;
    left: 0px;
+   opacity: 1;
+   z-index: 0;
 }   
+
+.header-bg-overlay img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
 
 
 .header-content {
@@ -153,17 +123,19 @@ body {
    color: white;
    width: 100%;
    padding: 20px;
+   z-index: 2;
    
 }
 
 .header-title {
-   font-family: "urw-din", sans-serif;
-   font-weight: 700;
+   font-family: "neuzeit-grotesk", sans-serif;
+   /*font-weight: 700;*/
    font-style: normal;
    text-align: center;
    padding-top: 15vh;
-   max-width: 800px;
+   max-width: 650px;
    margin: auto;
+   position: relative;
 }
 
 .header-title .logo {
@@ -182,16 +154,17 @@ body {
   max-width: 900px;
   margin: auto;
   text-align: center;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
 }
 
 
 /*DROPDOWN STYLING*/
 
-/*.community-input {
-  position: relative;
+.community-input {
+  position: absolute;
+  bottom: 0px;
 }
-*/
+
 
   .choose_location {
     display: block;
@@ -211,7 +184,7 @@ body {
          padding: 14px 20px 12px 20px;
          border: none;
          border-bottom: 1px solid #ddd;
-         font-family: "urw-din", sans-serif;
+         font-family: "neuzeit-grotesk", sans-serif;
          height: 50px;
       }
 
@@ -253,7 +226,7 @@ body {
         display: none;
         height: 300px;
         overflow: scroll;
-        font-family: "urw-din", sans-serif;
+        font-family: "neuzeit-grotesk", sans-serif;
         width: 40%;
         z-index: 50;
         position: absolute;
@@ -281,7 +254,7 @@ body {
       }
 
 .or {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -298,7 +271,7 @@ body {
   padding: 10px;
   text-align: center;
   margin: auto;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   /*margin-top: 20px;*/
   display: none;
   cursor: pointer;
@@ -336,8 +309,9 @@ body {
 
 
 .content {
-  background-color: white;
-  z-index: 50;
+  /*background-color: white;*/
+  position: relative;
+  z-index: 2;
 }
 
 #begin {
@@ -346,25 +320,25 @@ body {
 
 /*MENU*/
 .content-menu {
-  border-bottom: 2px solid black;
+  /*border-bottom: 2px solid black;*/
   position: relative;
   width: 100%;
   padding: 10px;
   height: 60px;
-  background-color: white;
+  /*background-color: white;*/
   z-index: 2000;
 }
 
 .menu-header {
   max-width: 500px;
-  display: grid;
-  grid-template-columns: 1fr 4fr 2fr;
+ /* display: grid;
+  grid-template-columns: 1fr 4fr 2fr;*/
   /*border: 2px solid pink;*/
 }
 
 .menu-title {
   font-size: 13px;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 500;
 }
 
@@ -391,7 +365,7 @@ body {
   position: absolute;
   right: 5px;
   top: 0px;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-size: 12px;
   text-align: center;
   cursor: pointer;
@@ -403,7 +377,7 @@ body {
 
 
 .menu-logo {
-  width: 70px;
+  width: 150px;
 }
 
 .menu-arrow {
@@ -436,7 +410,7 @@ body {
 
 .content-header {
   padding: 10px;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 500;
   font-size: 25px;
   text-align: center;
@@ -488,7 +462,7 @@ body {
 }
 
 .content-header p {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
@@ -499,7 +473,7 @@ body {
   padding: 10px;
   text-align: center;
   margin: auto;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -543,7 +517,7 @@ body {
   padding: 10px;
   text-align: center;
   margin: auto;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -653,7 +627,7 @@ body {
   padding: 10px;
   position: absolute;
   color: white;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-size: 20px;
   font-weight: 400;
   text-align: center;
@@ -724,7 +698,7 @@ body {
   z-index: 1000;
   background: linear-gradient(90deg, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
   padding-left: 40px;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 500;
   font-size: 25px;
   text-align: center;
@@ -758,7 +732,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 400px;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-size: 12px;
   font-weight: 300;
   margin: auto;
@@ -855,8 +829,16 @@ body {
   position: relative;
 }
 
+.leaflet-container {
+  background: none !important;
+}
+
 .leaflet-boundary-pane {
   z-index: 500;
+}
+
+.leaflet-tile-pane {
+  opacity: 0 !important;
 }
 
 .leaflet-tooltip-pane {
@@ -873,7 +855,7 @@ body {
 
 .tooltip-headline {
   width: 100%;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 700;
   font-size: 16px;
   padding-bottom: 10px;
@@ -881,7 +863,7 @@ body {
 
 .tooltip-content {
   width: 100% !important;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 400;
   font-size: 14px;
 
@@ -910,7 +892,7 @@ body {
     margin: auto;
     position: relative;
     top: 30vh;
-    font-family: "urw-din", sans-serif;
+    font-family: "neuzeit-grotesk", sans-serif;
     font-weight: 400;
     font-size: 14px;
     text-align: center;
@@ -930,12 +912,12 @@ body {
 
 .map-tabs {
   overflow: hidden;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .map-tab {
   float:left;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   padding: 5px;
@@ -948,7 +930,7 @@ body {
 }
 
 .click-more-info-map {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   padding: 5px;
@@ -1001,7 +983,7 @@ body {
 
 .popup-background {
   overflow: scroll;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -1072,7 +1054,7 @@ body {
 /*story pages*/
 
 .byline {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
@@ -1087,7 +1069,7 @@ body {
 }
 
 .video-title {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
@@ -1124,7 +1106,7 @@ body {
 }
 
 .story-text-subheader {
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   border-bottom: 2px solid #ffba00;
   font-size: 25px;
   text-align: center;
@@ -1134,7 +1116,7 @@ body {
   width: 100%;
   margin: auto;
   position: relative;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 600;
   font-size: 30px;
   text-align: center;
@@ -1193,7 +1175,7 @@ body {
 /*CAROUSEL*/
 
 .carousel-section {
-  background-color: white;
+  /*background-color: white;*/
   z-index: 1000;
   position: relative;
 }
@@ -1217,7 +1199,7 @@ body {
   height: 100%;
   top: 15px;
   text-align: center;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: white;
@@ -1269,7 +1251,7 @@ body {
   box-shadow: 2px 2px 5px black;
   position: relative;
   top: 60vh;
-  font-family: "urw-din", sans-serif;
+  font-family: "neuzeit-grotesk", sans-serif;
   font-size: 20px;
 
 }
@@ -1335,7 +1317,7 @@ body {
 
   .map-header {
     width: 100%;
-    font-family: "urw-din", sans-serif;
+    font-family: "neuzeit-grotesk", sans-serif;
     padding-left: 0px;
     padding-right: 0px;
     height: auto;

@@ -429,6 +429,9 @@ $(document).ready(function(){
 
 	var pane = map.createPane('boundary', document.getElementById('map'));
 
+	map.createPane('labels');
+	map.getPane('labels').style.zIndex = 650;
+
 	L.control.zoom({
 		position: 'topright'
 	}).addTo(map)
@@ -436,8 +439,16 @@ $(document).ready(function(){
 
 
 	//tile layer
-	L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	// L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	// }).addTo(map);
+	var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+        attribution: '©OpenStreetMap, ©CartoDB'
+	}).addTo(map);
+
+	var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+	    attribution: '©OpenStreetMap, ©CartoDB',
+	    pane: 'labels'
 	}).addTo(map);
 
 
