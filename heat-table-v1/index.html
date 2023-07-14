@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project: </title>
+
+	<!-- viewport for responsive -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- CSS stylesheets -->	
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    <h1>How much hotter will your zip code get?</h1>
+
+
+    <div class="zip-code">
+    	<input type="text" placeholder="Type in your zip code" class="zip-input"><button class="zip-go">Go</button>
+
+    	<label for="county" id="county-label">Choose a county:</label>
+		<select name="county" id="counties">
+		</select>	
+        <button class="county-go">Go</button>
+
+    </div>
+
+    <div class="tryagain">
+      <div class="tryagaintext">
+
+        <h2>Error!</h2>
+        <p>Please type a valid zip code</p>
+
+        <button class="button" id="oktryagain">OK</button>
+
+      </div>
+    </div>
+
+    <div class="table">
+    	
+    	<div class="row zip">
+    		
+    		<div class="title">
+    			<div>Zip code <br> <span class="zip_code_display">12345</span></div>
+    		</div>
+
+    		<div class="data">
+
+    			<div class="days days_90">
+    				<div class="label label_90">Days above 90&deg;</div>
+
+    				<div class="today_box">
+    					<div class="today today_90 zip_today_90">20</div><div class="days_today_label">days today</div>
+    				</div>
+
+    				<div class="yrs30_box">
+    					<div class="yrs30 yrs30_90 zip_30yrs_90">25</div><div class="days_30yrs_label">days in 2050</div>
+    				</div>
+
+    				<div class="more_days_box">
+    					<div class="more_days more_days_90 zip_more_days_90">5</div><div class="more_days_label">more days</div>
+    				</div>
+    				
+    			</div>
+
+    			<div class="days days_100">
+    				<div class="label label_100">Days above 100&deg;</div>
+
+    				<div class="today_box">
+    					<div class="today today_100 zip_today_100">0</div><div class="days_today_label">days today</div>
+    				</div>
+
+    				<div class="yrs30_box">
+    					<div class="yrs30 yrs30_100 zip_30yrs_100">2</div><div class="days_30yrs_label">days in 2050</div>
+    				</div>
+
+    				<div class="more_days_box">
+    					<div class="more_days more_days_100 zip_more_days_100">2</div><div class="more_days_label">more days</div>
+    				</div>
+    				
+    			</div>
+
+
+    		</div>
+
+    	</div> <!-- end row zip -->
+
+
+    	<div class="row county">
+    		
+    		<div class="title">
+    			<div>County <br> <span class="county_display">NAME</span></div>
+    		</div>
+
+    		<div class="data">
+
+    			<div class="days days_90">
+    				<div class="label label_90">Days above 90&deg;</div>
+
+    				<div class="today_box">
+    					<div class="today today_90 county_today_90">20</div><div class="days_today_label">days today</div>
+    				</div>
+
+    				<div class="yrs30_box">
+    					<div class="yrs30 yrs30_90 county_30yrs_90">25</div><div class="days_30yrs_label">days in 2050</div>
+    				</div>
+
+    				<div class="more_days_box">
+    					<div class="more_days more_days_90 county_more_days_90">5</div><div class="more_days_label">more days</div>
+    				</div>
+    				
+    			</div>
+
+    			<div class="days days_100">
+    				<div class="label label_100">Days above 100&deg;</div>
+
+    				<div class="today_box">
+    					<div class="today today_100 county_today_100">0</div><div class="days_today_label">days today</div>
+    				</div>
+
+    				<div class="yrs30_box">
+    					<div class="yrs30 yrs30_100 county_30yrs_100">2</div><div class="days_30yrs_label">days in 2050</div>
+    				</div>
+
+    				<div class="more_days_box">
+    					<div class="more_days more_days_100 county_more_days_100">2</div><div class="more_days_label">more days</div>
+    				</div>
+    				
+    			</div>
+
+
+    		</div>
+
+    	</div> <!-- end row zip -->
+
+    </div> <!-- end table -->
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jqueryui.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+	<script src="js/script.js"></script>
+  </body>
+</html>
+
+
+<!-- photos courtesy of Sarah Soutoul (copyright) -->
+<!-- soar.mp4 courtesy of Keith Plocek (copyright) -->

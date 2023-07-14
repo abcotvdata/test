@@ -1,0 +1,125 @@
+/* styles.css 
+   Project: 
+   Author: 
+   Date: 
+	
+   Helpful links: 
+   	Web colors: 
+   		https://en.wikipedia.org/wiki/Web_colors#X11_color_names
+	Color picker tool:
+		https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
+		http://colorpicker.com
+
+*/
+
+* {box-sizing: border-box;}
+
+#county-label {display: none;}
+#counties {display: none;}
+.county-go {display: none;}
+
+
+
+.tryagain {
+  width: 100%;
+  position: fixed;
+  top: 30vh;
+  z-index: 500;
+  letter-spacing: 2px;
+  display: none;
+}
+
+
+.tryagaintext {
+  background-color: rgba(0,0,0,0.9);
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px white;
+  color: white;
+  height: 385px;
+}
+
+  .tryagaintext h2 {
+    font-size: 40px;
+  }
+
+  .tryagaintext p {
+    font-size: 25px;
+  }
+
+
+.table {
+   width: 100%;
+   border: 1px solid black;
+   margin-top: 40px;
+}  
+
+
+.row {
+   display: flex;
+   align-items: stretch;
+   margin-top: 20px;
+}
+
+.title {
+   width: 20%;
+   display: grid;
+   align-items: center;
+}  
+
+.data {
+   width: 80%;
+   display: grid;
+   align-self: stretch;
+}
+
+.zip_code_display {
+   font-size: 35px;
+   font-weight: 700;
+}
+.county_display {
+   font-size: 35px;
+   font-weight: 700;
+}
+
+.days {
+   border: 1px solid pink;
+   width: 100%;
+   display: grid;
+   grid-template-columns: 31% 23% 23% 23%;
+   align-items: center;
+   padding: 20px;
+}
+
+.today_box { text-align: center; }
+.yrs30_box { text-align: center; }
+.more_days_box { text-align: center; }
+
+.today {
+   font-size: 30px;
+   font-weight: 700;
+}
+
+.yrs30 {
+   font-size: 30px;
+   font-weight: 700;
+}
+
+.more_days {
+   font-size: 30px;
+   font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
