@@ -477,7 +477,7 @@ $(document).ready(function(){
          	function majorStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_major),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -487,7 +487,7 @@ $(document).ready(function(){
 			function severeStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_severe),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -578,7 +578,7 @@ $(document).ready(function(){
          	function majorStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_major),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -588,7 +588,7 @@ $(document).ready(function(){
 			function severeStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_severe),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -712,7 +712,7 @@ $(document).ready(function(){
          	function majorStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_major),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -722,7 +722,7 @@ $(document).ready(function(){
 			function severeStyle(feature) {
 			    return {
 			        fillColor: getColor(feature.properties.pct_severe),
-			        weight: 0.5,
+			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
 			        fillOpacity: 0.5
@@ -821,6 +821,13 @@ $("#zip_mapbutton").click(function(){
 	// geo_type = "zip"
 	// console.log(geo_type)
 
+	$(".loading").fadeIn()
+
+	waitForElm('.zip-boundary').then((elm) => {
+	    console.log('Element is ready');
+	    $(".loading").delay(1500).fadeOut()
+	});
+
 	var url_zip_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
 	console.log(url)
 
@@ -848,7 +855,7 @@ $("#zip_mapbutton").click(function(){
             style: boundary_style,
             // pane: "boundary",
             opacity:1,
-            className: "boundary"
+            className: "zip-boundary"
         }).addTo(map)
 
 
@@ -912,7 +919,7 @@ $("#zip_mapbutton").click(function(){
 	         	function majorStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_major),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
@@ -922,7 +929,7 @@ $("#zip_mapbutton").click(function(){
 				function severeStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_severe),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
@@ -1014,7 +1021,7 @@ $("#zip_mapbutton").click(function(){
 	         	function majorStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_major),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
@@ -1024,7 +1031,7 @@ $("#zip_mapbutton").click(function(){
 				function severeStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_severe),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
@@ -1150,7 +1157,7 @@ $("#zip_mapbutton").click(function(){
 	         	function majorStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_major),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
@@ -1160,7 +1167,7 @@ $("#zip_mapbutton").click(function(){
 				function severeStyle(feature) {
 				    return {
 				        fillColor: getColor(feature.properties.pct_severe),
-				        weight: 0.5,
+				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
 				        fillOpacity: 0.5
