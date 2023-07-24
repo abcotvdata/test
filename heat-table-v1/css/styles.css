@@ -12,18 +12,141 @@
 
 */
 
+/*Neuzeit Grotesk Regular
+font-family: "neuzeit-grotesk", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Neuzeit Grotesk Bold
+font-family: "neuzeit-grotesk", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Neuzeit Grotesk Cond Black
+font-family: "neuzeit-grotesk-condensed", sans-serif;
+font-weight: 900;
+font-style: normal;
+
+Neuzeit Grotesk ExtCond Black
+font-family: "neuzeit-grotesk-extra-conden", sans-serif;
+font-weight: 900;
+font-style: normal;*/
+
 * {box-sizing: border-box;}
+
+body {
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+  display: block
+}
+
+button {
+  background-color: #00318b;
+  border: none;
+  border-radius: none;
+  color: white;
+  font-family: "neuzeit-grotesk", sans-serif;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+input {
+  padding: 10px;
+  cursor: text;
+}
+
+.loading {
+  width: 100%;
+  position: relative;
+  top: 5vh;
+  z-index: 6000;
+  display: none;
+}
+
+  .loading-content {
+    width: 350px;
+    margin: auto;   
+    font-family: "neuzeit-grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    
+  }
+
+.source {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  display: none;
+  max-width: 900px;
+  margin: auto;
+
+}
+
+.source a {
+  color: black;
+}
+
+.source a:visited {
+  color: black;
+}
+
+
 
 #county-label {display: none;}
 #counties {display: none;}
 .county-go {display: none;}
 
+.menu-logo {
+  width: 150px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
 
+.headline {
+  width: 100%;
+  text-shadow: -1px 1px 5px #8b8b8b;
+  text-align: center;
+}
+
+.headline h1 {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 700;
+  color: #B22222;
+  text-transform: uppercase;
+  margin: 0px;
+  font-size: 60px;
+}
+
+.headline h2 {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 300;
+  color: #128dd2;
+  margin: 0px;
+  font-size: 40px;
+}
+
+.zip-code {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.zip-go {
+  margin-left: 5px;
+}
 
 .tryagain {
+  font-family: "neuzeit-grotesk", sans-serif;
   width: 100%;
   position: fixed;
-  top: 30vh;
+  top: 10vh;
   z-index: 500;
   letter-spacing: 2px;
   display: none;
@@ -31,15 +154,16 @@
 
 
 .tryagaintext {
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(255,255,255,0.9);
   max-width: 800px;
   margin: auto;
   text-align: center;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px white;
-  color: white;
+  color: black;
   height: 385px;
+  box-shadow: -1px 1px 5px #8b8b8b;
 }
 
   .tryagaintext h2 {
@@ -50,11 +174,19 @@
     font-size: 25px;
   }
 
+  #oktryagain{
+
+  }
+
 
 .table {
-   width: 100%;
-   border: 1px solid black;
-   margin-top: 40px;
+  font-family: "neuzeit-grotesk", sans-serif;
+  max-width: 900px;
+  margin: auto;
+  /*border: 1px solid black;*/
+  margin-top: 40px;
+  display: none;
+
 }  
 
 
@@ -62,18 +194,73 @@
    display: flex;
    align-items: stretch;
    margin-top: 20px;
+   box-shadow: -1px 1px 5px #8b8b8b;
 }
 
-.title {
+.title-box {
    width: 20%;
-   display: grid;
+   display: block;
    align-items: center;
 }  
+
+.title-box {
+   position: relative;
+   width: 40%;
+   /*left: -20px;*/
+}
+
+.risk-video-wrap {
+   position: relative;
+   filter: drop-shadow(-1px 1px 5px #8b8b8b);
+   height: 100%;
+/*   box-shadow: -1px 1px 5px #8b8b8b; */
+}
+
+.risk-video-outline {
+   width: 100%;
+   height: 100%;
+   background-color: white;
+   /*clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);*/
+   clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+}
+
+.risk-video {
+   width: 100%;
+   height: 100%;
+   /*clip-path: polygon(22% 0%, 98% 0%, 78% 100%, 2% 100%);*/
+   clip-path: polygon(0% 0%, 98% 0%, 78% 100%, 0% 100%);
+}
+
+.risk-video img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+/*    opacity: 0.6;*/
+
+  }  
+
+.title {
+   font-family: "neuzeit-grotesk", sans-serif;
+   color: white;
+   text-shadow: -1px 1px 5px #8b8b8b;
+   position: absolute;
+   width: 80%;
+   height: 100%;
+   text-align: left;
+   top: 5%;
+   left: 10px;
+   /*right: 62px;*/
+   text-transform: uppercase;
+   letter-spacing: 5px;
+}
 
 .data {
    width: 80%;
    display: grid;
    align-self: stretch;
+   font-size: 16px;
+   padding-right: 10px;
 }
 
 .zip_code_display {
@@ -86,12 +273,35 @@
 }
 
 .days {
-   border: 1px solid pink;
    width: 100%;
-   display: grid;
-   grid-template-columns: 31% 23% 23% 23%;
+   display: flex;
    align-items: center;
    padding: 20px;
+}
+
+.label {
+  width: 35%;
+  font-size: 20px;
+}
+
+.boxes {
+  width: 65%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.deg_90 {
+  color: #ffba00;
+  font-weight: bold;
+}
+
+.deg_100 {
+  color: #B22222;
+  font-weight: bold;
+}
+
+.days_90 {
+  border-bottom: 1px solid #ffba00;
 }
 
 .today_box { text-align: center; }
@@ -99,18 +309,74 @@
 .more_days_box { text-align: center; }
 
 .today {
-   font-size: 30px;
+   font-size: 35px;
    font-weight: 700;
 }
 
 .yrs30 {
-   font-size: 30px;
+   font-size: 35px;
    font-weight: 700;
 }
 
 .more_days {
-   font-size: 30px;
+   font-size: 35px;
    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 700px) {
+
+  .days {
+    display: block;
+  }
+
+  .title-box {
+    width: 40%;
+  }
+
+  .data {
+    width: 60%;
+  }
+
+  .label {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .boxes {
+    width: 100%;
+  }
+
+
+}
+
+@media only screen and (max-width: 570px) {
+
+  .row {
+    display: block;
+  }
+
+  .title-box {
+    width: 100%;
+    height: 150px;
+  }
+
+  .data {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .risk-video-outline {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+    height: 100%;
+  }
+
+  .risk-video {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 95%);
+
+  }
+
 }
 
 

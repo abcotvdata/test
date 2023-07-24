@@ -25,6 +25,12 @@ $(document).ready(function(){ // begin document.ready block
 		zipvallength = zipval.length
     	console.log(zipvallength)
 
+    	$(".loading").fadeIn()
+    	$(".loading").delay(1000).fadeOut()
+
+    	$(".table").delay(1000).fadeIn()
+    	$(".source").delay(1000).fadeIn()
+
     	if (zipvallength<5) {
 
 	      $(".tryagaintext p").html("This is either not a valid zip code or doesn't appear in this data. Please try again.")
@@ -128,7 +134,7 @@ $(document).ready(function(){ // begin document.ready block
 
 							      	for (i = 0; i < filtered_county.length; i++) {
 
-						      			$(".county_display").html(county_name)
+						      			$(".county_display").html(filtered_county[0].county_name + ', ' + filtered_county[0].state_abbr)
 
 						    			$(".county_today_90").html(filtered_county[0].days_above_90_today)
 						    			$(".county_30yrs_90").html(filtered_county[0].days_above_90_30yrs)
@@ -205,7 +211,7 @@ $(document).ready(function(){ // begin document.ready block
 
 							      	for (i = 0; i < filtered_county.length; i++) {
 
-						      			$(".county_display").html(county_name)
+						      			$(".county_display").html(filtered_county[0].county_name + ', ' + filtered_county[0].state_abbr)
 
 						    			$(".county_today_90").html(filtered_county[0].days_above_90_today)
 						    			$(".county_30yrs_90").html(filtered_county[0].days_above_90_30yrs)
