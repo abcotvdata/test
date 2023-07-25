@@ -15,10 +15,43 @@ $(document).ready(function(){ // begin document.ready block
 		zoomControl: false
 	}).setView([40.3596928,-99.0598404], 5);
 
+	heat_map_1.createPane('labels');
+
 	//tile layer
-	L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	// L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	// }).addTo(heat_map_1);
+
+	var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+        attribution: '&copyOpenStreetMap, &copyCartoDB'
 	}).addTo(heat_map_1);
+
+	var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+	    attribution: '&copyOpenStreetMap, &copyCartoDB',
+	   	pane: 'labels'
+	}).addTo(heat_map_1);
+
+	var url_counties = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/counties.geojson"
+
+		$.getJSON(url_counties,function(data){ //county boundary data
+
+        	var counties = data;
+
+         	var counties_style = {
+              "fillColor": "#DADADA",
+              "color": "white",
+              "weight": 0.25,
+              "fillOpacity": 0.7
+          	};
+
+            counties = L.geoJson(counties, {
+                style: counties_style,
+                // pane: "boundary",
+                opacity:1,
+                className: "counties"
+            }).addTo(heat_map_1)
+
+        });
 
 
 	$(".scrolly-box-1").waypoint(function(dir){
@@ -40,8 +73,8 @@ $(document).ready(function(){ // begin document.ready block
 				console.log(items_boundary)
 
 	         	var boundary_style = {
-	              "fillColor": "#00318b",
-	              "color": "black",
+	              "fillColor": "#B22222",
+	              "color": "white",
 	              "weight": 2,
 	              "fillOpacity": 0.7
 	          	};
@@ -74,6 +107,15 @@ $(document).ready(function(){ // begin document.ready block
 		}
 	});
 
+	$(".scrolly-text-2").waypoint(function(dir){
+		if (dir == "down") {
+			$("#heat_map_1").fadeOut(1000)
+		} if (dir == "up") {
+			$("#heat_map_1").fadeIn(1000)
+		}
+
+	});
+
 	$(".story2").waypoint(function(dir){
 		if (dir == "down") {
 
@@ -96,8 +138,8 @@ $(document).ready(function(){ // begin document.ready block
 				console.log(items_boundary)
 
 	         	var boundary_style = {
-	              "fillColor": "#00318b",
-	              "color": "black",
+	              "fillColor": "#B22222",
+	              "color": "white",
 	              "weight": 2,
 	              "fillOpacity": 0.7
 	          	};

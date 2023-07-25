@@ -443,11 +443,11 @@ $(document).ready(function(){
 	// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 	// }).addTo(map);
 	var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-        attribution: '©OpenStreetMap, ©CartoDB'
+        attribution: '&copyOpenStreetMap, &copyCartoDB'
 	}).addTo(map);
 
 	var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-	    attribution: '©OpenStreetMap, ©CartoDB',
+	    attribution: '&copyOpenStreetMap, &copyCartoDB',
 	    pane: 'labels'
 	}).addTo(map);
 
@@ -1270,6 +1270,7 @@ $("#zip_mapbutton").click(function(){
 		$(this).hide()
 		$(".map-subheader-mobile").hide()
 		$(".map-subheader-mobile-hide").show()
+		$("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 20%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 40%, transparent 100%)"})
 	});
 
 	$(".map-subheader-mobile-hide").click(function(){
@@ -1277,6 +1278,7 @@ $("#zip_mapbutton").click(function(){
 		$(this).hide()
 		$(".map-subheader-mobile").show()
 		$(".map-subheader-mobile-click").show()
+		$("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 70%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.1) 80%, transparent 100%)"})
 	});
 
 
