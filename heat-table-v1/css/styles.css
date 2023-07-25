@@ -362,9 +362,43 @@ input {
     height: 150px;
   }
 
+  .title {
+    font-size: 18px;
+    line-height: 26px;
+
+  }
+
+  .zip_code_display {
+    font-size: 37px;
+  }
+
+  .county_display {
+    font-size: 37px;
+  }
+
   .data {
     width: 100%;
     padding-left: 10px;
+  }
+
+  .label {
+    font-size: 25px;
+  }
+
+  .days {
+    padding: 10px;
+  }
+
+  .today {
+     font-size: 50px;
+  }
+
+  .yrs30 {
+     font-size: 50px;
+  }
+
+  .more_days {
+     font-size: 50px;
   }
 
   .risk-video-outline {
