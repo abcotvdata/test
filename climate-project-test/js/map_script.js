@@ -256,6 +256,8 @@ $(document).ready(function(){
 
 			picked_zip = Number($(this).attr('zip'))
 
+			$("#zipInputMap").val(picked_zip)
+
 
 
 		}); //end click on zip

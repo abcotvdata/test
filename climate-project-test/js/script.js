@@ -243,12 +243,12 @@ $(document).ready(function(){
 
 		$(".dropdown-content").css({"float":"none", "margin":"auto"})
 
-		$("#countyDropdown").hide()
+		// $("#countyDropdown").hide()
 		$("#county_gobutton").hide()
 
 		$("#stateInput").val("")
 
-		$("#countydrop").empty()
+		// $("#countydrop").empty()
 		$("#countyInput").val("")
 
 

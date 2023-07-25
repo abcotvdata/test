@@ -3,6 +3,24 @@
    Date:
 */
 
+// COLORS FOR MAP____________________________
+
+function getHeatColor(d) {
+    return d > 100 ? '#7e0000' :
+    d > 75 ? '#be0000' :
+    d > 50 ? '#f38a47' :
+    d > 25 ? '#fbbf2b' :
+    d > 0.001 ? '#f0f723' :
+    '#DADADA'
+}
+
+function get125Color(d) {
+    return d > 0 ? '#be0000' :
+    '#DADADA'
+}
+
+var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
 
 $(document).ready(function(){ // begin document.ready block
 
@@ -73,7 +91,7 @@ $(document).ready(function(){ // begin document.ready block
 				console.log(items_boundary)
 
 	         	var boundary_style = {
-	              "fillColor": "#B22222",
+	              "fillColor": "#be0000",
 	              "color": "white",
 	              "weight": 2,
 	              "fillOpacity": 0.7
@@ -109,9 +127,13 @@ $(document).ready(function(){ // begin document.ready block
 
 	$(".scrolly-text-2").waypoint(function(dir){
 		if (dir == "down") {
+
 			$("#heat_map_1").fadeOut(1000)
+
 		} if (dir == "up") {
+
 			$("#heat_map_1").fadeIn(1000)
+
 		}
 
 	});
@@ -141,7 +163,7 @@ $(document).ready(function(){ // begin document.ready block
 	              "fillColor": "#B22222",
 	              "color": "white",
 	              "weight": 2,
-	              "fillOpacity": 0.7
+	              "fillOpacity": 0.9
 	          	};
 
 	            boundaries = L.geoJson(items_boundary, {
@@ -166,6 +188,222 @@ $(document).ready(function(){ // begin document.ready block
 			});
 
 		}
+	});
+
+	$(".scrolly-box-3").waypoint(function(dir){
+
+		if (dir=="down") {
+
+			$("#heat_map_1").fadeIn(1000)
+
+			// var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
+			$.getJSON(url_heat,function(data){ //county boundary data
+
+	        	var items_heat = data;
+
+				console.log(items_heat)
+
+	         	function heatStyle(feature) {
+				    return {
+				        fillColor: getHeatColor(feature.properties.days_above_100_30yrs),
+				        weight: 0.25,
+				        opacity: 1,
+				        color: 'white',
+				        fillOpacity: 0.9
+				    };
+				}
+
+	            heat = L.geoJson(items_heat, {
+	                style: heatStyle,
+	                // pane: "boundary",
+	                opacity:1,
+	                className: "heat"
+	            }).addTo(heat_map_1)
+
+
+	            heat_map_1.flyTo([29.9985205,-102.3456628], 5);  
+
+
+			});
+
+		} else if (dir=="up") {
+			$("#heat_map_1").fadeOut(1000)
+			heat_map_1.removeLayer(heat);
+			heat_map_1.removeLayer(heat125);
+
+		}
+
+	});
+
+	$(".scrolly-box-4").waypoint(function(dir){
+
+		if (dir=="down") {
+			heat_map_1.flyTo([41.8899438,-81.0705978], 6);
+		}
+
+		else if (dir=="up") {
+			heat_map_1.flyTo([29.9985205,-102.3456628], 5);
+		}
+	});
+
+	$(".scrolly-box-5").waypoint(function(dir){
+
+		if (dir=="down") {
+			heat_map_1.removeLayer(heat);
+
+			// var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
+			$.getJSON(url_heat,function(data){ //county boundary data
+
+	        	var items_heat = data;
+
+				console.log(items_heat)
+
+	         	function heat125Style(feature) {
+				    return {
+				        fillColor: get125Color(feature.properties.bin_flag_today),
+				        weight: 0.25,
+				        opacity: 1,
+				        color: 'white',
+				        fillOpacity: 0.9
+				    };
+				}
+
+	            heat125 = L.geoJson(items_heat, {
+	                style: heat125Style,
+	                // pane: "boundary",
+	                opacity:1,
+	                className: "heat"
+	            }).addTo(heat_map_1)
+
+
+	            heat_map_1.flyTo([29.9985205,-102.3456628], 5);  
+
+
+			});
+		}
+
+		else if (dir=="up") {
+			heat_map_1.removeLayer(heat125);
+			// var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
+			$.getJSON(url_heat,function(data){ //county boundary data
+
+	        	var items_heat = data;
+
+				console.log(items_heat)
+
+	         	function heatStyle(feature) {
+				    return {
+				        fillColor: getHeatColor(feature.properties.days_above_100_30yrs),
+				        weight: 0.25,
+				        opacity: 1,
+				        color: 'white',
+				        fillOpacity: 0.9
+				    };
+				}
+
+	            heat = L.geoJson(items_heat, {
+	                style: heatStyle,
+	                // pane: "boundary",
+	                opacity:1,
+	                className: "heat"
+	            }).addTo(heat_map_1)
+
+
+	            heat_map_1.flyTo([29.9985205,-102.3456628], 5);  
+
+
+			});
+		}
+	});
+
+
+	$(".scrolly-box-6").waypoint(function(dir){
+
+		if (dir=="down") {
+			// heat_map_1.removeLayer(heat125);
+
+			// var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
+			$.getJSON(url_heat,function(data){ //county boundary data
+
+	        	var items_heat = data;
+
+				console.log(items_heat)
+
+	         	function heat125Style(feature) {
+				    return {
+				        fillColor: get125Color(feature.properties.bin_flag_30yrs),
+				        weight: 0.25,
+				        opacity: 1,
+				        color: 'white',
+				        fillOpacity: 0.9
+				    };
+				}
+
+	            heat125 = L.geoJson(items_heat, {
+	                style: heat125Style,
+	                // pane: "boundary",
+	                opacity:1,
+	                className: "heat"
+	            }).addTo(heat_map_1)
+
+
+	            heat_map_1.flyTo([29.9985205,-102.3456628], 5);  
+
+
+			});
+		}
+
+		else if (dir=="up") {
+			heat_map_1.removeLayer(heat125);
+			// var url_heat = "https://raw.githubusercontent.com/abcotvdata/climate-extreme-heat/main/heatcounty.json"
+
+			$.getJSON(url_heat,function(data){ //county boundary data
+
+	        	var items_heat = data;
+
+				console.log(items_heat)
+
+	         	function heat125Style(feature) {
+				    return {
+				        fillColor: get125Color(feature.properties.bin_flag_today),
+				        weight: 0.25,
+				        opacity: 1,
+				        color: 'white',
+				        fillOpacity: 0.9
+				    };
+				}
+
+	            heat125 = L.geoJson(items_heat, {
+	                style: heat125Style,
+	                // pane: "boundary",
+	                opacity:1,
+	                className: "heat"
+	            }).addTo(heat_map_1)
+
+
+	            heat_map_1.flyTo([29.9985205,-102.3456628], 5);  
+
+
+			});
+		}
+	});
+
+
+	$(".scrolly-text-6").waypoint(function(dir){
+		if (dir == "down") {
+
+			$("#heat_map_1").fadeOut(1000)
+
+		} if (dir == "up") {
+
+			$("#heat_map_1").fadeIn(1000)
+
+		}
+
 	});
 
 
