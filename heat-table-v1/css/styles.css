@@ -57,6 +57,7 @@ button {
 input {
   padding: 10px;
   cursor: text;
+  width: 80%;
 }
 
 .loading {
