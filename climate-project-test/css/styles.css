@@ -1610,7 +1610,10 @@ body {
   }
 
 
-  
+  .concern-wrap:hover {
+    transform: none;
+    z-index: 3;
+  }
 
   .content-header {
     font-size: 30px;
@@ -1633,20 +1636,20 @@ body {
   }
 
   .map-header h2 {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   .map-header p {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   #map {
-    height: 90%;
-    margin-top: 20%;
+    height: 80%;
+    margin-top: 30%;
   }
 
   .map-tab {
-    font-size: 13px;
+    font-size: 20px;
   }
 
 
