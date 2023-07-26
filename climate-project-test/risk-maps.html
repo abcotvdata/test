@@ -147,19 +147,26 @@
 
             </div> <!-- end map header (this has the background gradient on it) -->
 
-            <div class="search_map_zip"> <!-- zoom to zip code -->
-                <div id="zipDropdownMap" class="dropdown-content">
+            
 
-                    <input type="text" placeholder="Zoom in to a zip code..." id="zipInputMap" class="input" onkeyup="zipMapFilterFunction()">
+            <div class="raw-map-container">
 
-                    <div id="zipdropmap" class="drop"></div>
+                <div class="search_map_zip"> <!-- zoom to zip code -->
+                    <div id="zipDropdownMap" class="dropdown-content">
 
+                        <input type="text" placeholder="Zoom in to a zip code..." id="zipInputMap" class="input" onkeyup="zipMapFilterFunction()">
+
+                        <div id="zipdropmap" class="drop"></div>
+
+                    </div>
+
+                    <button id="zip_mapbutton" gobutton-title="zip" class="zoombutton">Go</span></button>
                 </div>
 
-                <button id="zip_mapbutton" gobutton-title="zip" class="zoombutton">Go</span></button>
+                <div id="map"></div> <!-- end map div -->
             </div>
 
-            <div id="map"></div> <!-- end map div -->
+            
             
         </div>
 

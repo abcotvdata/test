@@ -145,7 +145,7 @@ body {
 .header-title h1 {
    margin: 0px;
    font-size: 3em;
-   border-bottom: 2px solid #ffba00;
+   border-bottom: 2px solid white;
 
 }
 
@@ -378,7 +378,7 @@ body {
 
 
 .menu-logo {
-  width: 150px;
+  width: 110px;
 }
 
 .menu-arrow {
@@ -399,11 +399,11 @@ body {
 }
 
 
-.not-home-page-menu {
+/*.not-home-page-menu {
   position: fixed;
   top: 0px;
   left: 0px;
-}
+}*/
 
 
 /*END MENU*/
@@ -417,7 +417,7 @@ body {
   text-align: center;
   max-width: 800px;
   margin: auto;
-  margin-top: 60px;
+  /*margin-top: 10px;*/
   
 }
 
@@ -454,16 +454,17 @@ body {
 .not-home-content-header h2 {
   margin-top: 20px;
   margin-bottom: 5px;
-  border-bottom: 2px solid #ffba00;
+  border-bottom: 2px solid white;
   font-size: 40px;
 }
 
 
 .content-header h3 {
-  border-bottom: 2px solid #ffba00;
+  border-bottom: 2px solid white;
   font-weight: 300;
   color: #128dd2;
   text-shadow: -1px 1px 5px #8b8b8b;
+  margin-top: 20px;
 }
 
 .content-location {
@@ -890,7 +891,11 @@ body {
   }
 
 
-
+.raw-map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 #map {
   width: 80%;
@@ -990,7 +995,7 @@ body {
 
 .map-tabs {
   overflow: hidden;
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 .map-tab {
@@ -1000,7 +1005,8 @@ body {
   text-transform: uppercase;
   padding: 5px;
   text-align: center;
-  background-color: #ffba00;
+  /*background-color: #ffba00;*/
+  background-color: white;
   margin: 5px;
   cursor: pointer;
   font-size: 15px;
@@ -1097,7 +1103,7 @@ body {
 }
 
   .popup-content h4 {
-    border-bottom: 2px solid #ffba00;
+    border-bottom: 2px solid white;
     font-size: 20px;
   }
 
@@ -1235,7 +1241,7 @@ body {
 
 .story-text-subheader {
   font-family: "neuzeit-grotesk", sans-serif;
-  border-bottom: 2px solid #ffba00;
+  border-bottom: 2px solid white;
   font-size: 25px;
   text-align: center;
 }
@@ -1271,7 +1277,7 @@ body {
   .quote {
     width: 80%;
     margin: auto;
-    border-bottom: 2px solid #ffba00;
+    border-bottom: 2px solid white;
   }
 
   .attribution {
@@ -1326,7 +1332,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 15px;
+  top: 0px;
+  padding: 15px;
   text-align: center;
   font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 700;
@@ -1408,26 +1415,28 @@ body {
   box-shadow: 0px 0px 3px black;
 }*/
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 900px) {
+
+    .map-container {
+      height: auto;
+    }
+
 
   #map {
     width: 100%;
-    -webkit-mask-image: linear-gradient(to top, black 70%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.1) 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 90%, rgba(0,0,0,0.3) 95%, rgba(0,0,0,0.1) 98%, transparent 100%);
+    position: relative;
+    height: 80vh;
   }
 
   .map-header {
     width: 100%;
-    font-family: "neuzeit-grotesk", sans-serif;
-    padding-left: 0px;
-    padding-right: 0px;
     height: auto;
-    /*background: linear-gradient(180deg, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);*/
-    padding: 10px;
-    font-weight: 500;
     font-size: 25px;
-    text-align: center;
-    margin: auto;
+    padding: 10px;
     padding-bottom: 20px;
+    position: relative;
+    top: 0px;
   }
 
   .map-header-content {
@@ -1464,20 +1473,11 @@ body {
     margin-top: 10px;
   } 
 
-  .map-container {
-    height: 80vh;
-
-  }
 
   .search_map_zip {
-    position: absolute;
     z-index: 7000;
-    bottom: 10px;
-    top: auto;
     left: 10px;
     right: auto;
-    width: 300px;
-    display: flex;
   }
 
   .box-mobile {
@@ -1488,18 +1488,17 @@ body {
     display: none;
   }
 
-
-}
-
-@media only screen and (max-width: 900px) {
-
-
   .big-numb {
     font-size: 90px;
   }
 
+  .leaflet-control-zoom {
+    margin-top: 65px !important;
+  }
+
 
 }
+
 
 @media only screen and (max-width: 800px) {
 
@@ -1643,10 +1642,10 @@ body {
     font-size: 20px;
   }
 
-  #map {
+/*  #map {
     height: 80%;
     margin-top: 30%;
-  }
+  }*/
 
   .map-tab {
     font-size: 20px;
@@ -1675,7 +1674,6 @@ body {
   }
 
   .search_map_zip {
-    left: 0px;
     width: 200px;
   }
 

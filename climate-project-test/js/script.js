@@ -263,15 +263,15 @@ $(document).ready(function(){
 	    	$(".header").addClass("hidden");
 	    	$(document).scrollTop(0)
 
-	    	$(".content-menu").qcss({
-		    	"position":"fixed",
-		    	"top":"0px",
-		    	"left":"0px"
-		    });
+	  //   	$(".content-menu").qcss({
+		 //    	"position":"fixed",
+		 //    	"top":"0px",
+		 //    	"left":"0px"
+		 //    });
 
-			$(".content-header").qcss({
-		    	"margin-top":"60px"
-		    });
+			// $(".content-header").qcss({
+		 //    	"margin-top":"60px"
+		 //    });
 
 		    	//zip county crosswalk -- fill zip dropdown data
 				$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta_counties_crosswalk_merge.csv', function(csvString) {

@@ -97,3 +97,28 @@
       -webkit-transform: translate3d(var(--carousel-offset-right), 0, 0);
       transform: translate3d(var(--carousel-offset-right), 0, 0);
 }
+
+
+@media only screen and (max-width: 640px) {
+
+      .carousel-row:hover {
+            -webkit-transform: none;
+            transform: none;
+      }
+
+      .carousel-row:hover .carousel-tile:hover {
+            -webkit-transform: none;
+            transform: none;
+            opacity: 1;
+      }
+
+      .carousel-tile:hover ~ .carousel-tile {
+            -webkit-transform: none;
+            transform: none;
+      }
+
+      .carousel-row:hover .carousel-tile {
+            opacity: 1;
+      }
+
+}

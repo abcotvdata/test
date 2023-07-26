@@ -273,9 +273,9 @@ $(document).ready(function(){
 
 	if (risk_type == "fire") {
 		$(".fire-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".heat-tab").css({"background-color":"#ffba00"})
-		$(".flood-tab").css({"background-color":"#ffba00"})
-		$(".wind-tab").css({"background-color":"#ffba00"})
+		$(".heat-tab").css({"background-color":"white"})
+		$(".flood-tab").css({"background-color":"white"})
+		$(".wind-tab").css({"background-color":"white"})
 
 		$(".risk_type_title").html("fire");
 		$(".risk_definition").html("Major risk means a property is forecast to have a 6-14% percent chance of being directly damaged by wildfire over 30 years. Severe risk means at least a 15% chance.");
@@ -539,7 +539,7 @@ $(document).ready(function(){
             var swPoint = map.project(bounds.getSouthWest(), zoom);
             var nePoint = map.project(bounds.getNorthEast(), zoom);
             var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
-            map.flyTo(center, (zoom));  
+            map.flyTo(center, (zoom-1));  
 
 
     
@@ -669,7 +669,7 @@ $(document).ready(function(){
             var swPoint = map.project(bounds.getSouthWest(), zoom);
             var nePoint = map.project(bounds.getNorthEast(), zoom);
             var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
-            map.flyTo(center, (zoom));  
+            map.flyTo(center, (zoom-1));  
 
             map.on("layeradd", function (event) {
 				boundaries.bringToFront();
@@ -888,7 +888,7 @@ $("#zip_mapbutton").click(function(){
 		risk_type = tab_risk_type
 
 		$(this).css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".map-tab").not(this).css({"background-color":"#ffba00", "box-shadow":"none", "color":"black"})
+		$(".map-tab").not(this).css({"background-color":"white", "box-shadow":"none", "color":"black"})
 
 		$(".risk_type_title").html(tab_risk_type_long);
 
@@ -980,7 +980,7 @@ $("#zip_mapbutton").click(function(){
 	            var swPoint = map.project(bounds.getSouthWest(), zoom);
 	            var nePoint = map.project(bounds.getNorthEast(), zoom);
 	            var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
-	            map.flyTo(center, (zoom));  
+	            map.flyTo(center, (zoom-1));  
 
 	            L.control.zoom({
 					position: 'topright'
@@ -1112,7 +1112,7 @@ $("#zip_mapbutton").click(function(){
 	            var swPoint = map.project(bounds.getSouthWest(), zoom);
 	            var nePoint = map.project(bounds.getNorthEast(), zoom);
 	            var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
-	            map.flyTo(center, (zoom));  
+	            map.flyTo(center, (zoom-1));  
 
 	            map.on("layeradd", function (event) {
 					boundaries.bringToFront();
@@ -1269,18 +1269,20 @@ $("#zip_mapbutton").click(function(){
 
 	$(".map-subheader-mobile-click").click(function(){
 		$(".map-subheader").slideDown()
+		// $(".map-header").css({"position":"absolute"})
 		$(this).hide()
 		$(".map-subheader-mobile").hide()
 		$(".map-subheader-mobile-hide").show()
-		$("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 20%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 40%, transparent 100%)"})
+		// $("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 20%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 40%, transparent 100%)"})
 	});
 
 	$(".map-subheader-mobile-hide").click(function(){
 		$(".map-subheader").slideUp()
+		$(".map-header").css({"position":"relative"})
 		$(this).hide()
 		$(".map-subheader-mobile").show()
 		$(".map-subheader-mobile-click").show()
-		$("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 70%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.1) 80%, transparent 100%)"})
+		$("#map").css({"-webkit-mask-image": "linear-gradient(to top, black 90%, rgba(0,0,0,0.3) 95%, rgba(0,0,0,0.1) 98%, transparent 100%)"})
 	});
 
 
