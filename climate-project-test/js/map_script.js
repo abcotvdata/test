@@ -51,18 +51,27 @@ var which_gobutton;
 
 // COLORS FOR MAP____________________________
 
+// function getColor(d) {
+//     return d > 90 ? '#0d0787' :
+//     d > 80 ? '#6703a5' :
+//     d > 70 ? '#8b169a' :
+//     d > 60 ? '#ac2790' :
+//     d > 50 ? '#c2407d' :
+//     d > 40 ? '#d8586a' :
+//     d > 30 ? '#f38a47' :
+//     d > 20 ? '#fbbf2b' :
+//     d > 10 ? '#f5dd27' :
+//     d > 0.001 ? '#f0f723' :
+//     '#DADADA'
+// }
+
 function getColor(d) {
-    return d > 90 ? '#0d0787' :
-    d > 80 ? '#6703a5' :
-    d > 70 ? '#8b169a' :
-    d > 60 ? '#ac2790' :
-    d > 50 ? '#c2407d' :
-    d > 40 ? '#d8586a' :
-    d > 30 ? '#f38a47' :
-    d > 20 ? '#fbbf2b' :
-    d > 10 ? '#f5dd27' :
-    d > 0.001 ? '#f0f723' :
-    '#DADADA'
+    return d > 80 ? '#be0000' :
+    d > 60 ? '#f95819' :
+    d > 40 ? '#fb991b' :
+    d > 20 ? '#fcf019' :
+    d > 0.001 ? '#f0f0cb' :
+    '#b1b7ba'
 }
 
 
@@ -272,10 +281,10 @@ $(document).ready(function(){
 	// tab styling!!!
 
 	if (risk_type == "fire") {
-		$(".fire-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".heat-tab").css({"background-color":"white"})
-		$(".flood-tab").css({"background-color":"white"})
-		$(".wind-tab").css({"background-color":"white"})
+		$(".fire-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
+		$(".heat-tab").css({"background-color":"#f5f4e9"})
+		$(".flood-tab").css({"background-color":"#f5f4e9"})
+		$(".wind-tab").css({"background-color":"#f5f4e9"})
 
 		$(".risk_type_title").html("fire");
 		$(".risk_definition").html("Major risk means a property is forecast to have a 6-14% percent chance of being directly damaged by wildfire over 30 years. Severe risk means at least a 15% chance.");
@@ -283,10 +292,10 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "heat") {
-		$(".fire-tab").css({"background-color":"#ffba00"})
-		$(".heat-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".flood-tab").css({"background-color":"#ffba00"})
-		$(".wind-tab").css({"background-color":"#ffba00"})
+		$(".fire-tab").css({"background-color":"#f5f4e9"})
+		$(".heat-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
+		$(".flood-tab").css({"background-color":"#f5f4e9"})
+		$(".wind-tab").css({"background-color":"#f5f4e9"})
 
 		$(".risk_type_title").html("heat");
 		$(".risk_definition").html("Major risk means a property is forecast to experience an average July heat index of 89-95 degrees over 30 years. Severe risk means an average of 95-110 degrees.");
@@ -294,10 +303,10 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "flood") {
-		$(".fire-tab").css({"background-color":"#ffba00"})
-		$(".heat-tab").css({"background-color":"#ffba00"})
-		$(".flood-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".wind-tab").css({"background-color":"#ffba00"})
+		$(".fire-tab").css({"background-color":"#f5f4e9"})
+		$(".heat-tab").css({"background-color":"#f5f4e9"})
+		$(".flood-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
+		$(".wind-tab").css({"background-color":"#f5f4e9"})
 
 		$(".risk_type_title").html("flooding");
 		$(".risk_definition").html("Major risk means a property is forecast to have an 80% percent chance of flooding once over 30 years. Severe risk means at least a 95% chance.");
@@ -305,10 +314,10 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "wind") {
-		$(".fire-tab").css({"background-color":"#ffba00"})
-		$(".heat-tab").css({"background-color":"#ffba00"})
-		$(".flood-tab").css({"background-color":"#ffba00"})
-		$(".wind-tab").css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
+		$(".fire-tab").css({"background-color":"#f5f4e9"})
+		$(".heat-tab").css({"background-color":"#f5f4e9"})
+		$(".flood-tab").css({"background-color":"#f5f4e9"})
+		$(".wind-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
 
 		$(".risk_type_title").html("wind");
 		$(".risk_definition").html("Major risk means a property is forecast to have an 26% percent chance of experiencing tropical storm winds once over 30 years. Severe risk means at least a 80% chance.");
@@ -482,7 +491,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -492,7 +501,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -583,7 +592,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -593,7 +602,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -717,7 +726,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -727,7 +736,7 @@ $(document).ready(function(){
 			        weight: 0.25,
 			        opacity: 1,
 			        color: 'white',
-			        fillOpacity: 0.5
+			        fillOpacity: 0.7
 			    };
 			}
 
@@ -887,8 +896,8 @@ $("#zip_mapbutton").click(function(){
 		var tab_risk_type_long = $(this).attr("risk_type_long")
 		risk_type = tab_risk_type
 
-		$(this).css({"background-color":"#0d0787", "color":"white", "box-shadow":"0px 0px 3px #000000"})
-		$(".map-tab").not(this).css({"background-color":"white", "box-shadow":"none", "color":"black"})
+		$(this).css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
+		$(".map-tab").not(this).css({"background-color":"#f5f4e9", "box-shadow":"none", "color":"black"})
 
 		$(".risk_type_title").html(tab_risk_type_long);
 
@@ -924,7 +933,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
@@ -934,7 +943,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
@@ -1026,7 +1035,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
@@ -1036,7 +1045,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
@@ -1162,7 +1171,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
@@ -1172,7 +1181,7 @@ $("#zip_mapbutton").click(function(){
 				        weight: 0.25,
 				        opacity: 1,
 				        color: 'white',
-				        fillOpacity: 0.5
+				        fillOpacity: 0.7
 				    };
 				}
 
