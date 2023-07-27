@@ -14,21 +14,21 @@ $.fn.extend({
    }
 });
 
-	function zipMapFilterFunction() {
-	  var input, filter, ul, li, a, i;
-	  input = document.getElementById("zipInputMap");
-	  filter = input.value.toUpperCase();
-	  div = document.getElementById("zipDropdownMap");
-	  p = div.getElementsByTagName("p");
-	  for (i = 0; i < p.length; i++) {
-	    txtValue = p[i].textContent || p[i].innerText;
-	    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-	      p[i].style.display = "";
-	    } else {
-	      p[i].style.display = "none";
-	    }
-	  }
-	}
+	// function zipMapFilterFunction() {
+	//   var input, filter, ul, li, a, i;
+	//   input = document.getElementById("zipInputMap");
+	//   filter = input.value.toUpperCase();
+	//   div = document.getElementById("zipDropdownMap");
+	//   p = div.getElementsByTagName("p");
+	//   for (i = 0; i < p.length; i++) {
+	//     txtValue = p[i].textContent || p[i].innerText;
+	//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	//       p[i].style.display = "";
+	//     } else {
+	//       p[i].style.display = "none";
+	//     }
+	//   }
+	// }
 
 
 
@@ -66,13 +66,19 @@ var which_gobutton;
 // }
 
 function getColor(d) {
-    return d > 80 ? '#be0000' :
+    return d > 90 ? '#be0000' :
+    d > 80 ? '#da290c' :
+    d > 70 ? '#ea4213' :
     d > 60 ? '#f95819' :
+    d > 50 ? '#fa791a' :
     d > 40 ? '#fb991b' :
+    d > 30 ? '#fcc51a' :
     d > 20 ? '#fcf019' :
+    d > 10 ? '#f6f074' :
     d > 0.001 ? '#f0f0cb' :
-    '#b1b7ba'
+    '#DADADA'
 }
+
 
 
 function waitForElm(selector) {
@@ -282,9 +288,9 @@ $(document).ready(function(){
 
 	if (risk_type == "fire") {
 		$(".fire-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
-		$(".heat-tab").css({"background-color":"#f5f4e9"})
-		$(".flood-tab").css({"background-color":"#f5f4e9"})
-		$(".wind-tab").css({"background-color":"#f5f4e9"})
+		$(".heat-tab").css({"background-color":"#b1b7ba"})
+		$(".flood-tab").css({"background-color":"#b1b7ba"})
+		$(".wind-tab").css({"background-color":"#b1b7ba"})
 
 		$(".risk_type_title").html("fire");
 		$(".risk_definition").html("Major risk means a property is forecast to have a 6-14% percent chance of being directly damaged by wildfire over 30 years. Severe risk means at least a 15% chance.");
@@ -292,10 +298,10 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "heat") {
-		$(".fire-tab").css({"background-color":"#f5f4e9"})
+		$(".fire-tab").css({"background-color":"#b1b7ba"})
 		$(".heat-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
-		$(".flood-tab").css({"background-color":"#f5f4e9"})
-		$(".wind-tab").css({"background-color":"#f5f4e9"})
+		$(".flood-tab").css({"background-color":"#b1b7ba"})
+		$(".wind-tab").css({"background-color":"#b1b7ba"})
 
 		$(".risk_type_title").html("heat");
 		$(".risk_definition").html("Major risk means a property is forecast to experience an average July heat index of 89-95 degrees over 30 years. Severe risk means an average of 95-110 degrees.");
@@ -303,10 +309,10 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "flood") {
-		$(".fire-tab").css({"background-color":"#f5f4e9"})
-		$(".heat-tab").css({"background-color":"#f5f4e9"})
+		$(".fire-tab").css({"background-color":"#b1b7ba"})
+		$(".heat-tab").css({"background-color":"#b1b7ba"})
 		$(".flood-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
-		$(".wind-tab").css({"background-color":"#f5f4e9"})
+		$(".wind-tab").css({"background-color":"#b1b7ba"})
 
 		$(".risk_type_title").html("flooding");
 		$(".risk_definition").html("Major risk means a property is forecast to have an 80% percent chance of flooding once over 30 years. Severe risk means at least a 95% chance.");
@@ -314,9 +320,9 @@ $(document).ready(function(){
 	}
 
 	else if (risk_type == "wind") {
-		$(".fire-tab").css({"background-color":"#f5f4e9"})
-		$(".heat-tab").css({"background-color":"#f5f4e9"})
-		$(".flood-tab").css({"background-color":"#f5f4e9"})
+		$(".fire-tab").css({"background-color":"#b1b7ba"})
+		$(".heat-tab").css({"background-color":"#b1b7ba"})
+		$(".flood-tab").css({"background-color":"#b1b7ba"})
 		$(".wind-tab").css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
 
 		$(".risk_type_title").html("wind");
@@ -832,57 +838,115 @@ $("#zip_mapbutton").click(function(){
 	// geo_type = "zip"
 	// console.log(geo_type)
 
-	$(".loading").fadeIn()
+	var map_picked_zip = $("#zipInputMap").val()
+	console.log(map_picked_zip)
 
-	waitForElm('.zip-boundary').then((elm) => {
-	    console.log('Element is ready');
-	    $(".loading").delay(1500).fadeOut()
-	});
+	var map_picked_zip_name = 'ZCTA5 ' + map_picked_zip
 
-	var url_zip_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
-	console.log(url)
 
-	$.getJSON(url_zip_boundary,function(data){ //zip boundary data
-
-    	var items_zip_boundary = data;
+	$.get('https://raw.githubusercontent.com/abcotvdata/localizer20/main/zcta_counties_crosswalk_merge.csv', function(csvString) {
 		
-		console.log(items_zip_boundary)
+		// Use PapaParse to convert string to array of objects
+    	var zip_data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
-		items_zip_boundary = data.features.filter(function(obj) {
-		// return the filtered value
-		return obj.properties.geoid === leftPad(String(picked_zip), 5);
-		});
+    	// console.log(zip_data)
 
-		
+    	check_zip = zip_data.filter(function(obj) {
+        	// return the filtered value
+        	return obj.NAMELSAD_ZCTA5_20 === map_picked_zip_name;
+      	});
 
-     	var boundary_style = {
-          "fillColor": "none",
-          "color": "black",
-          "weight": 2,
-          "fillOpacity": 0.9
-      	};
+      	var typed_zip_states = []
 
-        var zip_boundaries = L.geoJson(items_zip_boundary, {
-            style: boundary_style,
-            // pane: "boundary",
-            opacity:1,
-            className: "zip-boundary"
-        }).addTo(map)
+      	for (i = 0; i < check_zip.length; i++) {
+      		var typed_zip_state = check_zip[i].state_fips
+      		typed_zip_states.push(typed_zip_state)
+      	}
+
+      	if (typed_zip_states.indexOf(Number(picked_state_fips)) != -1) {
+
+      		$(".loading").fadeIn()
+
+			waitForElm('.zip-boundary').then((elm) => {
+			    console.log('Element is ready');
+			    $(".loading").delay(1500).fadeOut()
+			});
+      		
+      		var url_zip_boundary = "https://raw.githubusercontent.com/abcotvdata/climate_risk_factors/main/data_geojson/all_zips.geojson"
+			console.log(url)
+
+			$.getJSON(url_zip_boundary,function(data){ //zip boundary data
+
+		    	var items_zip_boundary = data;
+				
+				console.log(items_zip_boundary)
+
+				items_zip_boundary = data.features.filter(function(obj) {
+				// return the filtered value
+				return obj.properties.geoid === leftPad(String(map_picked_zip), 5);
+				});
+
+				
+		     	var boundary_style = {
+		          "fillColor": "none",
+		          "color": "black",
+		          "weight": 2,
+		          "fillOpacity": 0.9
+		      	};
+
+		        var zip_boundaries = L.geoJson(items_zip_boundary, {
+		            style: boundary_style,
+		            // pane: "boundary",
+		            opacity:1,
+		            className: "zip-boundary"
+		        }).addTo(map)
 
 
-        var bounds = zip_boundaries.getBounds();
-        var zoom = map.getBoundsZoom(bounds);
-        var swPoint = map.project(bounds.getSouthWest(), zoom);
-        var nePoint = map.project(bounds.getNorthEast(), zoom);
-        var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
-        map.flyTo(center, (zoom-2));  
+		        var bounds = zip_boundaries.getBounds();
+		        var zoom = map.getBoundsZoom(bounds);
+		        var swPoint = map.project(bounds.getSouthWest(), zoom);
+		        var nePoint = map.project(bounds.getNorthEast(), zoom);
+		        var center = map.unproject(swPoint.add(nePoint).divideBy(2), zoom);
+		        map.flyTo(center, (zoom-2));  
 
-        map.on("layeradd", function (event) {
-			zip_boundaries.bringToFront();
-		});	
+		        map.on("layeradd", function (event) {
+					zip_boundaries.bringToFront();
+				});	
 
 
-	});
+			});
+
+      	} else {
+      		$(".tryagain").fadeIn()
+
+			$("#oktryagain").click(function(){
+				$(".tryagain").fadeOut()
+			});
+      	}
+
+      	console.log(typed_zip_states)
+
+    	// filtered_zips = zip_data.filter(function(obj) {
+     //    	// return the filtered value
+     //    	return obj.state_name === picked_state_name;
+     //  	});
+
+     //  	var zip_leng = filtered_zips.length;
+
+     //  	console.log(zip_leng)
+
+      	// if (zip_leng == 0) {
+      	// 	alert("NOT IN THE STATE!")
+      	// } else if (zip_leng != 0) {
+      	// 	alert("YES! KEEP GOING!")
+      	// }
+ 
+
+
+
+	}); // end zip data response
+
+	
 
 });
 
@@ -897,7 +961,7 @@ $("#zip_mapbutton").click(function(){
 		risk_type = tab_risk_type
 
 		$(this).css({"background-color":"#fb991b", "color":"white", "box-shadow":"0px 0px 3px #b1b7ba"})
-		$(".map-tab").not(this).css({"background-color":"#f5f4e9", "box-shadow":"none", "color":"black"})
+		$(".map-tab").not(this).css({"background-color":"#b1b7ba", "box-shadow":"none", "color":"black"})
 
 		$(".risk_type_title").html(tab_risk_type_long);
 

@@ -21,25 +21,13 @@
     <div class="content">
     	<div class="content-menu not-home-page-menu">
 
-	    	<div class="menu-header">
-                <div class="menu-logo">
-                    <img src="img/weathering-tomorrow-logo.png">
-                </div>
+            <div class="menu-logo">
+                <img src="img/weathering-tomorrow-logo.png">
             </div>
-
-	    	<a class="link-to-results" href="index.html">
-                <div class="menu-back-to-top back-to-results" >
-                <!-- href="javascript:history.go(-1)" -->
-	    		<div class="menu-arrow">
-		    		<img src="img/arrow-up.png">
-		    	</div>
-
-		    	<div class="menu-back-to-top-words">
-		    		Back to overview results
-		    	</div>
-            </a>
-
-	    	</div>
+	    	
+            <div class="menu-back-to-top back-to-results">
+		    	<a class="link-to-results" href="index.html"><img src="img/back-4.png"></a>
+            </div>
 
     	</div> <!-- END MENU -->
 
@@ -82,7 +70,7 @@
 
 
                     <div class="map-legend">
-                        <!-- <div class="legend-box">
+                        <div class="legend-box">
 
                             <div class="legend-tic">
                                 <div class="legend-color pct-0"></div>
@@ -129,9 +117,9 @@
                                 <div class="legend-label"></div>
                             </div>
 
-                        </div> -->
+                        </div>
 
-                        <div class="legend-box">
+                        <!-- <div class="legend-box">
 
                             <div class="legend-tic">
                                 <div class="legend-color pct-0"></div>
@@ -163,7 +151,7 @@
                                 <div class="legend-label"></div>
                             </div>
 
-                        </div>
+                        </div> -->
 
                     </div> <!-- end map legend -->
 
@@ -180,9 +168,7 @@
                 <div class="search_map_zip"> <!-- zoom to zip code -->
                     <div id="zipDropdownMap" class="dropdown-content">
 
-                        <input type="text" placeholder="Zoom in to a zip code..." id="zipInputMap" class="input" onkeyup="zipMapFilterFunction()">
-
-                        <div id="zipdropmap" class="drop"></div>
+                        <input type="text" placeholder="Zoom in to a zip code..." id="zipInputMap" class="input">
 
                     </div>
 
@@ -196,13 +182,22 @@
             
         </div>
 
+        <div class="tryagain">
+          <div class="tryagaintext">
 
+            <h2>Error!</h2>
+            <p>The zip code you entered is either not valid or is not in this state. Please try again or pick a different state.</p>
+
+            <button class="button" id="oktryagain">OK</button>
+
+          </div>
+        </div>
 
         <div class="carousel-section">
 
             <div class="content-header">
-                <h3>More stories</h3>
-            </div>
+                <h3>More <span class="wt-logo-small"><img src="img/weathering-tomorrow-logo.png"></span> stories:</h3>
+            </div>  
             
             <div class="carousel">
                 <div class="carousel-row"></div>
