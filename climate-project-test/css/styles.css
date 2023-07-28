@@ -131,7 +131,7 @@ body {
    font-style: normal;
    text-align: center;
    padding-top: 15vh;
-   max-width: 650px;
+   max-width: 700px;
    margin: auto;
    position: relative;
 }
@@ -148,6 +148,10 @@ body {
 
 }
 
+.title-text {
+  transform: scale(1.7);
+}
+
 .directions {
   max-width: 900px;
   margin: auto;
@@ -162,10 +166,11 @@ body {
 
 /*DROPDOWN STYLING*/
 
-/*.community-input {
-  position: absolute;
-  bottom: 0px;
-}*/
+.community-input {
+  position: relative;
+  top: -90px;
+  z-index: 3;
+}
 
 
   .choose_location {
@@ -1322,12 +1327,20 @@ body {
 }
 
 .story-text {
-  max-width: 750px;
+  max-width: 800px;
   /*background-color: white;*/
   margin: auto;
   font-family: serif;
   font-size: 20px;
   
+}
+
+.story-text p {
+  padding: 0px 25px;
+}
+
+.story-text ul {
+  padding-left: 100px;
 }
 
 .drop-cap {
@@ -1355,6 +1368,16 @@ body {
   border-bottom: 3px solid #fb991b;
   font-size: 35px;
   text-align: center;
+  color: #1469be;
+}
+
+.story-text-sub-sub {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 500;
+  text-shadow: -1px 1px 5px #b1b7ba;
+  border-bottom: 3px solid #fb991b;
+  font-size: 25px;
+  text-align: left;
   color: #1469be;
 }
 
@@ -1475,6 +1498,15 @@ body {
     left: 0px;
   }
 
+.embed, .img-embed {
+  /*border-bottom: 3px solid #fb991b;
+  border-top: 3px solid #fb991b;*/
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+
+}
+
 /*end story pages*/
 
 /*CAROUSEL*/
@@ -1496,16 +1528,23 @@ body {
 
 .carousel-tile {
   position: relative;
-  background-color: black;
+  background-color: white;
+}
+
+.carousel-tile a {
+  height: 100%;
 }
 
   .carousel-tile img {
-    opacity: 0.7;
+    opacity: 0.5;
+    object-fit: cover;
+    height: 100%;
+    display: block;
   }
 
 .story-title {
   position: absolute;
-  width: 100%;
+  width: 250px;
   height: 100%;
   top: 0px;
   padding: 15px;
@@ -1513,8 +1552,15 @@ body {
   font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
-  color: white;
+  color: #253444;
+  text-shadow: -1px 1px 5px #b1b7ba;
+  cursor: pointer;
 
+}
+
+.story-title p {
+  word-break: normal;
+  white-space: normal;
 }
 
 /*END CAROUSEL*/ 
@@ -1711,16 +1757,20 @@ body {
 @media only screen and (max-width: 640px) {
 
   .header-title {
-    padding-top: 7vh;
+    /*padding-top: 7vh;*/
+  }
+
+  .community-input {
+    top: -50px;
   }
 
   .header-title h1 {
     font-size: 2.5em;
   }
 
-  .directions {
-    font-size: 15px;
-  }
+ /* .directions {
+    font-size: 20px;
+  }*/
 
   .input {
      height: 40px;
@@ -1743,6 +1793,7 @@ body {
 
   .drop {
     width: 60%;
+    height: 150px;
   }
 
   .outer-gobutton {
@@ -1826,6 +1877,12 @@ body {
 
   .map-tab {
     font-size: 20px;
+  }
+
+  .wt-logo-small {
+    display: block;
+    width: 200px;
+    margin: auto;
   }
 
 
