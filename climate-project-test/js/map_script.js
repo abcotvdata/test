@@ -1363,18 +1363,24 @@ $("#zip_mapbutton").click(function(){
 
 	$.get('data/stories.csv', function(csvString) {
 
-			var origin = window.location.origin; 
+			var url = (window.location != window.parent.location)
+            ? document.referrer
+            : document.location.href;
+
+            console.log(url)
 
 			// Use PapaParse to convert string to array of objects
 	    	var stories = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
-	    	console.log(stories)
+	    	// console.log(stories)
 
 	    	for (i = 0; i < stories.length; i++) {
 
-	    		var link = origin + "/" + stories[i].story_link
+	    		var link = url + stories[i].story_link
 
 	    		console.log(link)
+
+	    		// console.log(link)
 
 	    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
 	    	}
