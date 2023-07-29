@@ -26,7 +26,7 @@ $(document).ready(function(){ // begin document.ready block
 
 	    	for (i = 0; i < stories.length; i++) {
 
-	    		var link = origin + "/" + stories[i].story_link
+	    		var link = url + stories[i].story_link
 
 	    		// console.log(link)
 
