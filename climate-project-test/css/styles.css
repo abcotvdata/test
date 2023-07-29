@@ -1396,7 +1396,7 @@ body {
   position: relative;
   font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 28px;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -1464,7 +1464,7 @@ body {
     margin: auto;
     color: #253444;
     position: absolute;
-    top: 0px;
+    top: 25px;
     text-shadow: -1px 1px 5px #b1b7ba;
   }
 
@@ -1883,6 +1883,14 @@ body {
     display: block;
     width: 200px;
     margin: auto;
+  }
+
+  .pull-quote {
+    height: 300px;
+  }
+
+  .right-quote {
+    bottom: 135px;
   }
 
 
