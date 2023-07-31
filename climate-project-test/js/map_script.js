@@ -1376,13 +1376,25 @@ $("#zip_mapbutton").click(function(){
 
 	    	for (i = 0; i < stories.length; i++) {
 
-	    		var link = url + stories[i].story_link
+	    		var type = stories[i].type
 
-	    		console.log(link)
+	    		if (type == "national") {
 
-	    		// console.log(link)
+	    			var link = url + stories[i].story_link
 
-	    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+		    		console.log(link)
+
+		    		// console.log(link)
+
+		    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+
+	    		} else if (type == "local") {
+
+	    			$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+stories[i].story_link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+
+	    		}
+
+	    		
 	    	}
 
 	    });

@@ -10,11 +10,11 @@
 
       /* Tile Dimensions */
       --carousel-tile-spacing: 10px;
-      --carousel-tile-width:   250px;
-      --carousel-tile-height:  calc(var(--carousel-tile-width) / (16 / 9));
+      --carousel-tile-width:   320px;
+      --carousel-tile-height:  calc(var(--carousel-tile-width) / (9 / 9));
 
       /* Growth Factor */
-      --carousel-growth-factor: 1.5;
+      --carousel-growth-factor: 1.1;
 
       /* Fade to Opacity */
       --carousel-fade-opacity:   0.25;
@@ -43,7 +43,7 @@
 /* Carousel Row */
 .carousel-row {
       white-space: nowrap;
-      margin-top: calc((var(--carousel-tile-height) * (var(--carousel-growth-factor) - 1)) / 2);
+      margin-top: calc((var(--carousel-tile-height) * (var(--carousel-growth-factor) - 1)) / 4);
       margin-bottom: calc((var(--carousel-tile-height) * (var(--carousel-growth-factor) - 1)) / 2);
       margin-left: calc((var(--carousel-tile-width) * (var(--carousel-growth-factor) - 1)) / 2);
       margin-right: calc((var(--carousel-tile-width) * (var(--carousel-growth-factor) - 1)) / 2);

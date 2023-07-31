@@ -56,20 +56,11 @@
                     <div class="map-subheader">
                         <p>This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>, according to the <a href="https://firststreet.org/">First Street Foundation</a>.</p>
 
-                        <p>Click on the buttons in the bottom right corner of the map to switch between "major" and "severe" risk. Use the box in the <span class="box-desktop">top right</span><span class="box-mobile">bottom left</span>to zoom into a zip code.</p>
+                        <p>Click on the buttons in the bottom right corner of the map to switch between "major" and "severe" risk. Use the box in the <span class="box-desktop">top right</span><span class="box-mobile">top left</span><span class="box-mobile-small">bottom left</span> of the map to zoom into a zip code.</p>
 
                         <p class="risk_definition"></p>
 
-                        <div class="click-more-info-map">Click here to learn more</div>
-
-                    </div>
-
-                    <p class="map-subheader-mobile">This map shows the percentage of properties that are at risk for <span class="risk_type_title"></span>.</p> 
-                    <p class="map-subheader-mobile-click">Click for more...&#8681;</p>
-                    <p class="map-subheader-mobile-hide">Hide description...&#8679;</p>
-
-
-                    <div class="map-legend">
+                        <div class="map-legend mobile-extra-legend">
                         <div class="legend-box">
 
                             <div class="legend-tic">
@@ -119,39 +110,70 @@
 
                         </div>
 
-                        <!-- <div class="legend-box">
+                        
+
+                    </div> <!-- end map legend -->
+
+                        <div class="click-more-info-map">Click here to learn more</div>
+
+                    </div>
+
+                    <p class="map-subheader-mobile">Percent of properties at risk for <span class="risk_type_title"></span></p> 
+                    <p class="map-subheader-mobile-click">Click for definitions...&#8681;</p>
+                    <p class="map-subheader-mobile-hide">Hide description...&#8679;</p>
+
+
+                    <div class="map-legend desktop-legend">
+                        <div class="legend-box">
 
                             <div class="legend-tic">
                                 <div class="legend-color pct-0"></div>
                                 <div class="legend-label">0%</div>
                             </div>
-
                             <div class="legend-tic">
-                                <div class="legend-color pct-0-20"></div>
+                                <div class="legend-color pct-0-10"></div>
+                                <div class="legend-label">10%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-10-20"></div>
                                 <div class="legend-label">20%</div>
                             </div>
-
                             <div class="legend-tic">
-                                <div class="legend-color pct-20-40"></div>
+                                <div class="legend-color pct-20-30"></div>
+                                <div class="legend-label">30%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-30-40"></div>
                                 <div class="legend-label">40%</div>
                             </div>
-
                             <div class="legend-tic">
-                                <div class="legend-color pct-40-60"></div>
+                                <div class="legend-color pct-40-50"></div>
+                                <div class="legend-label">50%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-50-60"></div>
                                 <div class="legend-label">60%</div>
                             </div>
-
                             <div class="legend-tic">
-                                <div class="legend-color pct-60-80"></div>
+                                <div class="legend-color pct-60-70"></div>
+                                <div class="legend-label">70%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-70-80"></div>
                                 <div class="legend-label">80%</div>
                             </div>
-
                             <div class="legend-tic">
-                                <div class="legend-color pct-80-100"></div>
+                                <div class="legend-color pct-80-90"></div>
+                                <div class="legend-label">90%</div>
+                            </div>
+                            <div class="legend-tic">
+                                <div class="legend-color pct-90-100"></div>
                                 <div class="legend-label"></div>
                             </div>
 
-                        </div> -->
+                        </div>
+
+                        
 
                     </div> <!-- end map legend -->
 
@@ -176,7 +198,60 @@
                 </div>
 
                 <div id="map"></div> <!-- end map div -->
-            </div>
+
+                <div class="map-legend mobile-legend">
+                    <div class="legend-box">
+
+                        <div class="legend-tic">
+                            <div class="legend-color pct-0"></div>
+                            <div class="legend-label">0%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-0-10"></div>
+                            <div class="legend-label">10%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-10-20"></div>
+                            <div class="legend-label">20%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-20-30"></div>
+                            <div class="legend-label">30%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-30-40"></div>
+                            <div class="legend-label">40%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-40-50"></div>
+                            <div class="legend-label">50%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-50-60"></div>
+                            <div class="legend-label">60%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-60-70"></div>
+                            <div class="legend-label">70%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-70-80"></div>
+                            <div class="legend-label">80%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-80-90"></div>
+                            <div class="legend-label">90%</div>
+                        </div>
+                        <div class="legend-tic">
+                            <div class="legend-color pct-90-100"></div>
+                            <div class="legend-label"></div>
+                        </div>
+
+                    </div>
+                </div> <!-- end map legend --> 
+
+            </div> <!-- end raw map container -->
+   
 
             
             
@@ -196,7 +271,8 @@
         <div class="carousel-section">
 
             <div class="content-header">
-                <h3>More <span class="wt-logo-small"><img src="img/weathering-tomorrow-logo.png"></span> stories:</h3>
+                <!-- <h3>More <span class="wt-logo-small"><img src="img/weathering-tomorrow-logo.png"></span> stories:</h3> -->
+                <h3>See more reporting on the impacts of climate change from ABC Owned Television Stations</h3>
             </div>  
             
             <div class="carousel">
