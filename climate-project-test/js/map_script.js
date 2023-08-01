@@ -1361,7 +1361,7 @@ $("#zip_mapbutton").click(function(){
 
 //CAROUSEL OF STORIES
 
-	$.get('data/stories.csv', function(csvString) {
+	$.get('https://raw.githubusercontent.com/abcotvdata/climate-stories/main/stories.csv', function(csvString) {
 
 			var url = (window.location != window.parent.location)
             ? document.referrer

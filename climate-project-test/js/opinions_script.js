@@ -11,7 +11,7 @@ $(document).ready(function(){ // begin document.ready block
 
 	// _______CAROUSEL______
 
-	$.get('data/stories.csv', function(csvString) {
+	$.get('https://raw.githubusercontent.com/abcotvdata/climate-stories/main/stories.csv', function(csvString) {
 
 			var url = (window.location != window.parent.location)
             ? document.referrer
@@ -22,17 +22,34 @@ $(document).ready(function(){ // begin document.ready block
 			// Use PapaParse to convert string to array of objects
 	    	var stories = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
+	    	stories = stories.filter(function(obj) {
+	        	// return the filtered value
+	        	return obj.national_slug !== "climate-perspectives";
+	      	});
+
 	    	// console.log(stories)
 
 	    	for (i = 0; i < stories.length; i++) {
 
-	    		var link = url + stories[i].story_link
+	    		var type = stories[i].type
 
-	    		console.log(link)
+	    		if (type == "national") {
 
-	    		// console.log(link)
+	    			var link = url + stories[i].story_link
 
-	    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+		    		console.log(link)
+
+		    		// console.log(link)
+
+		    		$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+
+	    		} else if (type == "local") {
+
+	    			$(".carousel-row").append('<div class="carousel-tile story'+[i]+'"><a href="'+stories[i].story_link+'" target="_blank"><img src="'+stories[i].story_img+'"><div class="story-title"><p>'+stories[i].story_title+'</p></div></a></div>')
+
+	    		}
+
+	    		
 	    	}
 
 	    });

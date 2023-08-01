@@ -1268,8 +1268,8 @@ body {
 }
 
 .story-content-header .background {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 90%, transparent 100%);
-  opacity: 0.7;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 90%, transparent 100%);
+  opacity: 1;
 }
 
 .story-headline {
@@ -1286,7 +1286,6 @@ body {
 }
 
 .story-headline h2 {
-  line-height: 55px;
   margin: 65px 0px 15px 0px;
 }
 
@@ -1374,29 +1373,38 @@ body {
 }
 
 .story-text-subheader, .video-title{
+  /*font-family: serif;*/
   font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 500;
   text-shadow: -1px 1px 5px #b1b7ba;
-  border-bottom: 3px solid #fb991b;
-  font-size: 35px;
-  text-align: center;
-  color: #1469be;
+  /*border-bottom: 3px solid #fb991b;*/
+  font-size: 25px;
+  text-align: left;
+  color: #253444;
+  padding: 0px 25px;
+  margin-top: 50px;
 }
 
 .story-text-sub-sub {
   font-family: "neuzeit-grotesk", sans-serif;
   font-weight: 500;
   text-shadow: -1px 1px 5px #b1b7ba;
-  border-bottom: 3px solid #fb991b;
-  font-size: 25px;
+  /*border-bottom: 3px solid #fb991b;*/
+  font-size: 20px;
+  padding: 0px 25px;
+  margin: 50px 0px 5px 0px;
   text-align: left;
-  color: #1469be;
+  color: #253444;
 }
+  .story-text-sub-sub h4 {
+    margin: 0px;
+  }
 
 .video-title {
   margin: auto;
   margin-bottom: 20px;
   max-width: 750px;
+  border-bottom: 3px solid #fb991b;
 }
 
 /*PULL QUOTE STYLING*/
@@ -1521,6 +1529,378 @@ body {
 
 /*end story pages*/
 
+
+/*HEAT TABLE STYLING*/
+
+.table-section {
+  position: relative;
+  z-index: 5000;
+  height: 400px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.zip-code .zip-input {
+  padding: 10px;
+  cursor: text;
+  width: 80%;
+  font-family: "neuzeit-grotesk", sans-serif;
+}
+
+
+.zip-go, .county-go, #oktryagain {
+  background-color: #fb991b;
+  border: none;
+  border-radius: none;
+  color: black;
+  font-family: "neuzeit-grotesk", sans-serif;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.table-loading {
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  z-index: 6000;
+  display: none;
+}
+
+  .table-loading-content {
+    width: 350px;
+    margin: auto;   
+    font-family: "neuzeit-grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    
+  }
+
+.source {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  display: none;
+  max-width: 900px;
+  margin: auto;
+
+}
+
+.source a {
+  color: black;
+}
+
+.source a:visited {
+  color: black;
+}
+
+
+#county-label {display: none;}
+#counties {display: none;}
+.county-go {display: none;}
+
+
+.table-headline {
+  width: 100%;
+  text-shadow: -1px 1px 5px #8b8b8b;
+  text-align: center;
+}
+
+.table-headline h1 {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 700;
+  color: #253444;
+  margin: 0px;
+  font-size: 35px;
+}
+
+
+.zip-code {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.zip-go {
+  margin-left: 5px;
+}
+
+.tryagain {
+  font-family: "neuzeit-grotesk", sans-serif;
+  width: 100%;
+  position: fixed;
+  top: 10vh;
+  z-index: 500;
+  letter-spacing: 2px;
+  display: none;
+}
+
+
+.tryagaintext {
+  background-color: rgba(255,255,255,0.9);
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px white;
+  color: black;
+  height: 385px;
+  box-shadow: -1px 1px 5px #8b8b8b;
+}
+
+  .tryagaintext h2 {
+    font-size: 40px;
+  }
+
+  .tryagaintext p {
+    font-size: 25px;
+  }
+
+  #oktryagain{
+
+  }
+
+
+.table {
+  font-family: "neuzeit-grotesk", sans-serif;
+  max-width: 900px;
+  margin: auto;
+  /*border: 1px solid black;*/
+  margin-top: 40px;
+  display: none;
+
+}  
+
+
+.row {
+   display: flex;
+   align-items: stretch;
+   margin-top: 20px;
+   box-shadow: -1px 1px 5px #8b8b8b;
+}
+
+.table-title-box {
+   width: 20%;
+   display: block;
+   align-items: center;
+}  
+
+.table-title-box {
+   position: relative;
+   width: 40%;
+   /*left: -20px;*/
+}
+
+.table-video-wrap {
+   position: relative;
+   filter: drop-shadow(-1px 1px 5px #8b8b8b);
+   height: 100%;
+/*   box-shadow: -1px 1px 5px #8b8b8b; */
+}
+
+.table-video-outline {
+   width: 100%;
+   height: 100%;
+   background-color: white;
+   /*clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);*/
+   clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+}
+
+.table-video {
+   width: 100%;
+   height: 100%;
+   /*clip-path: polygon(22% 0%, 98% 0%, 78% 100%, 2% 100%);*/
+   clip-path: polygon(0% 0%, 98% 0%, 78% 100%, 0% 100%);
+}
+
+.table-video img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+/*    opacity: 0.6;*/
+
+  }  
+
+.table .table-title {
+   font-family: "neuzeit-grotesk", sans-serif;
+   color: #f5f4e9;
+   text-shadow: -1px 1px 5px #8b8b8b;
+   position: absolute;
+   width: 80%;
+   height: 100%;
+   text-align: left;
+   top: 5%;
+   left: 10px;
+   /*right: 62px;*/
+   text-transform: uppercase;
+   letter-spacing: 5px;
+}
+
+.data {
+   width: 80%;
+   display: grid;
+   align-self: stretch;
+   font-size: 16px;
+   padding-right: 10px;
+}
+
+.zip_code_display {
+   font-size: 35px;
+   font-weight: 700;
+}
+.county_display {
+   font-size: 35px;
+   font-weight: 700;
+}
+
+.days {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   padding: 20px;
+}
+
+.table-label {
+  width: 35%;
+  font-size: 20px;
+}
+
+.boxes {
+  width: 65%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.deg_90 {
+  color: #fb991b;
+  font-weight: bold;
+}
+
+.deg_100 {
+  color: #f95819;
+  font-weight: bold;
+}
+
+.days_90 {
+  border-bottom: 1px solid #fb991b;
+}
+
+.today_box { text-align: center; }
+.yrs30_box { text-align: center; }
+.more_days_box { text-align: center; }
+
+.today {
+   font-size: 35px;
+   font-weight: 700;
+}
+
+.yrs30 {
+   font-size: 35px;
+   font-weight: 700;
+}
+
+.more_days {
+   font-size: 35px;
+   font-weight: 700;
+}
+
+@media only screen and (max-width: 740px) {
+
+  .days {
+    display: block;
+  }
+
+  .table-title-box {
+    width: 40%;
+  }
+
+  .data {
+    width: 60%;
+  }
+
+  .table-label {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .boxes {
+    width: 100%;
+  }
+
+
+}
+
+@media only screen and (max-width: 570px) {
+
+  .row {
+    display: block;
+  }
+
+  .table-title-box {
+    width: 100%;
+    height: 150px;
+  }
+
+  .table-title {
+    font-size: 18px;
+    line-height: 26px;
+
+  }
+
+  .zip_code_display {
+    font-size: 37px;
+  }
+
+  .county_display {
+    font-size: 37px;
+  }
+
+  .data {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .table-label {
+    font-size: 25px;
+  }
+
+  .days {
+    padding: 10px;
+  }
+
+  .today {
+     font-size: 50px;
+  }
+
+  .yrs30 {
+     font-size: 50px;
+  }
+
+  .more_days {
+     font-size: 50px;
+  }
+
+  .table-video-outline {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+    height: 100%;
+  }
+
+  .table-video {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 95%);
+
+  }
+
+}
+
+
+/*END HEAT TABLE STYLING*/
+
+
 /*CAROUSEL*/
 
 .wt-logo-small {
@@ -1605,7 +1985,7 @@ body {
 }
 
 .scrolly-boxes {
-  border: 2px solid pink;
+  border: 2px solid purple;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1614,7 +1994,7 @@ body {
 }
 
 .scrolly-box {
-  border: 2px solid purple;
+  border: 2px solid hotpink;
   width: 100%;
   height: 100vh;
 }
